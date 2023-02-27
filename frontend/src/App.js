@@ -7,7 +7,7 @@ import Signup from './pages/Signup'
 import About from './pages/About'
 import Contact from './pages/Contact'
 
-import Navbar from './components/NavigationBar'
+import Navbar from './components/Navbar'
 
 function App() {
   return (
