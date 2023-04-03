@@ -2,7 +2,7 @@
     width: 100%;
     position: relative;
     height: auto;
-    background-color: #b02617;
+    background-color: #e74c3c;
   }
   .footer .col {
     width: 190px;
@@ -20,8 +20,8 @@
     font-size: 12px;
     line-height: 17px;
     padding: 20px 0px 5px 0px;
-    color: rgba(255, 255, 255, 0.2);
-    font-weight: normal;
+    color: #fff;
+    font-weight: bolder;
     text-transform: uppercase;
     letter-spacing: 0.25em;
   }
@@ -31,7 +31,7 @@
     padding: 0;
   }
   .footer .col ul li {
-    color: #999999;
+    color: #fff;
     font-size: 14px;
     font-family: inherit;
     font-weight: bold;
@@ -99,4 +99,14 @@
     .footer .col {
       width: 100%;
     }
+  }
+
+  hr{
+    border-top: 1px solid white;
+  }
+  .copyright{
+    text-align: center;
+    color: #fff;
+    margin-top: 5px;
+    margin-bottom: 5px;
   }

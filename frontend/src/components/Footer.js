@@ -75,6 +75,13 @@ const Footer = () =>{
           </div>
           <div className="clearfix"></div>
         </div>
+        
+        <div className='contain'>
+            <hr/>
+            <p className='copyright'>
+                &copy;{new Date().getFullYear()} Helping Hands | All rights reserved | Terms of Service | Privacy
+            </p>
+        </div>
       </div>
     )
 }
