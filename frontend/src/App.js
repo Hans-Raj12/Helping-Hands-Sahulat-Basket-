@@ -6,7 +6,7 @@ import Login from './pages/Login'
 import Signup from './pages/Signup'
 import About from './pages/About'
 import Contact from './pages/Contact'
-
+import Footer from './components/Footer'
 import Navbar from './components/Navbar'
 
 function App() {
@@ -40,6 +40,7 @@ function App() {
           </Routes>
         </div>
       </Router>
+      <Footer/>
     </div>
   );
 }

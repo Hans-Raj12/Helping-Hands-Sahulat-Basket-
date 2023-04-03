@@ -1,5 +1,10 @@
+import { useState } from 'react'
 const Login = () => {
 
+  const [form,setForm] = useState({
+    email:'',
+    password:''
+  })
   
   return (
     <div className="form-container">
@@ -8,14 +13,26 @@ const Login = () => {
         <label htmlfor="email" className="form-label">Email: </label>
         <input
           type='email'
-          onChange={e => e.target.value}
+          value={form.email}
+          onChange={e => {
+            setForm({
+              ...form,
+              email: e.target.value
+            })
+          }}
           id='email'
           placeholder='Enter your email here'
         />
         <label htmlfor='password' className="form-label">Password: </label>
         <input
           type='password'
-          onChange={e => e.target.value}
+          value={form.password}
+          onChange={e => {
+            setForm({
+              ...form,
+              password: e.target.value
+            })
+          }}
           id="password"
           placeholder='Enter password'
         />
