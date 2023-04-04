@@ -8,6 +8,7 @@ import About from './pages/About'
 import Contact from './pages/Contact'
 import Footer from './components/Footer'
 import Navbar from './components/Navbar'
+import DonorSignup from './components/DonorSignup'
 
 function App() {
   return (
@@ -37,6 +38,10 @@ function App() {
             <Route
               path='/contact'
               element={<Contact/>}
+            />
+            <Route
+              path='/donor-signup'
+              element={<DonorSignup/>}
             />
       
       </Routes>

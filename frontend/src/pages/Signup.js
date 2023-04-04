@@ -10,7 +10,7 @@ const Signup = () => {
         <h4>Sign up as...</h4>
         <div className="signup-as">
             <div className="signup-item">
-                <Link to='/'>
+                <Link to='/donor-signup'>
                     <img src={donor} alt="donor" />
                     <p>Donor</p>
                 </Link>
