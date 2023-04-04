@@ -22,8 +22,13 @@ header{
   align-items: center;
   justify-content: space-between;
   padding: 0 100px;
+  overflow: hidden;
 }
-
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
 .logo a{
   font-size: 14px;
   font-weight: bold;
@@ -87,7 +92,7 @@ header{
     width: 100vw;
     background: #fefefe;
     transition: 0.5s;
-    overflow: hidden;
+    /* overrflow hidden */
   }
   .nav-bar.active{
     height: 450px;
@@ -111,7 +116,7 @@ header{
 
 /*Login form*/
 .form-container{
-  width: 400px;
+  width: 35%;
   margin: 100px auto;
   border-radius: 5px;
   border: 1px solid #aba8a8;
@@ -171,24 +176,19 @@ input[type="checkbox"] {
   height: 20px;
   margin-right: 10px;
 }
+.form-container p{
+  text-align: center;
+}
 
-/*Sign up*/
-.signup-container{
-  width: 80%;
-  background: #dedada;
-  margin: 70px auto;
+.form-container p a{
+  padding: 5px;
   border-radius: 50px;
-  padding: 30px;
+  color: #e74c3c;
+  font-weight: bold;
 }
 
-.signup-container h1,h4{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 10px;
+.form-container p a:hover{
+  color: #fefefe;
+  background: #e74c3c;
 }
-.signup-item img {
-  display: block;
-  width: 100%;
-  border-radius: 50%;
-}
+

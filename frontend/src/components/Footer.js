@@ -1,7 +1,7 @@
 import React from 'react'
 import '../styles/Footer.css'
 
-import { FaFacebookF,FaLinkedinIn,FaTwitter } from 'react-icons/fa';
+import { FaFacebookF,FaLinkedinIn,FaTwitter,FaRegUserCircle,FaRegEnvelope } from 'react-icons/fa';
 
 
 // import { ImLinkedin } from 'react-icons/fa';
@@ -11,26 +11,17 @@ const Footer = () =>{
         <div className="footer">
         <div className="contain">
           <div className="col">
-            <h1>Company</h1>
+            <h1>Logo</h1>
+            
+          </div>
+          <div className="col details">
+            <h2>Airport Road Sukkur, Sukkur, Sindh, Pakistan</h2>
             <ul>
-              <li>About</li>
-              <li>Mission</li>
-              <li>Services</li>
-              <li>Social</li>
-              <li>Get in touch</li>
+              <li><FaRegUserCircle size={25}/>03043458660</li>
+              <li><FaRegEnvelope size={22}/>info@sahulat.com</li>
             </ul>
           </div>
-          <div className="col">
-            <h1>Products</h1>
-            <ul>
-              <li>About</li>
-              <li>Mission</li>
-              <li>Services</li>
-              <li>Social</li>
-              <li>Get in touch</li>
-            </ul>
-          </div>
-          <div className="col">
+          {/* <div className="col">
             <h1>Accounts</h1>
             <ul>
               <li>About</li>
@@ -39,37 +30,35 @@ const Footer = () =>{
               <li>Social</li>
               <li>Get in touch</li>
             </ul>
-          </div>
+          </div> */}
           <div className="col">
-            <h1>Resources</h1>
+            <h1>Services</h1>
             <ul>
-              <li>Webmail</li>
-              <li>Redeem code</li>
-              <li>WHOIS lookup</li>
-              <li>Site map</li>
-              <li>Web templates</li>
-              <li>Email templates</li>
+              <li>Extra food waste</li>
+              <li>Cloth reuse</li>
+              <li>Fundraise</li>
             </ul>
           </div>
           <div className="col">
-            <h1>Support</h1>
+            <h1>About Us</h1>
             <ul>
-              <li>Contact us</li>
-              <li>Web chat</li>
-              <li>Open ticket</li>
+              <li>Our Story</li>
+              <li>Manifesto</li>
+              <li>Problem</li>
+              <li>Team</li>
             </ul>
           </div>
           <div className="col social">
             <h1>Social</h1>
             <ul>
               <li>
-                    <FaFacebookF/>
+                    <FaFacebookF size={25}/>
               </li>
               <li>
-              <FaLinkedinIn/>
+              <FaLinkedinIn size={25}/>
               </li>
               <li>
-              <FaTwitter/>
+              <FaTwitter size={25}/>
               </li>
             </ul>
           </div>

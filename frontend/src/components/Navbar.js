@@ -8,7 +8,7 @@ const Navbar = ()=>{
     }
     return (
 
-        <header>
+        <header className='sticky'>
             <div className='logo'>
                 <Link to='/'>
                      <h1>Helping Hand</h1>
