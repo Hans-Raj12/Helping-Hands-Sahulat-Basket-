@@ -1,5 +1,7 @@
 import React, {useState} from "react"; 
+import { Link } from "react-router-dom";
 import {validateEmail} from "../../src/utils";
+import '../styles/donorSignup.css'
 const PasswordErrorMessage = () => { 
     return ( 
       <p className="FieldError">Password should have at least 8 characters</p> 
@@ -47,7 +49,7 @@ function DonorSignup(){
     }; 
     
     return ( 
-      <div className="App"> 
+      <div className="donorSignup"> 
         <form onSubmit={handleSubmit}> 
           <fieldset> 
             <h2>Register as Donor</h2> 
@@ -67,7 +69,7 @@ function DonorSignup(){
               <label> 
                 CNIC Number <sup>*</sup> 
               </label> 
-              <input type="number"
+              <input type="tel"
                  value={cnic} 
                  onChange={(e) => { 
                    setcnic(e.target.value); 
@@ -109,7 +111,7 @@ function DonorSignup(){
               <label> 
                 Contact Number <sup>*</sup> 
               </label> 
-              <input type="number"
+              <input type="tel"
                  value={number} 
                  onChange={(e) => { 
                    setNumber(e.target.value); 
@@ -132,7 +134,7 @@ function DonorSignup(){
             <button type="submit" disabled={!getIsFormValid()}> 
               Create account 
             </button>
-            <p>Already have a Donor account? Login</p>
+            <p>Already have a Donor account? <Link to='/login'>Login</Link></p>
           </fieldset> 
           
         </form> 

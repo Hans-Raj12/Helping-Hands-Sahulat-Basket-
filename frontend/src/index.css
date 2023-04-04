@@ -92,6 +92,7 @@ header{
     width: 100vw;
     background: #fefefe;
     transition: 0.5s;
+    overflow: hidden;
     /* overrflow hidden */
   }
   .nav-bar.active{

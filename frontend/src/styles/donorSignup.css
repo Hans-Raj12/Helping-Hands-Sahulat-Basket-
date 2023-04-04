@@ -1,0 +1,112 @@
+.donorSignup {
+    display: flex;
+    justify-content: center;
+    margin: 75px auto;
+  }
+  
+  fieldset {
+    display: flex;
+    justify-content: center;
+    width: 480px;
+    padding: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    flex-direction: column;
+  }
+  fieldset h2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:#e74c3c;
+  }
+  
+  label {
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  
+  sup {
+    color: red;
+    top: -2px;
+    font-size: 95%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+  }
+  
+  input,
+  select {
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    height: 32px;
+    padding: 0 8px;
+  }
+  
+  .Field {
+    padding-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .FieldError {
+    position: absolute;
+    bottom: -6px;
+    color: red;
+    font-size: 12px;
+  }
+  
+  .Row {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  button {
+    display:  flex;
+    padding: 12px;
+    width: 240px;
+    margin: auto;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background-color: #e74c3c;
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  button:disabled,
+  button[disabled] {
+    border: 1px solid #999999;
+    background-color: #636272;
+    color:black;
+    cursor: not-allowed;
+  text-align: center;
+   margin: auto;
+   display: flex;
+   justify-content: center;
+ 
+  }
+  .status{
+    margin-bottom: 5px;
+  }
+  p{
+    margin-top: 5px;
+    font-size: smaller;
+    text-align: center;
+    
+  }
+
+  p a{
+    padding: 5px;
+  border-radius: 50px;
+  color: #e74c3c;
+  font-weight: bold;
+  }
+  
+  p a:hover{
+    color: #fefefe;
+  background: #e74c3c;
+  }
