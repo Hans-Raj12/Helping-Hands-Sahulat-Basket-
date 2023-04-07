@@ -23,7 +23,7 @@ const Signup = () => {
                 </Link>
             </div>
             <div className="signup-item">
-                <Link to='/'>
+                <Link to='/needy-signup'>
                     <img src={needy} alt="needy"/>
                     <p>Needy</p>
 

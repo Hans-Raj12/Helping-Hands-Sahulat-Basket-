@@ -15,6 +15,7 @@ import Analytics from './pages/Analytics'
 import Comment from './pages/Comment'
 import Product from './pages/Product'
 import ProductList from './pages/ProductList'
+import NeedySignup from './components/NeedySignup'
 
 function App() {
   return (
@@ -48,6 +49,10 @@ function App() {
             <Route
               path='/donor-signup'
               element={<DonorSignup/>}
+            />
+            <Route
+              path='/needy-signup'
+              element={<NeedySignup/>}
             />
             <Route path='/sidebar' element={<Sidebar/>}>
             <Route path='dashboard' element={<Dashboard/>}/>

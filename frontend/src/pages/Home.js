@@ -9,7 +9,11 @@ const Home = () => {
             <h1>Need your Big Hand For Change The World.</h1>
             <button>Donate</button>
           </div>
+          
         </div>
+        
+        <Link to='/sidebar'>Donor Dashboard</Link>
+
       </div>
 
         // <div className="home">
