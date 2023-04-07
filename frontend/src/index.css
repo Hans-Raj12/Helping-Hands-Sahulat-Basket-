@@ -22,10 +22,10 @@ header{
   align-items: center;
   justify-content: space-between;
   padding: 0 100px;
-  overflow: hidden;
+  
 }
 .sticky {
-  position: fixed;
+  position: sticky;
   top: 0;
   width: 100%;
 }
@@ -192,4 +192,3 @@ input[type="checkbox"] {
   color: #fefefe;
   background: #e74c3c;
 }
-

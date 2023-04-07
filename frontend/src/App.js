@@ -9,13 +9,19 @@ import Contact from './pages/Contact'
 import Footer from './components/Footer'
 import Navbar from './components/Navbar'
 import DonorSignup from './components/DonorSignup'
+import Sidebar from './components/Sidebar'
+import Dashboard from './pages/Dashboard'
+import Analytics from './pages/Analytics'
+import Comment from './pages/Comment'
+import Product from './pages/Product'
+import ProductList from './pages/ProductList'
 
 function App() {
   return (
     <div className="container">
       <Router>
       <Navbar/> 
-      
+
         <div className='pages'>
           
         <Routes>      
@@ -43,12 +49,40 @@ function App() {
               path='/donor-signup'
               element={<DonorSignup/>}
             />
-      
+            <Route path='/sidebar' element={<Sidebar/>}>
+            <Route path='dashboard' element={<Dashboard/>}/>
+            <Route path='about' element={<About/>}/>
+            <Route path='analytics' element={<Analytics/>}/>
+            <Route path='comment' element={<Comment/>}/>
+            <Route path='product' element={<Product/>}/>
+            <Route path='productList' element={<ProductList/>}/>
+            </Route>
+            
+            
+            
+            
       </Routes>
-        </div>
-        <Footer/>
-              
+      </div>
+     
+      <Footer/>   
       </Router>
+
+      {/* <Router>
+      <Sidebar>
+        <div className='pages'>
+        <Routes>
+          
+              <Route path='/dashboard' element={<Dashboard/>}/>
+              <Route path='/about' element={<About/>}/>
+              <Route path='/analytics' element={<Analytics/>}/>
+              <Route path='/comment' element={<Comment/>}/>
+              <Route path='/product' element={<Product/>}/>
+              <Route path='/productList' element={<ProductList/>}/>
+        </Routes>
+        </div>
+        </Sidebar> */}
+{/* 
+      </Router> */}
       
     </div>
   );

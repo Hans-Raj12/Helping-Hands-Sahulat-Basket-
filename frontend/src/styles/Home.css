@@ -1,0 +1,122 @@
+.container {
+    width: 100%;
+    height: 100vh;
+  }
+  
+  .cover-image {
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 500px;
+    position: relative;
+  }
+  
+  .overlay {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #e74c3c;
+  }
+  
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  button {
+    font-size: 1.5rem;
+    padding: 1rem 1.5rem;
+    border: none;
+    background-color: #e74c3c;
+    color: #fff;
+    border-radius: 25px;
+    cursor: pointer;
+  }
+  
+
+  /* Add a hover effect to the button */
+button:hover {
+    background-color: #e74c3c;
+  }
+  
+  /* Add a transition to the button and overlay */
+  button, .overlay {
+    transition: all 0.2s ease-in-out;
+  }
+  
+  /* Scale up the overlay on hover */
+  .cover-image:hover .overlay {
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+  
+  /* Fade out the heading on hover */
+  .cover-image button:hover{
+    opacity: 1;
+  }
+  .cover-image:hover {
+    opacity: 0.7;
+    transition: all 1s ease-in-out;
+  }
+  
+  
+
+  /* Scale up the button on hover */
+  .cover-image:hover button {
+
+    transform: scale(1.1);
+    box-shadow: 0px 0px 10px rgba(222, 218, 218,0.2);
+  }
+  
+
+  /* Add a text shadow to the heading */
+h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-shadow: 0px 0px 10px rgba(222, 218, 218,0.2);
+  }
+  
+  /* Add an animation to the heading */
+  @keyframes slideInDown {
+    from {
+      transform: translateY(-100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+  h1 {
+    animation: slideInDown 2s ease-in-out;
+  }
+  
+  /* Add a transition to the overlay background color */
+  .overlay {
+    background-color: rgba(222, 218, 218,0.5);
+    transition: background-color 0.5s ease-in-out;
+  }
+  
+  /* Darken the overlay background color on hover */
+  .cover-image:hover .overlay {
+    background-color: rgba(165, 160, 160, 0.8);
+  }
+  
+  /* Add a transition to the text color */
+  h1, button {
+    transition: color 0.5s ease-in-out;
+  }
+  
+  /* Lighten the text color on hover */
+  .cover-image:hover h1 {
+    color: #a41607;
+  }
+
+
+  .overlay:hover{
+    opacity: 1;
+  }
+  
