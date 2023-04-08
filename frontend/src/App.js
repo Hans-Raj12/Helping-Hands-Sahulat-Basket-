@@ -1,4 +1,6 @@
+import { useEffect, useState } from 'react'
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import Axios from 'axios'
 
 //pages & container
 import Home from './pages/Home'
@@ -18,6 +20,17 @@ import ProductList from './pages/ProductList'
 import NeedySignup from './components/NeedySignup'
 
 function App() {
+
+  const [data,setData] = useState("")
+  const getData = async () => {
+    const response = await Axios.get('http://localhost:5000/getData')
+    setData(response.data)
+  }
+
+  useEffect(()=>{
+    getData()
+  },[])
+
   return (
     <div className="container">
       <Router>
@@ -68,7 +81,7 @@ function App() {
             
       </Routes>
       </div>
-     
+      {data}
       <Footer/>   
       </Router>
 
