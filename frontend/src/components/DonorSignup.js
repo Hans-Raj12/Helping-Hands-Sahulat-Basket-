@@ -1,6 +1,7 @@
-import React, {useState} from "react"; 
+import React, {useState, useEffect} from "react"; 
 import { Link } from "react-router-dom";
 import {validateEmail} from "../../src/utils";
+import axios from 'axios'
 import '../styles/donorSignup.css'
 const PasswordErrorMessage = () => { 
     return ( 
@@ -9,7 +10,7 @@ const PasswordErrorMessage = () => {
    }; 
 function DonorSignup(){
     
-    const [firstName, setFirstName] = useState(""); 
+    const [name, setName] = useState(""); 
     const [address, setaddress] = useState(""); 
     const [email, setEmail] = useState(""); 
     const [number, setNumber] = useState(""); 
@@ -22,7 +23,7 @@ function DonorSignup(){
    
     const getIsFormValid = () => { 
       return ( 
-        firstName && 
+        name && 
         number &&
         cnic &&
         validateEmail(email) && 
@@ -31,7 +32,7 @@ function DonorSignup(){
     }; 
     
     const clearForm = () => { 
-      setFirstName(""); 
+      setName(""); 
       setaddress(""); 
       setEmail(""); 
       setNumber(""); 
@@ -44,9 +45,34 @@ function DonorSignup(){
     
     const handleSubmit = (e) => { 
       e.preventDefault(); 
-      alert("Account created!"); 
-      clearForm(); 
-    }; 
+      const data = { 
+        name, 
+        address, 
+        email, 
+        number, 
+        cnic, 
+        password: password.value 
+      }; 
+      
+      fetch('/donor-signup', { 
+        method: 'POST', 
+        headers: { 
+          'Content-Type': 'application/json' 
+        }, 
+        body: JSON.stringify(data) 
+      }) 
+      .then(response => {
+        response.json()
+        console.log(response)
+      }) 
+      .then(message => { 
+        alert(`Account created!`); 
+        clearForm(); 
+      }) 
+      .catch((error) => { 
+        console.error('Error:', error); 
+      }); 
+    };
     
     return ( 
       <div className="donorSignup"> 
@@ -58,9 +84,9 @@ function DonorSignup(){
                 Full Name <sup>*</sup> 
               </label> 
               <input type="text"
-                value={firstName} 
+                value={name} 
                 onChange={(e) => { 
-                  setFirstName(e.target.value); 
+                  setName(e.target.value); 
                 }} 
                 placeholder="Full Name" 
               /> 
@@ -69,7 +95,7 @@ function DonorSignup(){
               <label> 
                 CNIC Number <sup>*</sup> 
               </label> 
-              <input type="tel"
+              <input type="text"
                  value={cnic} 
                  onChange={(e) => { 
                    setcnic(e.target.value); 
@@ -111,7 +137,7 @@ function DonorSignup(){
               <label> 
                 Contact Number <sup>*</sup> 
               </label> 
-              <input type="tel"
+              <input type="text"
                  value={number} 
                  onChange={(e) => { 
                    setNumber(e.target.value); 
@@ -140,5 +166,6 @@ function DonorSignup(){
         </form> 
       </div> 
     ); 
-   } 
+} 
+
 export default DonorSignup;
