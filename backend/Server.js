@@ -81,3 +81,25 @@ app.use('/needy-signup', async (req, res) => {
 )
 
 
+//login
+app.use('/login', async (req, res) => {
+  const { email, password } = req.body;
+  
+  // Check if donor user exists with the given email and password
+  const donorUser = await donor_users.findOne({ email, password });
+  if (donorUser) {
+    res.status(200).send({ message: "Donor user logged in successfully", redirect:"/home" });
+    return;
+  }
+  
+  // Check if needy user exists with the given email and password
+  const needyUser = await needy_users.findOne({ email, password });
+  if (needyUser) {
+    res.status(200).send({ message: "Needy user logged in successfully", redirect:"/about" });
+    return;
+  }
+
+  // If neither donor nor needy user exists, return an error response
+  res.status(401).send({ message: "Invalid email or password" });
+})
+

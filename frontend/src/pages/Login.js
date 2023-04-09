@@ -8,9 +8,27 @@ const Login = () => {
     password:''
   })
 
- const handleSubmit = (e)=>{
-  e.preventDefault()
- }
+
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    
+    e.preventDefault();
+    const response = await fetch('/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(form)
+    });
+    const data = await response.json();
+    if (response.ok) {
+      alert(data.message);
+      navigate(data.redirect);
+    } else {
+      alert(data.message);
+    }
+  }
   
   return (
     <div className="form-container">
