@@ -1,17 +1,22 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'
 const Login = () => {
 
   const [form,setForm] = useState({
     email:'',
     password:''
   })
+
+ const handleSubmit = (e)=>{
+  e.preventDefault()
+ }
   
   return (
     <div className="form-container">
-      <form>
+      <form onSubmit={handleSubmit}>
         <h3>Log In</h3>
-        <label htmlfor="email" className="form-label">Email: </label>
+        <label htmlFor="email" className="form-label">Email: </label>
         <input
           type='email'
           value={form.email}
@@ -24,7 +29,7 @@ const Login = () => {
           id='email'
           placeholder='Enter your email here'
         />
-        <label htmlfor='password' className="form-label">Password: </label>
+        <label htmlFor='password' className="form-label">Password: </label>
         <input
           type='password'
           value={form.password}
@@ -43,7 +48,7 @@ const Login = () => {
           className=""
         />
         <label>Remember Me</label>
-        <button>Log In</button>
+        <button type='submit'>Log In</button>
       </form>
       <p>Don't have an account? <Link to='/signup'>Signup</Link></p>
     </div>

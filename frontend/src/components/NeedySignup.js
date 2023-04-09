@@ -9,7 +9,7 @@ const PasswordErrorMessage = () => {
    }; 
 function NeedySignup(){
     
-    const [firstName, setFirstName] = useState(""); 
+    const [name, setName] = useState(""); 
     const [address, setaddress] = useState(""); 
     const [email, setEmail] = useState(""); 
     const [number, setNumber] = useState(""); 
@@ -22,7 +22,7 @@ function NeedySignup(){
    
     const getIsFormValid = () => { 
       return ( 
-        firstName && 
+        name && 
         number &&
         cnic &&
         validateEmail(email) && 
@@ -31,7 +31,7 @@ function NeedySignup(){
     }; 
     
     const clearForm = () => { 
-      setFirstName(""); 
+      setName(""); 
       setaddress(""); 
       setEmail(""); 
       setNumber(""); 
@@ -44,8 +44,33 @@ function NeedySignup(){
     
     const handleSubmit = (e) => { 
       e.preventDefault(); 
-      alert("Account created!"); 
-      clearForm(); 
+      const data = { 
+        name, 
+        address, 
+        email, 
+        number, 
+        cnic, 
+        password: password.value 
+      }; 
+      
+      fetch('/needy-signup', { 
+        method: 'POST', 
+        headers: { 
+          'Content-Type': 'application/json' 
+        }, 
+        body: JSON.stringify(data) 
+      }) 
+      .then(response => {
+        response.json()
+        
+      }) 
+      .then(data => { 
+        alert(`Account created!`); 
+        clearForm(); 
+      }) 
+      .catch((error) => { 
+        console.error('Error:', error); 
+      }); 
     }; 
     
     return ( 
@@ -58,9 +83,9 @@ function NeedySignup(){
                 Full Name <sup>*</sup> 
               </label> 
               <input type="text"
-                value={firstName} 
+                value={name} 
                 onChange={(e) => { 
-                  setFirstName(e.target.value); 
+                  setName(e.target.value); 
                 }} 
                 placeholder="Full Name" 
               /> 

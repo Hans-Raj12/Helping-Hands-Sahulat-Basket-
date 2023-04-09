@@ -43,7 +43,7 @@ function DonorSignup(){
       
     }; 
     
-    const handleSubmit = (e) => { 
+    const handleSubmit =  (e) => { 
       e.preventDefault(); 
       const data = { 
         name, 
@@ -62,10 +62,11 @@ function DonorSignup(){
         body: JSON.stringify(data) 
       }) 
       .then(response => {
-        response.json()
-        console.log(response)
+        console.log(response.json())
+        
       }) 
-      .then(message => { 
+      .then(data => {
+        console.log(data) 
         alert(`Account created!`); 
         clearForm(); 
       }) 
