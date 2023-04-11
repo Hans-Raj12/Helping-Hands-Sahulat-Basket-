@@ -1,4 +1,6 @@
-* {
+ /*
+ 
+ * {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -93,8 +95,9 @@ header{
     background: #fefefe;
     transition: 0.5s;
     overflow: hidden;
-    /* overrflow hidden */
   }
+
+
   .nav-bar.active{
     height: 450px;
   }
@@ -115,7 +118,7 @@ header{
   }
 }
 
-/*Login form*/
+Login form
 .form-container{
   width: 35%;
   margin: 100px auto;
@@ -192,3 +195,4 @@ input[type="checkbox"] {
   color: #fefefe;
   background: #e74c3c;
 }
+*/
