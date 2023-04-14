@@ -8,7 +8,7 @@ const Footer = () => {
           <div className="col-lg-3 col-md-6">
             <div className="footer-info">
               <h3>
-                Gp<span>.</span>
+                Helping Hands<span>.</span>
               </h3>
               <p>
                 A108 Adam Street <br />
@@ -102,13 +102,13 @@ const Footer = () => {
       <div className="copyright">
         © Copyright{" "}
         <strong>
-          <span>Gp</span>
+          <span>Helping Hands</span>
         </strong>
         . All Rights Reserved
       </div>
-      <div className="credits">
+      {/* <div className="credits">
         Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-      </div>
+      </div> */}
     </div>
   </footer>
         </>

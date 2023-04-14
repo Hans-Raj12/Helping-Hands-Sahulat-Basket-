@@ -6,19 +6,21 @@
 
 .sidebar-container{
     display: flex;
+    border-top-left-radius: 50px;
     
-}
-main{
-    padding: 20px;
 }
 
 .sidebar{
-    background: #fefefe;
-    color: #e74c3c;
+    /* background: #fefefe; */
+    color: #fff;
     height: 100vh;
     transition: all 0.5s;
+    background: black;
+    margin-top: 76px;
 }
-
+main{
+    padding-left: 2px;
+}
 .top_section{
     display: flex;
     align-items: center;
@@ -37,21 +39,21 @@ main{
 
 .link{
     display: flex;
-    color: #e74c3c;
+    color: #fff;
     padding: 10px 15px;
     gap: 15px;
     transition: all 0.5s;
 }
 
 .link:hover{
-    background-color: #e74c3c;
-    color: #fff;
+    background-color: #ffc451;
+    color: #343a40;
     transition: all 0.5s;
 }
 
 .active{
-    background: #e74c3c;
-    color: #fff;
+    background: #ffc451;
+    color: #343a40;
 }
 
 .icon, .link_text{

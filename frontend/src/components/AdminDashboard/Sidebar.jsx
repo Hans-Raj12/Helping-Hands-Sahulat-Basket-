@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import '../styles/sidebar.css'
+import './sidebar.css'
 import {
     FaCommentAlt,
     FaRegChartBar,
@@ -8,50 +8,61 @@ import {
     FaTh,
     FaThList,
     FaBars,
+    
 } from 'react-icons/fa'
+import {FiSettings} from 'react-icons/fi'
 import { NavLink, Outlet } from 'react-router-dom'
+import AdminHeader from './AdminHeader'
 const Sidebar = ({children}) => {
     const [isOpen, setIsOpen] = useState(false)
     const toggle = () => setIsOpen(!isOpen)
     const menuItem = [
         {
-            path:'dashboard',
+            path:'',
             name:'Dashboard',
             icon:<FaTh/>
 
         },
         {
-            path:'about',
+            path:'verify-ngo',
             name:'Verify NGO',
             icon:<FaUserAlt/>
 
         },
         {
-            path:'analytics',
+            path:'view-ngos',
             name:'View NGOs',
             icon:<FaRegChartBar/>
 
         },
         {
-            path:'comment',
+            path:'view-donors',
             name:'View Donors',
             icon:<FaCommentAlt/>
         },
         {
-            path:'product',
+            path:'add-remove-ngos',
             name:'Add/Remove NGOs',
             icon:<FaShoppingBag/>
 
         },
         {
-            path:'productList',
+            path:'add-remove-donors',
             name:'Add/Remove Donors',
             icon:<FaThList/>
+
+        },
+        {
+            path:'settings',
+            name:'Setting',
+            icon:<FiSettings/>
 
         },
     ]
 
     return (
+        <>
+        <AdminHeader/>
         <div className='sidebar-container'>
             <div className='sidebar' style={{width:isOpen?"250px":"50px"}}>
                 <div className='top_section'>
@@ -76,6 +87,7 @@ const Sidebar = ({children}) => {
             
             <Outlet/>
         </div>
+        </>
     )
 }
 export default Sidebar
