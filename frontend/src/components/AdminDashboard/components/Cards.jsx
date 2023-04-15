@@ -54,13 +54,14 @@ const StatisticalCard = ({ title, number, icon }) => {
 
   return (
     <Card className={classes.card}>
-      <div>
+      <div style={{display:'flex', flexDirection:'column',alignItems:'center'}}>
         <h2>{title}</h2>
-        <p>{number}</p>
-      </div>
+        <h3>{number}</h3>
+      
       <IconContext.Provider value={{ size: '48px', color: '#6C63FF' }}>
         {iconComponent}
       </IconContext.Provider>
+      </div>
     </Card>
   );
 };
