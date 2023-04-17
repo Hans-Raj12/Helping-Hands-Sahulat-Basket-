@@ -8,7 +8,6 @@ const donor_users = require('./Models/donor_users')
 // const dbSchema = require('./Models/schemaModels')
 const router = express.Router();
 const role = require('./Models/role');
-// const { Users } = require('./Models/schemaModels');
 const Users = require('./Models/Users')
 const Funding = require('./Models/Funding')
 const FundingDetails = require('./Models/FundingDetails')

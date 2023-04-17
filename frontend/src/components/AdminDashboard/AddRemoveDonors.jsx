@@ -1,15 +1,15 @@
 import React from 'react'
 import './AddRemoveDonors.css'
+
+import { Container } from 'react-bootstrap'
+import AddorRemoveDonors from './components/AddOrRemoveDonors'
+
 const AddRemoveDonors = () => {
     return (
         <div className='add-remove-donors-container'>
-            <h1>Add/Remove Donors</h1>
-            <h1>Add/Remove Donors</h1>
-            <h1>Add/Remove Donors</h1>
-            <h1>Add/Remove Donors</h1>
-            <h1>Add/Remove Donors</h1>
-            <h1>Add/Remove Donors</h1>
-            <h1>Add/Remove Donors</h1>
+            <Container>
+                <AddorRemoveDonors/>
+            </Container>
         </div>
     )
 }

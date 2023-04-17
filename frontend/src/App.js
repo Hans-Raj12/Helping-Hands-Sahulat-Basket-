@@ -21,17 +21,18 @@ function App() {
   return (
     
     <>
-    {/* <Router>
-      <Header/>
-      <Routes>
-        <Route path='/' element={<Home2/>}/>
-        <Route path='/login' element={<Login/>}/>
-        <Route path='/signup' element={<Signup/>}/>
-        <Route path='/donor-signup' element={<DonorSignup/>}/>
-        <Route path='/needy-signup' element={<NeedySignup/>}/>
-      </Routes>
-      <Footer2/> 
-    </Router> */}
+        <Router>
+          <Header/>
+          <Routes>
+            <Route path='/' element={<Home2/>}/>
+            <Route path='/login' element={<Login/>}/>
+            <Route path='/signup' element={<Signup/>}/>
+            <Route path='/donor-signup' element={<DonorSignup/>}/>
+            <Route path='/needy-signup' element={<NeedySignup/>}/>
+          </Routes>
+          <Footer2/> 
+        </Router>
+    
         <Router>
           <Routes>
                   <Route path='/sidebar' element={<Sidebar/>}>

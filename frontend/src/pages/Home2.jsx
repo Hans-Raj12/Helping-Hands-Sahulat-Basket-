@@ -31,7 +31,8 @@ const Home2 = () => {
           <div className="icon-box">
             <i className="ri-store-line" />
             <h3>
-              <a href="">NGO</a>
+              <Link to='/login'>NGO</Link>
+              {/* <a href="">NGO</a> */}
             </h3>
           </div>
         </div>
@@ -39,7 +40,8 @@ const Home2 = () => {
           <div className="icon-box">
             <i className="ri-bar-chart-box-line" />
             <h3>
-              <a href="">Donor</a>
+              <Link to='/login'>Donor</Link>
+              {/* <a href="">Donor</a> */}
             </h3>
           </div>
         </div>
@@ -47,7 +49,8 @@ const Home2 = () => {
           <div className="icon-box">
             <i className="ri-calendar-todo-line" />
             <h3>
-              <a href="">Needy</a>
+              <Link to='/login'>Needy</Link>
+              {/* <a href="">Needy</a> */}
             </h3>
           </div>
         </div>
@@ -253,11 +256,12 @@ const Home2 = () => {
                 <i className="bx bxl-dribbble" />
               </div>
               <h4>
-                <a href="">Lorem Ipsum</a>
+                <a href="">Online Donation Platform</a>
               </h4>
               <p>
-                Voluptatum deleniti atque corrupti quos dolores et quas
-                molestias excepturi
+              You can create an online platform that facilitates secure 
+              and authenticated donations directly to registered NGOs.
+              This platform can be accessible via the website or mobile app.
               </p>
             </div>
           </div>
@@ -271,11 +275,11 @@ const Home2 = () => {
                 <i className="bx bx-file" />
               </div>
               <h4>
-                <a href="">Sed ut perspiciatis</a>
+                <a href="">NGO verification</a>
               </h4>
               <p>
-                Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore
+              To ensure that only legitimate NGOs get registered on the platform, you can introduce a verification process that checks their credentials, registration status, and past performance.
+              This will help build trust among donors and increase the credibility of the platform.
               </p>
             </div>
           </div>
@@ -289,11 +293,12 @@ const Home2 = () => {
                 <i className="bx bx-tachometer" />
               </div>
               <h4>
-                <a href="">Magni Dolores</a>
+                <a href="">Donor feedback</a>
               </h4>
               <p>
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa
-                qui officia
+              To improve the quality of services and increase donor satisfaction,
+              the platform can also gather feedback from donors about their donation experience.
+              This feedback can help identify areas of improvement and strengthen the platform's overall effectiveness
               </p>
             </div>
           </div>
@@ -307,11 +312,12 @@ const Home2 = () => {
                 <i className="bx bx-world" />
               </div>
               <h4>
-                <a href="">Nemo Enim</a>
+                <a href="">Social media integration</a>
               </h4>
               <p>
-                At vero eos et accusamus et iusto odio dignissimos ducimus qui
-                blanditiis
+              Since social media is a popular medium for sharing information about donations,
+               the platform can also integrate with social media platforms like Facebook, Twitter, and Instagram.
+               This will make it easy for donors to share their donation experience with others and encourage more people to donate.
               </p>
             </div>
           </div>
@@ -325,11 +331,10 @@ const Home2 = () => {
                 <i className="bx bx-slideshow" />
               </div>
               <h4>
-                <a href="">Dele cardo</a>
+                <a href="">User Management</a>
               </h4>
               <p>
-                Quis consequatur saepe eligendi voluptatem consequatur dolor
-                consequuntur
+              Provide a system for managing registered NGOs,donors and needy including their profiles, impact reports, and donation records.
               </p>
             </div>
           </div>
@@ -343,11 +348,11 @@ const Home2 = () => {
                 <i className="bx bx-arch" />
               </div>
               <h4>
-                <a href="">Divera don</a>
+                <a href="">User Support</a>
               </h4>
               <p>
-                Modi nostrum vel laborum. Porro fugit error sit minus sapiente
-                sit aspernatur
+              Providing customer support to both donors and NGOs 
+              to help them with any questions or issues they may encounter while using the platform.
               </p>
             </div>
           </div>
@@ -363,13 +368,13 @@ const Home2 = () => {
           <h3>Call To Action</h3>
           <p>
             {" "}
-            Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum.
+            Join us in making a difference today by donating to our cause.
+             Your donation, no matter how small, can make a huge impact on the lives of those in need.
+              Together, we can create a better future for our communities and build a more compassionate world. 
+              So, donate now and be a part of our mission to create positive change in the world!
           </p>
           <a className="cta-btn" href="#">
-            Call To Action
+            Donate
           </a>
         </div>
       </div>

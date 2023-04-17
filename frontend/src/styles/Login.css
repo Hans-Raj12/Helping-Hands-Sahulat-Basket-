@@ -1,4 +1,22 @@
 /* Login form */
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.login-image {
+  margin-right: 4rem;
+  margin-left: 4rem;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .form-container{
   width: 35%;
   margin: 100px auto;
@@ -18,7 +36,7 @@ form {
   justify-content: center;
   font-size: 28px;
   font-weight: bold;
-  color: #e74c3c;
+  color: #ffc451;
   margin-bottom: 20px;
 }
 
@@ -34,11 +52,11 @@ input[type="password"] {
 }
 .form-label, label {
   font-size: 20px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
-button {
-  background-color: #e74c3c;
+form button {
+  background-color: #ffc451;
   color: #fff;
   border: none;
   font-size: 20px;
@@ -52,7 +70,7 @@ button {
 }
 
 button:hover {
-  background-color: #b02617;
+  background-color: #ffc451;
 }
 
 input[type="checkbox"] {
@@ -67,11 +85,11 @@ input[type="checkbox"] {
 .form-container p a{
   padding: 5px;
   border-radius: 50px;
-  color: #e74c3c;
+  color: #ffc451;
   font-weight: bold;
 }
 
 .form-container p a:hover{
   color: #fefefe;
-  background: #e74c3c;
+  background: #ffc451;
 }

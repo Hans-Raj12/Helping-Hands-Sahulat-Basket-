@@ -1,15 +1,16 @@
 import React from 'react'
 import './AddRemoveNGOs.css'
+
+
+import { Container } from 'react-bootstrap'
+import AddorRemoveNGOs from './components/AddOrRemoveNGOs'
+
 const AddRemoveNGOs = () => {
     return (
         <div className='add-remove-ngos-container'>
-            <h1>Add/Remove NGOs</h1>
-            <h1>Add/Remove NGOs</h1>
-            <h1>Add/Remove NGOs</h1>
-            <h1>Add/Remove NGOs</h1>
-            <h1>Add/Remove NGOs</h1>
-            <h1>Add/Remove NGOs</h1>
-            <h1>Add/Remove NGOs</h1>
+            <Container>
+                <AddorRemoveNGOs/>
+            </Container>
         </div>
     )
 }

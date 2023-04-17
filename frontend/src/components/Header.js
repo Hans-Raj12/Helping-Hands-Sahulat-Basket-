@@ -42,7 +42,7 @@ const Header = () => {
         </ul>
         <i className="bi bi-list mobile-nav-toggle" />
       </nav>
-        <Link to='/' className="get-started-btn">Donate</Link>
+        <Link to='/login' className="get-started-btn">Donate</Link>
     </div>
   </header>
         </>

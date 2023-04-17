@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom'
+
+import LoginImage from '../assets/login.jpg'
 import '../styles/Login.css'
 const Login = () => {
 
@@ -32,8 +34,13 @@ const Login = () => {
   }
   
   return (
-    <div className="form-container">
+    <div className='login'>
       
+      <div className='login-image'>
+        <img src={LoginImage} width={500} height={500}/>
+      </div>
+    
+    <div className="form-container">
       
       <form onSubmit={handleSubmit}>
         <h3>Log In</h3>
@@ -72,6 +79,7 @@ const Login = () => {
         <button type='submit'>Log In</button>
       </form>
       <p>Don't have an account? <Link to='/signup'>Signup</Link></p>
+    </div>
     </div>
   );
 }

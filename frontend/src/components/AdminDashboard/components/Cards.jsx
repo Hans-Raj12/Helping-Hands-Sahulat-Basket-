@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { IconContext } from 'react-icons';
 import { FaUser, FaHandHoldingHeart, FaUsers } from 'react-icons/fa';
 
+
 const useStyles = makeStyles({
   card: {
     border: 'none',
@@ -58,7 +59,7 @@ const StatisticalCard = ({ title, number, icon }) => {
         <h2>{title}</h2>
         <h3>{number}</h3>
       
-      <IconContext.Provider value={{ size: '48px', color: '#6C63FF' }}>
+      <IconContext.Provider value={{ size: '48px', color: '#ffc451', cursor:'pointer' }}>
         {iconComponent}
       </IconContext.Provider>
       </div>
