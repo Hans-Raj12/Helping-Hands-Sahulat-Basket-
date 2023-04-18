@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom"
+import Header from "../components/Header"
 const Home2 = () => {
     return (
             <>
-  
+    <Header/>
   {/* ======= Hero Section ======= */}
   <section
     id="hero"
@@ -382,7 +383,7 @@ const Home2 = () => {
     {/* End Cta Section */}
 
     {/* ======= Portfolio Section ======= */}
-    <section id="portfolio" className="portfolio">
+    {/* <section id="portfolio" className="portfolio">
       <div className="container" data-aos="fade-up">
         <div className="section-title">
           <h2>Portfolio</h2>
@@ -641,10 +642,10 @@ const Home2 = () => {
           </div>
         </div>
       </div>
-    </section>
+    </section> */}
     {/* End Portfolio Section */}
     {/* ======= Counts Section ======= */}
-    <section id="counts" className="counts">
+    {/* <section id="counts" className="counts">
       <div className="container" data-aos="fade-up">
         <div className="row no-gutters">
           <div
@@ -727,11 +728,10 @@ const Home2 = () => {
                 </div>
               </div>
             </div>
-            {/* End .content*/}
           </div>
         </div>
       </div>
-    </section>
+    </section> */}
     {/* End Counts Section */}
   
     {/* ======= Team Section ======= */}

@@ -2,6 +2,8 @@ import React, {useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import {validateEmail} from "../../src/utils";
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
+
 import '../styles/donorSignup.css'
 const PasswordErrorMessage = () => { 
     return ( 
@@ -19,6 +21,8 @@ function DonorSignup(){
       value: "", 
       isTouched: false, 
     }); 
+
+    const navigate = useNavigate()
    
    
     const getIsFormValid = () => { 
@@ -69,6 +73,7 @@ function DonorSignup(){
         console.log(data) 
         alert(`Account created!`); 
         clearForm(); 
+        navigate('/login')
       }) 
       .catch((error) => { 
         console.error('Error:', error); 

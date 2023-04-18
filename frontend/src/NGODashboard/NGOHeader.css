@@ -1,0 +1,55 @@
+.ngo-header header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: green;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+  
+.ngo-header .logo {
+    flex: 1;
+    text-align: start;
+  }
+  
+  .ngo-header .logo img {
+    height: 50px;
+  }
+  
+  .ngo-header .icons {
+    display: flex;
+    gap: 2rem;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  
+  
+  .ngo-header .icon {
+    font-size: 1.5rem;
+    color: white;
+  }
+  .ngo-header .iconsign {
+    display: flex;
+    gap: 1rem;
+  }
+  
+ .ngo-header .signout-btn {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 10px 15px;
+    border: none;
+    background-color:white;
+    color: black;
+    font-size: 1rem;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .ngo-header .signout-btn:hover {
+    background-color: #665555;
+    color: #000000;
+  }

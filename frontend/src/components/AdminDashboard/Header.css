@@ -1,4 +1,4 @@
-header {
+#header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -19,13 +19,13 @@ header {
   
   
   
-  header .icon {
+  #header .icon {
     color: #dde9ed;
   }
 
  
 
- header .icon:hover{
+ #header .icon:hover{
   background: #ffbb38;
   padding: 4px;
   transform: scale(1.5);
@@ -33,9 +33,10 @@ header {
     border-radius: 3px;
  }
 
-  .signout-btn {
+ #header .signout-btn {
     margin-left: 15px;
-    color: #fff;
+    color: black;
+    background-color: #ffbb38;
     border-radius: 4px;
     padding: 7px 25px 8px 25px;
     white-space: nowrap;
@@ -45,12 +46,12 @@ header {
     border: 2px solid #ffc451;
   }
   
-  .signout-btn:hover {
-    background: #ffbb38;
+  #header .signout-btn:hover {
+    background: #fff;
     color: #343a40;
   }
   @media (max-width: 992px) {
-    .signout-btn {
+    #header .signout-btn {
       padding: 7px 20px 8px 20px;
       margin-right: 15px;
     }

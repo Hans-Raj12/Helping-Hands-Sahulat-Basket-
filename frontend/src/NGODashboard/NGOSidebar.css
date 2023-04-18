@@ -1,0 +1,70 @@
+*{
+    margin:0;
+    padding:0;
+    text-decoration: none;
+   
+}
+.ngo-container{
+    display:flex;
+    flex-direction: row;
+   
+}
+main{
+    padding-left: 2px;
+}
+
+
+.ngo-container .ngo-sidebar{
+    background: green;
+    color: white;
+    height: 130vh;
+    transition: all 0.5s;
+   
+}
+.ngo-container .top_section{
+    display: flex;
+    align-items:center;
+    padding:20px 15px;
+}
+.logo{
+    font-size: 30px;
+    color: white;
+}
+.ngo-container .ngo-sidebar .bars{
+    /* display: flex;
+    font-size: 25px;
+    margin-left: 50px;
+    color: white; */
+    display: flex;
+    font-size: 25px;
+    margin-left: 50px;
+
+}
+.link{
+    display: flex;
+    color: white;
+    padding: 10px 15px;
+    gap: 15px;
+    transition: all 0.5s;
+}
+.link:hover{
+    background:rgb(130, 231, 130);
+    color: #fcfcfc;
+    transition: all 0.5s;
+}
+.icon:hover{
+    color: #fcfcfc;
+}
+.active{
+    background: rgb(77, 104, 122);
+    color: #000;
+}
+
+.icon, .link_text{
+    font-size: 20px;
+} 
+
+
+
+  
+

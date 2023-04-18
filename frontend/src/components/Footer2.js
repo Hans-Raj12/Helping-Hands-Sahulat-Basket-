@@ -84,7 +84,7 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          <div className="col-lg-4 col-md-6 footer-newsletter">
+          {/* <div className="col-lg-4 col-md-6 footer-newsletter">
             <h4>Our Newsletter</h4>
             <p>
               Tamen quem nulla quae legam multos aute sint culpa legam noster
@@ -94,7 +94,7 @@ const Footer = () => {
               <input type="email" name="email" />
               <input type="submit" defaultValue="Subscribe" />
             </form>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

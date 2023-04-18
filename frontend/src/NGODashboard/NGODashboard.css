@@ -1,0 +1,107 @@
+.ngo-dashboard{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 100px 50px;
+}
+
+.ngo-dashboard h1{
+  margin-bottom: 20px;
+}
+
+
+/* .dashboard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30vh;
+   
+  } */
+  .heading {
+    /* font-family: "Nothing You Could Do";
+    font-size: 38px;
+    color:rgb(43, 85, 110);
+    font-weight: bolder;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 10vh; */
+  } 
+  .circle {
+    position: relative;
+    width: 300px;
+    height: 150px;
+    border-radius: 10%;
+    margin: 0 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* margin-top: -110px; */
+    background-color:green;
+   
+  }
+  .circle:last-child{
+    background-color: rgb(4, 62, 4);
+  }
+  
+  .circle-border {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 10%;
+    border: 1.5px solid rgb(43, 85, 110);
+    box-shadow: 0px 25px 30px -15px rgb(43, 85, 110); 
+   
+  }
+  
+  
+  
+  .circle-content {
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .circle-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 10px;
+  }
+  
+  .circle-value {
+    font-size: 16px;
+    color: #fdf3f3;
+  }
+  
+ 
+  /* @media screen and (max-width: 768px) {
+    .dashboard {
+      flex-direction: column;
+      height: auto;
+    }
+  
+    .circle {
+      margin: 20px 0;
+    }
+  }
+  
+  @media screen and (max-width: 400px) {
+    .dashboard {
+      flex-direction: column;
+      height: auto;
+    }
+  
+    .circle {
+      margin: 10px 0;
+    }
+  } */
+  
