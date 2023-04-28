@@ -1,6 +1,7 @@
 import React from 'react'
 import Chart from 'react-apexcharts'
 import './Chart.css'
+import image from "../assets/DonorImages/analytics.jpg"
 class Abc extends React.Component {
     
     constructor(props) {
@@ -47,10 +48,16 @@ class Abc extends React.Component {
       return (
         
 
-  <div id="chart" className='chart-data'>
-    <h2>Donation Analytics</h2>
-<Chart options={this.state.options} series={this.state.series} type="area" height={350} />
-</div>
+  <div id="chart">
+    <div className='chart-data'>
+      <h2>Donation Analytics</h2>
+      <Chart options={this.state.options} series={this.state.series} type="area" height={350} /> 
+    </div>
+    <div className='image'>
+        <img src={image} width={450} height={450}/>
+    </div>    
+
+  </div>
 
 
       );

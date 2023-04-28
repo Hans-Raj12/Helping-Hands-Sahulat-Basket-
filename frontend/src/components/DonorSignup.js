@@ -15,7 +15,7 @@ function DonorSignup(){
     const [name, setName] = useState(""); 
     const [address, setaddress] = useState(""); 
     const [email, setEmail] = useState(""); 
-    const [number, setNumber] = useState(""); 
+    const [phone, setphone] = useState(""); 
     const [cnic, setcnic] = useState(""); 
     const [password, setPassword] = useState({ 
       value: "", 
@@ -28,7 +28,7 @@ function DonorSignup(){
     const getIsFormValid = () => { 
       return ( 
         name && 
-        number &&
+        phone &&
         cnic &&
         validateEmail(email) && 
         password.value.length >= 8         
@@ -39,7 +39,7 @@ function DonorSignup(){
       setName(""); 
       setaddress(""); 
       setEmail(""); 
-      setNumber(""); 
+      setphone(""); 
       setPassword({ 
         value: "", 
         isTouched: false, 
@@ -53,7 +53,7 @@ function DonorSignup(){
         name, 
         address, 
         email, 
-        number, 
+        phone, 
         cnic, 
         password: password.value 
       }; 
@@ -99,14 +99,14 @@ function DonorSignup(){
             </div> 
             <div className="Field"> 
               <label> 
-                CNIC Number <sup>*</sup> 
+                CNIC phone <sup>*</sup> 
               </label> 
               <input type="text"
                  value={cnic} 
                  onChange={(e) => { 
                    setcnic(e.target.value); 
                  }} 
-                 placeholder="Cnic-number"  /> 
+                 placeholder="Cnic-phone"  /> 
             </div> 
             <div className="Field"> 
               <label> 
@@ -141,14 +141,14 @@ function DonorSignup(){
             </div> 
             <div className="Field"> 
               <label> 
-                Contact Number <sup>*</sup> 
+                Contact phone <sup>*</sup> 
               </label> 
               <input type="text"
-                 value={number} 
+                 value={phone} 
                  onChange={(e) => { 
-                   setNumber(e.target.value); 
+                   setphone(e.target.value); 
                  }} 
-                 placeholder="Number"  /> 
+                 placeholder="phone"  /> 
             </div> 
             <div className="Field"> 
               <label>Address</label> 

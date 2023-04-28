@@ -1,5 +1,15 @@
-.chart-data{
+#chart .chart-data{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* flex: 1; */
     width: 40%;
     margin: 2rem;
     
+}
+#chart{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
 }

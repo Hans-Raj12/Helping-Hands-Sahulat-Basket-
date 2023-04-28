@@ -5,6 +5,7 @@ import Footer2 from './components/Footer2'
 import Signup from './pages/Signup'
 import DonorSignup from './components/DonorSignup'
 import NeedySignup from './components/NeedySignup'
+import Header from './components/Header'
 
 import VerifyNGO from './components/AdminDashboard/VerifyNGO';
 import Dashboard from './components/AdminDashboard/Dashboard';

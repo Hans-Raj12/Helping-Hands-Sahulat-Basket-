@@ -20,7 +20,7 @@ const NGODashboard = () => {
     return (
         <>
         <div className='ngo-dashboard'>
-          <h1 >Dashboard</h1>
+          <h1 >NGO Dashboard</h1>
           {/* <div className="dashboard">
             <Circle title="Food" value="$10,000" />
             <Circle title="Clothes" value="$7,500" />

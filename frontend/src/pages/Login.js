@@ -26,7 +26,7 @@ const Login = () => {
     });
     const data = await response.json();
     if (response.ok) {
-      alert(data.message);
+      alert("Welcome "+data.user.name+" role: "+data.role);
       navigate(data.redirect);
     } else {
       alert(data.message);

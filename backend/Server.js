@@ -16,7 +16,7 @@ const DonationType = require('./Models/DonationType')
 
 const app = express()
 
-// Configure middleware
+// Configure middleware-*
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -37,26 +37,26 @@ mongoose.connect("mongodb+srv://hans:hans@cluster0.axxfcfd.mongodb.net/fyp?retry
 
 // donr-routes
 app.use('/donor-signup',async (req, res) => {
+
   try {
-    // Create a new user object
-    const donor = new donor_users({
-      name: req.body.name,
-      address: req.body.address,
-      email: req.body.email,
-      number: req.body.number,
-      cnic: req.body.cnic,
-      password: req.body.password,
-    });
+    const {name, address, email, phone, cnic, password } = req.body;
 
-    // Save the user to the database
-    await donor.save();
+    const newUser = new Users({
+       roleId:'3',
+       name,
+       password,
+       email,
+       address,
+       phone,
+       cnic 
+    })
+    // Save the new user to the database
+    const savedUser = await newUser.save();
 
-    // Return a success response
-    res.status(200).send({ message: "User created successfully" });
+    res.status(201).json({savedUser}); // Return the saved user as a JSON response with a 201 status code
   } catch (err) {
-    // Return an error response
     console.error(err);
-    res.status(500).send({ message: "Error creating user" });
+    res.status(500).json({ message: 'Internal server error' }); // Handle errors
   }
 })
 
@@ -64,21 +64,23 @@ app.use('/donor-signup',async (req, res) => {
 //needy routes
 app.use('/needy-signup', async (req, res) => {
   try {
+    const {name, address, email, phone, cnic, password } = req.body;
     // Create a new user object
-    const needy = new needy_users({
-      name: req.body.name,
-      address: req.body.address,
-      email: req.body.email,
-      number: req.body.number,
-      cnic: req.body.cnic,
-      password: req.body.password,
+    const needy = new Users({
+      roleId:'4',
+      name,
+      password,
+      email,
+      address,
+      phone,
+      cnic
     });
 
     // Save the user to the database
     await needy.save();
 
     // Return a success response
-    res.status(200).json(needy);
+    res.status(200).json({needy});
   } catch (err) {
     // Return an error response
     console.error(err);
@@ -93,21 +95,32 @@ app.use('/login', async (req, res) => {
   const { email, password } = req.body;
   
   // Check if donor user exists with the given email and password
-  const donorUser = await donor_users.findOne({ email, password });
-  if (donorUser) {
-    res.status(200).send({ message: "Donor user logged in successfully", redirect:"/home" });
+  const user = await Users.findOne({ email, password });
+  if (user && user.roleId=="1") {
+    res.status(200).json({ user, redirect:"/admin", role:'admin' });
     return;
   }
-  
+  else if (user && user.roleId=="2") {
+    res.status(200).json({ user, redirect:"/ngo", role:'NGO' });
+    return;
+  }
+  else if (user && user.roleId=="3") {
+    res.status(200).json({ user, redirect:"/donor",role:'Donor' });
+    return;
+  }
+  else if (user && user.roleId=="4") {
+    res.status(200).json({ user, redirect:"/ngo", role:'Needy' });
+    return;
+  }
   // Check if needy user exists with the given email and password
-  const needyUser = await needy_users.findOne({ email, password });
-  if (needyUser) {
-    res.status(200).send({ message: "Needy user logged in successfully", redirect:"/about" });
-    return;
-  }
+  // const needyUser = await needy_users.findOne({ email, password });
+  // if (needyUser) {
+  //   res.status(200).send({ message: "Needy user logged in successfully", redirect:"/about" });
+  //   return;
+  // }
 
   // If neither donor nor needy user exists, return an error response
-  res.status(401).send({ message: "Invalid email or password" });
+  res.status(401).json({ message: "Invalid email or password" });
 })
 
 
@@ -149,64 +162,21 @@ app.use('/roles', async (req, res) => {
 // Route to create a new user
 app.use('/users', async (req, res) => {
   try {
-    // const { roleId, name, password, email, address, phone, cnic } = req.body;
-
-    // // Create a new user instance
-    // const newUser = new User({
-    //   roleId,
-    //   name,
-    //   password,
-    //   email,
-    //   address,
-    //   phone,
-    //   cnic
-    // });
+    const {name, password, email, address, phone, cnic } = req.body;
 
     const newUser = new Users({
-       roleId:'1',
-       name:'Hans',
-       password:'hans12',
-       email:'hans63565@gmail.com',
-       address:'Sukkur',
-       phone:'03043458660',
-       cnic:'4510589725885' 
+       roleId:'3',
+       name,
+       password,
+       email,
+       address,
+       phone,
+       cnic 
     })
-
-    const newUser2 = new Users({
-      roleId:'2',
-      name:'Raj',
-      password:'hans12',
-      email:'raj@gmail.com',
-      address:'Sukkur',
-      phone:'03043458660',
-      cnic:'451089725885' 
-   })
-
-   const newUser3 = new Users({
-    roleId:'3',
-    name:'Kashi',
-    password:'hans12',
-    email:'kashi@gmail.com',
-    address:'Sukkur',
-    phone:'03043458660',
-    cnic:'45108725885' 
- })
- const newUser4 = new Users({
-  roleId:'4',
-  name:'Prem',
-  password:'hans12',
-  email:'prem@gmail.com',
-  address:'Sukkur',
-  phone:'03043458660',
-  cnic:'4510725885' 
-})
     // Save the new user to the database
     const savedUser = await newUser.save();
-    const savedUser2 = await newUser2.save();
-    const savedUser3 = await newUser3.save();
-    const savedUser4 = await newUser4.save();
 
-    res.status(201).json({savedUser,savedUser2,savedUser3,savedUser4}); // Return the saved user as a JSON response with a 201 status code
+    res.status(201).json({savedUser}); // Return the saved user as a JSON response with a 201 status code
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: 'Internal server error' }); // Handle errors

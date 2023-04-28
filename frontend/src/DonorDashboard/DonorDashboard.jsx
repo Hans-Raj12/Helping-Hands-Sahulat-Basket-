@@ -69,7 +69,7 @@ const CardsData = [
 const Cards = () => {
     return (
         <div className='donor-dashboard'>
-             <h2>Dashboard</h2>
+             <h2>Donor Dashboard</h2>
             <div className='Cards'>
                 {
                     CardsData.map((card,id)=>{

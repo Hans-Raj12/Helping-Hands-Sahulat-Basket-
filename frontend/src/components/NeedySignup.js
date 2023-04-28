@@ -1,5 +1,5 @@
 import React, {useState} from "react"; 
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import {validateEmail} from "../../src/utils";
 import '../styles/donorSignup.css'
 const PasswordErrorMessage = () => { 
@@ -9,21 +9,23 @@ const PasswordErrorMessage = () => {
    }; 
 function NeedySignup(){
     
+
     const [name, setName] = useState(""); 
     const [address, setaddress] = useState(""); 
     const [email, setEmail] = useState(""); 
-    const [number, setNumber] = useState(""); 
+    const [phone, setPhone] = useState(""); 
     const [cnic, setcnic] = useState(""); 
     const [password, setPassword] = useState({ 
       value: "", 
       isTouched: false, 
     }); 
    
-   
+   const navigate = useNavigate()
+
     const getIsFormValid = () => { 
       return ( 
         name && 
-        number &&
+        phone &&
         cnic &&
         validateEmail(email) && 
         password.value.length >= 8         
@@ -34,7 +36,7 @@ function NeedySignup(){
       setName(""); 
       setaddress(""); 
       setEmail(""); 
-      setNumber(""); 
+      setPhone(""); 
       setPassword({ 
         value: "", 
         isTouched: false, 
@@ -48,7 +50,7 @@ function NeedySignup(){
         name, 
         address, 
         email, 
-        number, 
+        phone, 
         cnic, 
         password: password.value 
       }; 
@@ -67,6 +69,8 @@ function NeedySignup(){
       .then(data => { 
         alert(`Account created!`); 
         clearForm(); 
+        navigate('/login')
+        
       }) 
       .catch((error) => { 
         console.error('Error:', error); 
@@ -99,7 +103,7 @@ function NeedySignup(){
                  onChange={(e) => { 
                    setcnic(e.target.value); 
                  }} 
-                 placeholder="Cnic-number"  /> 
+                 placeholder="CNIC-Number"  /> 
             </div> 
             <div className="Field"> 
               <label> 
@@ -137,11 +141,11 @@ function NeedySignup(){
                 Contact Number <sup>*</sup> 
               </label> 
               <input type="tel"
-                 value={number} 
+                 value={phone} 
                  onChange={(e) => { 
-                   setNumber(e.target.value); 
+                   setPhone(e.target.value); 
                  }} 
-                 placeholder="Number"  /> 
+                 placeholder="Contact Number"  /> 
             </div> 
             <div className="Field"> 
               <label>
