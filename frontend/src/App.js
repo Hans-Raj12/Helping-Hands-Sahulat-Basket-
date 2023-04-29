@@ -20,7 +20,7 @@ import Settings from './components/AdminDashboard/Settings'
 import NGOSidebar from './NGODashboard/NGOSidebar'
 import NGODashboard from './NGODashboard/NGODashboard';
 import CreatePost from './NGODashboard/CreatePost/CreatePost'
-import DonorProfile from './NGODashboard/DonorProfile/DonorProfile'
+// import DonorProfile from './NGODashboard/DonorProfile/DonorProfile'
 import UpdateDonation from './NGODashboard/UpdateDonationHistory/UpdateDonation'
 import Profile from './NGODashboard/Profile/Profile'
 
@@ -28,7 +28,8 @@ import DonorSidebar from './DonorDashboard/DonorSidebar';
 import DonorDashboard from './DonorDashboard/DonorDashboard'
 import DonorCreateDonation from './DonorDashboard/DonorCreateDonation'
 import DonorViewNGO from './DonorDashboard/DonorViewNGO'
-import DonorProjects from './DonorDashboard/DonorProjects'
+import DonorProjects from './DonorDashboard/DonorProjects';
+import DonorProfile from './DonorDashboard/DonorProfile';
 
 function App() {
 
@@ -65,7 +66,7 @@ function App() {
                 <Route path='/ngo' element={<NGOSidebar/>}>
                     <Route path='' element={<NGODashboard/>}/>
                     <Route path='create-post' element={<CreatePost/>}/>
-                    <Route path='donor-profiles' element={<DonorProfile/>}/>
+                    {/* <Route path='donor-profiles' element={<DonorProfile/>}/> */}
                     <Route path='donation-history' element={<UpdateDonation/>}/>
                     <Route path='profile' element={<Profile/>}/>
                 </Route>
@@ -77,6 +78,7 @@ function App() {
                     <Route path='create-post' element={<DonorCreateDonation/>}/>
                     <Route path='view-ngos' element={<DonorViewNGO/>}/>
                     <Route path='donor-projects' element={<DonorProjects/>}/>
+                    <Route path='profile' element={<DonorProfile/>}/>
                 </Route>
           </Routes>
           <Footer2/> 

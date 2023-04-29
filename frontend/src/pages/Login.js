@@ -29,7 +29,7 @@ const Login = () => {
     const data = await response.json();
     if (response.ok) {
       alert("Welcome "+data.user.name+" role: "+data.role);
-      setCredentials({name:data.user.name})
+      setCredentials({user:data.user})
       navigate(data.redirect);
     } else {
       alert(data.message);

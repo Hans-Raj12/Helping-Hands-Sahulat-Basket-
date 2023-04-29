@@ -42,7 +42,7 @@ const DonorSidebar = ({children}) => {
           },
           {
             title: 'Profile',
-            path: '/profile',
+            path: 'profile',
             icon: <FaIcons.FaUserAlt />,
             cName: 'nav-text'
           },
@@ -61,7 +61,7 @@ const DonorSidebar = ({children}) => {
         <div className="donor-sidebar-container">
            <div style={{width: isOpen ? "360px" : "50px"}} className="sidebar">
                <div className="top_section">
-                   <h1 style={{display: isOpen ? "block" : "none"}} className="logo">{credentials?.name}</h1>
+                   <h1 style={{display: isOpen ? "block" : "none"}} className="logo">{credentials?.user?.name}</h1>
                    <div style={{marginLeft: isOpen ? "50px" : "0px"}} className="bars">
                        <FaBars onClick={toggle}/>
                    </div>
