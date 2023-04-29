@@ -1,10 +1,12 @@
-import { useState } from 'react'
+import { useState,useContext } from 'react'
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom'
-
+import { AuthContext } from '../context/AuthContext'; 
 import LoginImage from '../assets/login.jpg'
 import '../styles/Login.css'
 const Login = () => {
+
+  const { setCredentials } = useContext(AuthContext)
 
   const [form,setForm] = useState({
     email:'',
@@ -27,6 +29,7 @@ const Login = () => {
     const data = await response.json();
     if (response.ok) {
       alert("Welcome "+data.user.name+" role: "+data.role);
+      setCredentials({name:data.user.name})
       navigate(data.redirect);
     } else {
       alert(data.message);

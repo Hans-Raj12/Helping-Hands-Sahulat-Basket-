@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { AuthContext } from '../context/AuthContext';
 import {
     FaTh,
     FaBars,
@@ -11,6 +12,7 @@ import * as IoIcons from 'react-icons/io';
 import './DonorSidebar.css';
 import DonorHeader from './DonorHeader';
 const DonorSidebar = ({children}) => {
+  const { credentials } = useContext(AuthContext)
     const[isOpen ,setIsOpen] = useState(false);
     const toggle = () => setIsOpen (!isOpen);
     const menuItem=[
@@ -59,7 +61,7 @@ const DonorSidebar = ({children}) => {
         <div className="donor-sidebar-container">
            <div style={{width: isOpen ? "360px" : "50px"}} className="sidebar">
                <div className="top_section">
-                   <h1 style={{display: isOpen ? "block" : "none"}} className="logo">Logo</h1>
+                   <h1 style={{display: isOpen ? "block" : "none"}} className="logo">{credentials?.name}</h1>
                    <div style={{marginLeft: isOpen ? "50px" : "0px"}} className="bars">
                        <FaBars onClick={toggle}/>
                    </div>

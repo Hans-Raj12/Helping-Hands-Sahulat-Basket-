@@ -99,14 +99,14 @@ function DonorSignup(){
             </div> 
             <div className="Field"> 
               <label> 
-                CNIC phone <sup>*</sup> 
+                CNIC Number <sup>*</sup> 
               </label> 
               <input type="text"
                  value={cnic} 
                  onChange={(e) => { 
                    setcnic(e.target.value); 
                  }} 
-                 placeholder="Cnic-phone"  /> 
+                 placeholder="Cnic-Number"  /> 
             </div> 
             <div className="Field"> 
               <label> 
@@ -141,14 +141,14 @@ function DonorSignup(){
             </div> 
             <div className="Field"> 
               <label> 
-                Contact phone <sup>*</sup> 
+                Contact Number <sup>*</sup> 
               </label> 
               <input type="text"
                  value={phone} 
                  onChange={(e) => { 
                    setphone(e.target.value); 
                  }} 
-                 placeholder="phone"  /> 
+                 placeholder="Number"  /> 
             </div> 
             <div className="Field"> 
               <label>Address</label> 

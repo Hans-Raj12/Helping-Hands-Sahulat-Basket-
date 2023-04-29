@@ -1,4 +1,5 @@
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import { AuthProvider } from './context/AuthContext';
 import Home2 from "./pages/Home2";
 import Login from './pages/Login'
 import Footer2 from './components/Footer2'
@@ -35,13 +36,16 @@ function App() {
     
     <>
       <Router>
+      <AuthProvider>
           <Routes>
             <Route path='/' element={<Home2/>}/>
+            
             <Route path='/login' element={<Login/>}/>
             <Route path='/signup' element={<Signup/>}/>
             <Route path='/donor-signup' element={<DonorSignup/>}/>
             <Route path='/needy-signup' element={<NeedySignup/>}/>
           </Routes>
+    
          
         
     
@@ -76,6 +80,7 @@ function App() {
                 </Route>
           </Routes>
           <Footer2/> 
+          </AuthProvider>
         </Router>
 
     </>
