@@ -16,7 +16,7 @@ const Signup = () => {
                 </Link>
             </div>
             <div className="signup-item">
-                <Link to='/'>
+                <Link to='/ngo-signup'>
                     <img src={ngo} alt="ngo"/>
                     <p>NGO</p>
 

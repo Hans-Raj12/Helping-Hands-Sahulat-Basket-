@@ -20,7 +20,7 @@
     color:#e74c3c;
   }
   
-  label {
+  .donorSignup  label {
     margin-bottom: 8px;
     font-size: 14px;
   }
@@ -34,7 +34,7 @@
     vertical-align: baseline;
   }
   
-  input,
+  .donorSignup  input,
   select {
     border-radius: 4px;
     border: 1px solid #ccc;
@@ -60,7 +60,7 @@
     flex-direction: row;
   }
   
-  button {
+  .donorSignup button {
     display:  flex;
     padding: 12px;
     width: 240px;
@@ -77,7 +77,7 @@
     cursor: pointer;
   }
   
-  button:disabled,
+  .donorSignup button:disabled,
   button[disabled] {
     border: 1px solid #999999;
     background-color: #636272;

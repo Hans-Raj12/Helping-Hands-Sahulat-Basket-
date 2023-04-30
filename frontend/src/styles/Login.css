@@ -26,7 +26,7 @@
   
 }
 
-form {
+.form-container form {
   margin-top: 10px;
 }
 
@@ -40,7 +40,7 @@ form {
   margin-bottom: 20px;
 }
 
-input[type="email"],
+.form-container input[type="email"],
 input[type="password"] {
   padding: 10px;
   margin-top: 5px;
@@ -55,7 +55,7 @@ input[type="password"] {
   margin-bottom: 20px;
 }
 
-form button {
+.form-container form button {
   background-color: #ffc451;
   color: #fff;
   border: none;
@@ -69,11 +69,11 @@ form button {
   margin-bottom: 10px;
 }
 
-button:hover {
+.form-container button:hover {
   background-color: #ffc451;
 }
 
-input[type="checkbox"] {
+.form-container input[type="checkbox"] {
   width: 20px;
   height: 20px;
   margin-right: 10px;

@@ -6,6 +6,7 @@ import Footer2 from './components/Footer2'
 import Signup from './pages/Signup'
 import DonorSignup from './components/DonorSignup'
 import NeedySignup from './components/NeedySignup'
+import NGOSignup from './components/NGOSignup';
 import Header from './components/Header'
 
 import VerifyNGO from './components/AdminDashboard/VerifyNGO';
@@ -45,6 +46,7 @@ function App() {
             <Route path='/signup' element={<Signup/>}/>
             <Route path='/donor-signup' element={<DonorSignup/>}/>
             <Route path='/needy-signup' element={<NeedySignup/>}/>
+            <Route path='/ngo-signup' element={<NGOSignup/>}/>
           </Routes>
     
          
