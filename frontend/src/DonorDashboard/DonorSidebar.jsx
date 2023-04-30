@@ -24,7 +24,7 @@ const DonorSidebar = ({children}) => {
         },
           {
             title: 'Create Donation',
-            path: 'create-post',
+            path: 'create-donation',
             icon: <FaIcons.FaPlusCircle />,
             cName: 'nav-text'
           },

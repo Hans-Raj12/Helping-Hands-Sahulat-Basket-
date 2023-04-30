@@ -1,140 +1,244 @@
-import React from 'react'
-import { useState } from 'react';
-import "./DonorCreateDonation.css";
-import TextField from '@mui/material/TextField';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import Select from '@mui/material/Select';
-
+import React, { useState, useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
+// import "./donationForm.css";
+import donationImage from '../assets/DonorImages/create-donation.jpg'
+import './DonorCreateDonation.css'
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 const DonorCreateDonation = () => {
-    const theme = createTheme({
-        status: {
-            danger: '#e53e3e',
-        },
-        palette: {
-            primary: {
-                main: 'rgb(43, 85, 110)',
-                darker: '#053e85',
-            },
-            neutral: {
-                main: '#64748B',
-                contrastText: '#fff',
-            },
-        },
-    });
+    const [donationRecipient, setDonationRecipient] = useState("");
+    const [donationType, setDonationType] = useState("");
+    const [foodType, setFoodType] = useState("");
+    const [foodQuantity, setFoodQuantity] = useState("");
+    const [clothingType, setClothingType] = useState("");
+    const [clothingCondition, setClothingCondition] = useState("");
+    const [donationAmount, setDonationAmount] = useState("");
+    const [clothesQuantity, setClothesQuantity] = useState("")
+    const [needyName, setNeedyName] = useState("");
+    const [needyEmail, setNeedyEmail] = useState("");
+    const [formData, setFormData] = useState({})
+    const { credentials } = useContext(AuthContext)
 
-    const [name, setName] = useState('');
-    const [number, setNumber] = useState('');
-    const [to, setto] = useState('');
-    const [type, settype] = useState('');
-    const [quantity, setquantity] = useState('');
-    const [description, setDescription] = useState('');
-    const handleChange=(event)=>{
-        settype(event.target.value);
-        setto(event.target.value);
+    const handleClothesQuantityChange = (e) =>{
+        setClothesQuantity(e.target.value)
+    }
+    const handleDonationRecipientChange = (event) => {
+        setDonationRecipient(event.target.value);
+    }; 
+
+    function handleDonationTypeChange(event) {
+      setDonationType(event.target.value);
+    }
+  
+    function handleFoodTypeChange(event) {
+      setFoodType(event.target.value);
+    }
+  
+    function handleFoodQuantityChange(event) {
+      setFoodQuantity(event.target.value);
+    }
+  
+    function handleClothingTypeChange(event) {
+      setClothingType(event.target.value);
+    }
+  
+    function handleClothingConditionChange(event) {
+      setClothingCondition(event.target.value);
+    }
+    const handleDonationAmountChange = (event) => {
+        setDonationAmount(event.target.value);
+      };
+
+    
+      const handleNeedyNameChange = (event) => {
+        setNeedyName(event.target.value);
+      };
+    
+      const handleNeedyEmailChange = (event) => {
+        setNeedyEmail(event.target.value);
+      };
+
+    const handleSubmit = async (event) => {
+      event.preventDefault();
+      
+      if(donationRecipient=='NGO' && donationType=='food'){
+       setFormData( {
+            donor_name: credentials?.user?.name,
+            donor_email: credentials?.user?.email,
+            recipient_type:donationRecipient,
+            donation_type:donationType,
+            food_quantity:foodQuantity,
+        })
+      }
+      else if(donationRecipient=='Needy-Person' && donationType=='food'){
+        setFormData( {
+            donor_name: credentials?.user?.name,
+            donor_email: credentials?.user?.email,
+            recipient_type:donationRecipient,
+            recipient_name:needyName,
+            recipient_email:needyEmail,
+            donation_type:donationType,
+            food_quantity:foodQuantity,
+        })  
+      }
+      const response = await fetch('/create-donation',{
+        method:'POST',
+        headers:{
+            'Content-Type':'application/json'
+        },
+        body: JSON.stringify(formData)
+      })
+      const data = await response.json()
+      if(response.ok){
+        alert("Donation saved")
+      }else{
+        alert("Donation Failed")
+      }
+
     }
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        // handle form submission here
-           
-        console.log({
-            name,
-            number,
-            to,
-            description,
-            type,
-            quantity
-           
-        });
-    };
-    return (
-        <div>
-            <h1 className='heading'>Create Donation Post</h1>
-            <div className="createPost">
-                <form onSubmit={handleSubmit}>
 
-                    <Box
-                        component="form"
-                        sx={{
-                            '& > :not(style)': { m: 1, width: '110%' },
-                        }}
-                        noValidate
-                        autoComplete="off"
-                    >
-                        <TextField
-                            id="outlined-basic"
-                            value={name}
-                            onChange={(event) => setName(event.target.value)}
-                            label="Donor Name"
-                            variant="outlined" />
+  return (
+    <Container>
+        <Row className="justify-content-center">
+            <Col sm={6}>
+            <div className="donor-create-donation">
+                
+            <form onSubmit={handleSubmit}>
+            <h2>Create Donation</h2>
 
-                        <TextField
-                            id="outlined-basic"
-                            label="Phone Number"
-                            variant="outlined"
-                            value={number}
-                            onChange={(event) => setNumber(event.target.value)} />
-
-                        <InputLabel id="outlined-basic">To</InputLabel>
-                            <Select
-                            labelId="demo-simple-select-label"
-                            id="demo-simple-select"
-                            value={to}
-                            label="To"
-                            variant='outlined'
-                            onChange={handleChange}
-                            >
-                            <MenuItem value={"needy"}>Needy person</MenuItem>
-                            <MenuItem value={"NGO"}>NGO</MenuItem>
-                            </Select>
-                            <InputLabel id="outlined-basic">Type of Donation</InputLabel>
-                            <Select
-                            labelId="demo-simple-select-label"
-                            id="demo-simple-select"
-                            value={type}
-                            label="Type"
-                            variant='outlined'
-                            onChange={handleChange}
-                            >
-                            <MenuItem value={"food"}>Food Donation</MenuItem>
-                            <MenuItem value={"Cloth"}>Clothes Donation</MenuItem>
-                            <MenuItem value={"Fund"}>Fund/Money Donation</MenuItem>
-                            </Select>
-                            
-                        <TextField
-                            id="outlined-multiline-flexible"
-                            value={description}
-                            onChange={(event) => setDescription(event.target.value)}
-                            label="Description"
-                            multiline
-                            maxRows={10}
-                        />
-                        
-                        <TextField
-                            id="outlined-basic"
-                            value={quantity}
-                            onChange={(event) => setquantity(event.target.value)}
-                            label="Quantity"
-                            variant="outlined"
-                        />
-                        <ThemeProvider theme={theme}>
-                            <Button variant="contained" color="primary">
-                                Post
-                            </Button>
-                        </ThemeProvider>
-
-                    </Box>
-
-                </form>
+            <div className="form-group">
+                <label htmlFor="donationRecipient">Donation Recipient:</label>
+                <select
+                id="donationRecipient"
+                value={donationRecipient}
+                onChange={handleDonationRecipientChange}
+                required
+                >
+                <option value="">Select recipient</option>
+                <option value="NGO">NGO</option>
+                <option value="Needy-Person">Needy Person</option>
+                </select>
             </div>
-        </div >
-    )
-}
+            
+                {donationRecipient === "Needy-Person" && (
+                    <div>
+                        <div className="form-group">
+                            <label htmlFor="recipientName">Person Name:</label>
+                            <input
+                                type="text"
+                                id="needyName"
+                                value={needyName}
+                                placeholder="Needy Person Name"
+                                onChange={handleNeedyNameChange}
+                                required
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="recipientEmail">Person Email:</label>
+                            <input
+                                type="email"
+                                id="needyEmail"
+                                value={needyEmail}
+                                placeholder="Needy Person Email"
+                                onChange={handleNeedyEmailChange}
+                                required
+                            />
+                        </div>
+                    </div>
+                )}
+
+            <div className="form-group">
+            <label>
+                Donation Type:
+                <select value={donationType} onChange={handleDonationTypeChange}>
+                    <option value="">Select one</option>
+                    <option value="food">Food</option>
+                    <option value="cloth">Clothing</option>
+                    <option value="money">Money</option>
+                </select>
+                </label>
+            </div>
+
+            {donationType === "food" && (
+                <div>
+                <label>
+                    Food Type:
+                    <select value={foodType} onChange={handleFoodTypeChange}>
+                    <option value="">Select one</option>
+                    <option value="canned goods">Canned Goods</option>
+                    <option value="fresh produce">Fresh Produce</option>
+                    <option value="non-perishables">Non-Perishables</option>
+                    </select>
+                </label>
+                <label>
+                    Quantity:
+                    <input
+                    type="number"
+                    value={foodQuantity}
+                    onChange={handleFoodQuantityChange}
+                    />
+                </label>
+                </div>
+            )}
+            {donationType === "clothing" && (
+                <div>
+                <label>
+                    Clothing Type:
+                    <select value={clothingType} onChange={handleClothingTypeChange}>
+                    <option value="">Select one</option>
+                    <option value="shalwar-kameez">Shalwar Kameez</option>
+                    <option value="shirts">Shirts</option>
+                    <option value="pants">Pants</option>
+                    <option value="jackets">Jackets</option>
+                    </select>
+                </label>
+                <label>
+                    Condition:
+                    <select value={clothingCondition} onChange={handleClothingConditionChange}>
+                        <option value='new'>New</option>
+                        <option value='gently-used'>Gently Used</option>
+                        <option value='heavily-used'>Heavily Used</option>
+                    </select>
+                </label>
+                <label>
+                    Quantity:
+                    <input
+                    type="number"
+                    value={clothesQuantity}
+                    onChange={handleClothesQuantityChange}
+                    />
+                </label>
+                </div>
+            )}
+
+            {donationType === "funds" && (
+                <div className="form-group">
+                <label htmlFor="donationAmount">Amount:</label>
+                <input
+                    type="number"
+                    id="donationAmount"
+                    value={donationAmount}
+                    onChange={handleDonationAmountChange}
+                    required
+                />
+                </div>
+            )}
+
+            <button type="submit">Donate</button>
+            </form>
+            </div>
+            </Col>
+            <Col sm={6} className="">
+                <div className="donor-create-donation-image">
+                        <img src={donationImage} alt="Donation_Image" width={500} height={500}/>
+                    </div>  
+            </Col>
+        </Row>
+    </Container>
+  );
+};
 
 export default DonorCreateDonation;
-

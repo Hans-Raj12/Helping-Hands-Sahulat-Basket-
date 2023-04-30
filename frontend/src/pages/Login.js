@@ -19,21 +19,22 @@ const Login = () => {
   const handleSubmit = async (e) => {
     
     e.preventDefault();
-    const response = await fetch('/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(form)
-    });
-    const data = await response.json();
-    if (response.ok) {
-      alert("Welcome "+data.user.name+" role: "+data.role);
-      setCredentials({user:data.user})
-      navigate(data.redirect);
-    } else {
-      alert(data.message);
-    }
+      const response = await fetch('/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(form)
+      });
+      const data = await response.json();
+      if (response.ok) {
+        alert("Welcome "+data.user.name+" role: "+data.role);
+        setCredentials({user:data.user, role:data.role})
+        navigate(data.redirect);
+      } else {
+        alert(data.message);
+      }
+  
   }
   
   return (

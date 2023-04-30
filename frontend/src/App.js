@@ -75,7 +75,7 @@ function App() {
           <Routes>
                 <Route path='/donor' element={<DonorSidebar/>}>
                      <Route path='' element={<DonorDashboard/>}/>
-                    <Route path='create-post' element={<DonorCreateDonation/>}/>
+                    <Route path='create-donation' element={<DonorCreateDonation/>}/>
                     <Route path='view-ngos' element={<DonorViewNGO/>}/>
                     <Route path='donor-projects' element={<DonorProjects/>}/>
                     <Route path='profile' element={<DonorProfile/>}/>

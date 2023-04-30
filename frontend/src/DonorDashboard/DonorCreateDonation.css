@@ -1,15 +1,75 @@
-.createPost{
-    width:50%;
-     margin: 10px auto 0;
-     display: flex;
-     
-     }
-     .document{
-         margin-right:20px;
-     }
-     h1{
-        text-align: center;
-        padding: 2rem;
+.donor-create-donation{
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    padding: 40px;
+}
+
+.donor-create-donation-image{
+   margin-top: 50px;
+}
+.donor-create-donation form{
     
-     }
-     
+max-width: 100%;
+margin: 20px auto;
+padding: 50px;
+background-color: #f2f2f2;
+border-radius: 10px;
+box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.donor-create-donation h2 {
+margin-top: 0;
+text-align: center;
+}
+
+.donor-create-donation  .form-group {
+margin-bottom: 15px;
+}
+
+.donor-create-donation  label {
+display: block;
+margin-bottom: 5px;
+font-weight: bold;
+}
+.donor-create-donation  select{
+    width: 100%;
+    font-size: large;
+}
+
+.donor-create-donation  select,
+input[type="number"] {
+display: block;
+width: 100%;
+padding: 5px;
+border-radius: 5px;
+border: none;
+box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+.donor-create-donation
+input[type="text"] {
+    display: block;
+    width: 100%;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    }
+.donor-create-donation  button[type="submit"] {
+display: block;
+width: 100%;
+padding: 10px;
+border-radius: 5px;
+border: none;
+background-color: #ffbb38;
+color: white;
+font-weight: bold;
+cursor: pointer;
+}
+
+.donor-create-donation  button[type="submit"]:hover {
+background-color: #343a40;
+color: #f2f2f2;
+}    

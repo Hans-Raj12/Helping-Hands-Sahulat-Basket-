@@ -5,6 +5,7 @@ const mongoose = require('mongoose')
 const bodyParser = require("body-parser");
 const needy_users = require('./Models/needy-users')
 const donor_users = require('./Models/donor_users')
+const Donations = require('./Models/Donations')
 // const dbSchema = require('./Models/schemaModels')
 const router = express.Router();
 const role = require('./Models/role');
@@ -263,3 +264,89 @@ app.use('/donation-offers', async (req, res) => {
     res.status(500).send(err);
   }
 });
+
+app.use('/create-donation',async(req,res)=>{
+  try{
+
+    const {recipient_type, donation_type} = req.body
+    if(recipient_type=='Needy-Person' && donation_type=='food'){
+      const { donor_name,
+              donor_email,
+              recipient_name,
+              recipient_email,
+              donation_type,
+              food_quantity,
+            } = req.body
+            
+      const newDonation = new Donations({
+        donor_name,
+        donor_email,
+        recipient_type,
+        recipient_name,
+        recipient_email,
+        donation_type,
+        food_quantity,
+        donation_date: new Date(),
+        accepted:'false'
+      })
+
+      newDonation.save()
+      .then((donation)=>{
+        res.status(200).json({donation})
+     })
+     .catch(err=>{
+        res.status(500).json({err})
+     })
+      
+    }
+    else if(recipient_type=='NGO' && donation_type=='food'){
+      const { 
+        donor_name,
+        donor_email,
+        donation_type,
+        food_quantity,
+      } = req.body
+      const newDonation = new Donations({
+        donor_name,
+        donor_email,
+        recipient_type,
+        donation_type,
+        food_quantity,
+        donation_date: new Date(),
+        accepted:'false'
+      })
+
+      newDonation.save()
+      .then((donation)=>{
+        console.log('Donation saved', donation)
+        res.status(200).json({donation})
+     })
+     .catch(err=>{
+        res.status(500).json({err})
+     })
+    }
+ 
+    // const newDonation = new Donations({
+    //   donor_name: data.donor_name,
+    //   donor_email: data.donor_email,
+    //   recipient_type: data.recipient_type,
+    //   recipient_name: data.recipient_name,
+    //   recipient_email: data.recipient_email,
+    //   donation_type: data.donation_type,
+    //   food_quantity: 100,
+    //   donation_date: new Date()
+    // })
+
+    // newDonation.save()
+    //   .then((donation)=>{
+    //     console.log('Donation saved', donation)
+    //     res.status(200).json({donation})
+    //  })
+    //  .catch(err=>{
+    //     res.status(500).json({err})
+    //  })
+  }catch(err){
+    res.status(500).json({err})
+  }
+ 
+})
