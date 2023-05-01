@@ -1,129 +1,78 @@
-import React from 'react'
-import { useState } from 'react';
-import "./UpdateDonation.css"
-import TextField from '@mui/material/TextField';
-import Box from '@mui/material/Box';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
-import Button from '@mui/material/Button';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import * as React from 'react';
+import { useEffect, useState, useContext } from 'react';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+import { AuthContext } from '../../context/AuthContext';
+import './UpdateDonation.css'
 
 
-
-const UpdateDonation = () => {
-    const theme = createTheme({
-        status: {
-            danger: '#e53e3e',
-        },
-        palette: {
-            primary: {
-                main: 'rgb(43, 85, 110)',
-                darker: '#053e85',
-            },
-            neutral: {
-                main: '#64748B',
-                contrastText: '#fff',
-            },
-        },
-    });
-
-    const [donor, setDonor] = useState('');
-    const [needy, setNeedy] = useState('');
-    const [quantity, setQuantity] = useState('');
-    const [donationType, setDonationType] = useState('');
-    const [mobileNumber, setMobileNumber] = useState('');
-    const [address, setAddress] = useState('');
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        // handle form submission here
-        console.log({
-            donor,
-            needy,
-            quantity,
-            donationType,
-            mobileNumber,
-            address
-        });
-    };
-    return (
-        <div>
-            <h1 className='heading'>Update Donation History</h1>
-            <div className="updateDonation">
-                <form onSubmit={handleSubmit}>
-
-                    <Box
-                        component="form"
-                        sx={{
-                            '& > :not(style)': { m: 1, width: '100%' },
-                        }}
-                        noValidate
-                        autoComplete="off"
-                    >
-                        <TextField
-                            id="outlined-basic"
-                            value={donor}
-                            onChange={(event) => setDonor(event.target.value)}
-                            label="From (Donor)"
-                            variant="outlined" />
-
-                        <TextField
-                            id="outlined-basic"
-                            label="To (Needy)"
-                            variant="outlined"
-                            value={needy}
-                            onChange={(event) => setNeedy(event.target.value)} />
-
-                        <TextField
-                            id="outlined-basic"
-                            label="Number"
-                            variant="outlined"
-                            value={mobileNumber}
-                            onChange={(event) => setMobileNumber(event.target.value)} />
-
-                        <FormControl fullWidth>
-                            <InputLabel id="demo-simple-select-label">Donation Type</InputLabel>
-                            <Select
-                                labelId="demo-simple-select-label"
-                                id="demo-simple-select"
-                                value={donationType}
-                                label="Donation Type"
-                                onChange={(event) => setDonationType(event.target.value)}
-                            >
-                                <MenuItem value={1} >Goods</MenuItem>
-                                <MenuItem value={2} >Money</MenuItem>
-                            </Select>
-                        </FormControl>
-
-                        <TextField
-                            id="outlined-basic"
-                            label="Quantity"
-                            variant="outlined"
-                            value={mobileNumber}
-                            onChange={(event) => setQuantity(event.target.value)} />
-
-                        <TextField
-                            id="outlined-basic"
-                            label="Address"
-                            variant="outlined"
-                            value={address}
-                            onChange={(event) => setAddress(event.target.value)} />
-
-                        <ThemeProvider theme={theme}>
-                            <Button  variant="contained" color="primary" >
-                                Submit
-                            </Button>
-                        </ThemeProvider>
-
-                    </Box>
-
-                </form>
-            </div>
-        </div >
-    )
+function createData(DonorName, DonorEmail, DonationType, Quantity, DonationsDate) {
+  return { DonorName, DonorEmail, DonationType, Quantity, DonationsDate};
 }
 
-export default UpdateDonation;
 
+export default function BasicTable() {
+  let [rows, setRows] = useState([])
+
+  const {credentials} = useContext(AuthContext)
+
+  useEffect(()=>{
+  
+    //get the donations from donation history in NGOs donation history
+      fetch('/updated-donations-history')
+      .then(response => response.json())
+      .then(data => {
+        setRows(data)
+      })
+      .catch(error => console.error(error));
+    },[])
+
+console.log(rows)
+  return (
+    <div className='table'>
+        <h1>Donations History 0f {credentials?.user?.name}</h1>
+    <TableContainer component={Paper}
+        style={{
+             boxShadow: "0px 13px 20px 0px #80808029",
+             
+        }}
+    
+    >
+      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+        <TableHead>
+          <TableRow>
+            <TableCell>Donor Name</TableCell>
+            <TableCell align="left">Donor Email</TableCell>
+            <TableCell align="left">DonationType&nbsp;</TableCell>
+            <TableCell align="left">Quantity/Amount&nbsp;</TableCell>
+            <TableCell align="left">Address&nbsp;</TableCell>
+            <TableCell align="left">DonatinonDate&nbsp;</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+            {rows.filter(row => row.email === credentials?.user?.email).map((row) => (
+                <TableRow
+                key={row.id}
+                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                >
+                <TableCell component="th" scope="row">
+                    {row.donor_name}
+                </TableCell>
+                <TableCell align="left">{row.donor_email}</TableCell>
+                <TableCell align="left">{row.donation_type}</TableCell>
+                <TableCell align="left">{row.donation_quantity}</TableCell>
+                <TableCell align="left">{row.donor_address}</TableCell>
+                <TableCell align="left">{row.donation_date}</TableCell>
+                </TableRow>
+            ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
+    </div>
+  );
+}

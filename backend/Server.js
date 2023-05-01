@@ -14,7 +14,7 @@ const Funding = require('./Models/Funding')
 const FundingDetails = require('./Models/FundingDetails')
 const DonationOffer = require('./Models/DonationOffer')
 const DonationType = require('./Models/DonationType')
-
+const DonationHistory = require('./Models/DonationHistory')
 const app = express()
 
 // Configure middleware-*
@@ -301,87 +301,129 @@ app.use('/donation-offers', async (req, res) => {
   }
 });
 
+//creating donations - donors
 app.use('/create-donation',async(req,res)=>{
   try{
 
-    const {recipient_type, donation_type} = req.body
-    if(recipient_type=='Needy-Person' && donation_type=='food'){
-      const { donor_name,
-              donor_email,
-              recipient_name,
-              recipient_email,
-              donation_type,
-              food_quantity,
-            } = req.body
-            
-      const newDonation = new Donations({
-        donor_name,
-        donor_email,
-        recipient_type,
-        recipient_name,
-        recipient_email,
-        donation_type,
-        food_quantity,
-        donation_date: new Date(),
-        accepted:'false'
+      const {recipient_type, donation_type} = req.body
+      if(recipient_type=='Needy-Person' && donation_type=='food'){
+        const { donor_name,
+                donor_email,
+                recipient_name,
+                recipient_email,
+                donation_type,
+                food_quantity,
+              } = req.body
+              
+        const newDonation = new Donations({
+          donor_name,
+          donor_email,
+          recipient_type,
+          recipient_name,
+          recipient_email,
+          donation_type,
+          food_quantity,
+          donation_date: new Date(),
+          accepted:'false'
+        })
+
+        newDonation.save()
+        .then((donation)=>{
+          res.status(200).json({donation})
       })
-
-      newDonation.save()
-      .then((donation)=>{
-        res.status(200).json({donation})
-     })
-     .catch(err=>{
-        res.status(500).json({err})
-     })
-      
-    }
-    else if(recipient_type=='NGO' && donation_type=='food'){
-      const { 
-        donor_name,
-        donor_email,
-        donation_type,
-        food_quantity,
-      } = req.body
-      const newDonation = new Donations({
-        donor_name,
-        donor_email,
-        recipient_type,
-        donation_type,
-        food_quantity,
-        donation_date: new Date(),
-        accepted:'false'
+      .catch(err=>{
+          res.status(500).json({err})
       })
+        
+      }
+      else if(recipient_type=='NGO' && donation_type=='food'){
+        const { 
+          donor_name,
+          donor_email,
+          donor_address,
+          donation_type,
+          food_quantity,
+        } = req.body
+        const newDonation = new Donations({
+          donor_name,
+          donor_email,
+          recipient_type,
+          donation_type,
+          food_quantity,
+          donor_address,
+          donation_date: new Date(),
+          accepted:'false'
+        })
 
-      newDonation.save()
-      .then((donation)=>{
-        console.log('Donation saved', donation)
-        res.status(200).json({donation})
-     })
-     .catch(err=>{
-        res.status(500).json({err})
-     })
-    }
- 
-    // const newDonation = new Donations({
-    //   donor_name: data.donor_name,
-    //   donor_email: data.donor_email,
-    //   recipient_type: data.recipient_type,
-    //   recipient_name: data.recipient_name,
-    //   recipient_email: data.recipient_email,
-    //   donation_type: data.donation_type,
-    //   food_quantity: 100,
-    //   donation_date: new Date()
-    // })
+        newDonation.save()
+        .then((donation)=>{
+          console.log('Donation saved', donation)
+          res.status(200).json({donation})
+      })
+      .catch(err=>{
+          res.status(500).json({err})
+      })
+      }
+      else if(recipient_type=='NGO' && donation_type=='cloth'){
+        const { 
+          donor_name,
+          donor_email,
+          donor_address,
+          donation_type,
+          cloth_quantity,
+          cloth_quality
+        } = req.body
+        const newDonation = new Donations({
+          donor_name,
+          donor_email,
+          donor_address,
+          recipient_type,
+          donation_type,
+          cloth_quantity,
+          cloth_quality,
+          donation_date: new Date(),
+          accepted:'false'
+        })
 
-    // newDonation.save()
-    //   .then((donation)=>{
-    //     console.log('Donation saved', donation)
-    //     res.status(200).json({donation})
-    //  })
-    //  .catch(err=>{
-    //     res.status(500).json({err})
-    //  })
-  }catch(err){
+        newDonation.save()
+        .then((donation)=>{
+          console.log('Donation saved', donation)
+          res.status(200).json({donation})
+      })
+      .catch(err=>{
+          res.status(500).json({err})
+      })
+      }
+      else if(recipient_type=='NGO' && donation_type=='money'){
+        const { 
+          donor_name,
+          donor_email,
+          donor_address,
+          donation_type,
+          amount
+        } = req.body
+        const newDonation = new Donations({
+          donor_name,
+          donor_email,
+          donor_address,
+          recipient_type,
+          donation_type,
+          amount,
+          donation_date: new Date(),
+          accepted:'false'
+        })
+
+        newDonation.save()
+        .then((donation)=>{
+          console.log('Donation saved', donation)
+          res.status(200).json({donation})
+      })
+      .catch(err=>{
+          res.status(500).json({err})
+      })
+      }
+  
+    }catch(err){
     res.status(500).json({err})
   }
  
@@ -392,6 +434,68 @@ app.use('/create-donation',async(req,res)=>{
 app.use('/ngo-donations',async(req,res)=>{
    try {
     const donations = await Donations.find({ recipient_type: 'NGO', accepted: false });
+    res.status(200).json(donations);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+})
+
+app.use('/ngo-donations-update', (req, res) => {
+  const filter = {
+    donor_email: req.body.donor_email,
+    donation_type: req.body.donation_type,
+    // donation_quantity: req.body.donation_quantity,
+    donor_address: req.body.donor_address,
+    recipient_type:req.body.recipient_type,
+    accepted: false
+  };
+  console.log('Filter',filter)
+  const update = {
+    $set: {
+      accepted: true
+    }
+  };
+
+  Donations.findOneAndUpdate(filter, update, { new: true })
+    .then((updatedDonation) => {
+      if (!updatedDonation) {
+        res.status(404).send('Donation not found');
+      } else {
+        res.status(200).send(updatedDonation);
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+      res.status(500).send('Internal server error');
+    });
+});
+
+//route to store donations in Donation History
+app.post('/donation-history', (req, res) => {
+  const { donor_name, donor_email, donation_type, donation_quantity, donor_address, donation_date, email } = req.body;
+  const newDonation = new DonationHistory({
+     donor_name,
+     donor_email, 
+     donation_type, 
+     donation_quantity, 
+     donor_address, 
+     donation_date: new Date(), 
+     email });
+  newDonation.save()
+    .then(donation => {
+      console.log('New donation added:', donation);
+      res.status(201).json(donation);
+    })
+    .catch(error => {
+      console.error('Error adding new donation:', error);
+      res.status(500).json({ error: 'Error adding new donation' });
+    });
+});
+
+//get the donations from donation history in NGOs donation history
+app.use('/updated-donations-history',async(req,res)=>{
+  try {
+    const donations = await DonationHistory.find();
     res.status(200).json(donations);
   } catch (err) {
     res.status(500).json({ message: err.message });

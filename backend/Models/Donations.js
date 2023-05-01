@@ -9,6 +9,9 @@ const donationSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  donor_address: {
+    type: String,
+  },
   recipient_type: {
     type: String,
     enum: ['NGO', 'Needy-Person'],
@@ -26,7 +29,7 @@ const donationSchema = new mongoose.Schema({
     required: true
   },
   amount: {
-    type: Number,
+    type: String,
     min: 1,
     validate: {
       validator: function(v) {
@@ -46,6 +49,15 @@ const donationSchema = new mongoose.Schema({
   },
   cloth_quantity: {
     type: Number,
+    validate: {
+      validator: function(v) {
+        return this.donation_type === 'cloth' ? v != null : true;
+      },
+      message: 'Cloth quanity is required for cloth donations'
+    }
+  },
+  cloth_quality: {
+    type: String,
     validate: {
       validator: function(v) {
         return this.donation_type === 'cloth' ? v != null : true;

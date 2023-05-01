@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -7,6 +7,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import { AuthContext } from '../context/AuthContext';
 import './NGODonations.css'
 function createData(DonorName, DonorEmail, DonationType, Quantity, DonationsDate) {
   return { DonorName, DonorEmail, DonationType, Quantity, DonationsDate};
@@ -23,7 +24,10 @@ function createData(DonorName, DonorEmail, DonationType, Quantity, DonationsDate
 
 
 export default function BasicTable() {
-  const [rows, setRows] = useState([])
+  let [rows, setRows] = useState([])
+  const [flag, setFlag] = useState(0)
+
+  const {credentials} = useContext(AuthContext)
 
   useEffect(()=>{
   
@@ -36,8 +40,56 @@ export default function BasicTable() {
       })
       .catch(error => console.error(error));
     },[])
-    
 
+
+    const handleAccept = async (row) => {
+      const data = {
+        donor_name: row.donor_name,
+        donor_email: row.donor_email,
+        donation_type: row.donation_type,
+        donation_quantity: row.donation_type === "food" ? row.food_quantity : row.donation_type === 'money' ? `Rs. ${row.amount}` : row.cloth_quantity+` ( ${row.cloth_quality} )`,
+        donor_address: row.donor_address,
+        donation_date: row.donation_date,
+        email:credentials?.user?.email
+      }
+      const newRows = rows.filter(r => r.id !== row.id);
+      setRows(newRows);
+      console.log(data);
+
+      fetch('/donation-history', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      })
+      .then(response => response.json())
+      .then(data => alert('Donation history added:', data))
+      .catch(error => console.error(error));
+
+
+      const response = await fetch(`/ngo-donations-update`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({...data,recipient_type:row.recipient_type}),
+      })
+      await response.json()
+      if(response.ok){
+        console.log('user side',{...data,recipient_type:row.recipient_type})
+      }else{
+        console.log('Donation not updated')
+      }
+
+      fetch('/ngo-donations')
+      .then(response => response.json())
+      .then(data => { 
+        setRows(data)
+      })
+      .catch(error => console.error(error));
+
+    }  
   return (
     <div className='table'>
         <h1>View Donations</h1>
@@ -55,6 +107,7 @@ export default function BasicTable() {
             <TableCell align="left">Donor Email</TableCell>
             <TableCell align="left">DonationType&nbsp;</TableCell>
             <TableCell align="left">Quantity/Amount&nbsp;</TableCell>
+            <TableCell align="left">Address&nbsp;</TableCell>
             <TableCell align="left">DonatinonDate&nbsp;</TableCell>
           </TableRow>
         </TableHead>
@@ -69,9 +122,10 @@ export default function BasicTable() {
               </TableCell>
               <TableCell align="left">{row.donor_email}</TableCell>
               <TableCell align="left">{row.donation_type}</TableCell>
-              <TableCell align="left">{row.donation_type === "food" ? row.food_quantity : row.cloth_quantity}</TableCell>
+              <TableCell align="left">{row.donation_type === "food" ? row.food_quantity :row.donation_type == 'money'?`Rs. ${row.amount}` :row.cloth_quantity+` ( ${row.cloth_quality} )`}</TableCell>
+              <TableCell align="left">{row.donor_address}</TableCell>
               <TableCell align="left">{row.donation_date}</TableCell>
-              <TableCell align="left" className='Details'>Accept</TableCell>
+              <TableCell align="left" className='Details' onClick={()=>handleAccept(row)}>Accept</TableCell>
             </TableRow>
           ))}
         </TableBody>

@@ -63,16 +63,17 @@ const DonorCreateDonation = () => {
     const handleSubmit = async (event) => {
       event.preventDefault();
       
-      if(donationRecipient=='NGO' && donationType=='food'){
+      if(donationRecipient==='NGO' && donationType==='food'){
        setFormData( {
             donor_name: credentials?.user?.name,
             donor_email: credentials?.user?.email,
+            donor_address:credentials?.user?.address,
             recipient_type:donationRecipient,
             donation_type:donationType,
             food_quantity:foodQuantity,
         })
       }
-      else if(donationRecipient=='Needy-Person' && donationType=='food'){
+      else if(donationRecipient==='Needy-Person' && donationType==='food'){
         setFormData( {
             donor_name: credentials?.user?.name,
             donor_email: credentials?.user?.email,
@@ -82,6 +83,25 @@ const DonorCreateDonation = () => {
             donation_type:donationType,
             food_quantity:foodQuantity,
         })  
+      }else if(donationRecipient==='NGO' && donationType==='cloth'){
+        setFormData( {
+          donor_name: credentials?.user?.name,
+          donor_email: credentials?.user?.email,
+          donor_address:credentials?.user?.address,
+          recipient_type:donationRecipient,
+          donation_type:donationType,
+          cloth_quality:clothingCondition,
+          cloth_quantity:clothesQuantity,
+        })
+      }else if(donationRecipient==='NGO' && donationType==='money'){
+        setFormData( {
+          donor_name: credentials?.user?.name,
+          donor_email: credentials?.user?.email,
+          donor_address:credentials?.user?.address,
+          recipient_type:donationRecipient,
+          donation_type:donationType,
+          amount:donationAmount,
+        })
       }
       const response = await fetch('/create-donation',{
         method:'POST',
@@ -90,7 +110,7 @@ const DonorCreateDonation = () => {
         },
         body: JSON.stringify(formData)
       })
-      const data = await response.json()
+       await response.json()
       if(response.ok){
         alert("Donation Created and sent")
       }else{

@@ -7,9 +7,10 @@
 .ngo-container{
     display:flex;
     flex-direction: row;
-   
+   height: 100%;
 }
 main{
+    height: 100%;
     padding-left: 2px;
 }
 
@@ -17,7 +18,7 @@ main{
 .ngo-container .ngo-sidebar{
     background: green;
     color: white;
-    height: 130vh;
+    height: 100%;
     transition: all 0.5s;
    
 }
