@@ -24,7 +24,7 @@ import CreatePost from './NGODashboard/CreatePost/CreatePost'
 // import DonorProfile from './NGODashboard/DonorProfile/DonorProfile'
 import UpdateDonation from './NGODashboard/UpdateDonationHistory/UpdateDonation'
 import Profile from './NGODashboard/Profile/Profile'
-import NGODonations from './NGODashboard/NGODonatinos'
+import NGODonations from './NGODashboard/NGODonations'
 
 import DonorSidebar from './DonorDashboard/DonorSidebar';
 import DonorDashboard from './DonorDashboard/DonorDashboard'

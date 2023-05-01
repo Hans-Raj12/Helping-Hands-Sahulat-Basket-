@@ -386,3 +386,14 @@ app.use('/create-donation',async(req,res)=>{
   }
  
 })
+
+
+//route to get donations in NGO dashboard
+app.use('/ngo-donations',async(req,res)=>{
+   try {
+    const donations = await Donations.find({ recipient_type: 'NGO', accepted: false });
+    res.status(200).json(donations);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+})

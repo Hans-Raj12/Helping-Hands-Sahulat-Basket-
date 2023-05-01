@@ -92,7 +92,7 @@ const DonorCreateDonation = () => {
       })
       const data = await response.json()
       if(response.ok){
-        alert("Donation saved")
+        alert("Donation Created and sent")
       }else{
         alert("Donation Failed")
       }
@@ -183,7 +183,7 @@ const DonorCreateDonation = () => {
                 </label>
                 </div>
             )}
-            {donationType === "clothing" && (
+            {donationType === "cloth" && (
                 <div>
                 <label>
                     Clothing Type:
@@ -214,7 +214,7 @@ const DonorCreateDonation = () => {
                 </div>
             )}
 
-            {donationType === "funds" && (
+            {donationType === "money" && (
                 <div className="form-group">
                 <label htmlFor="donationAmount">Amount:</label>
                 <input
