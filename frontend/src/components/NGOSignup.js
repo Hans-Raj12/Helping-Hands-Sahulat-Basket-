@@ -5,6 +5,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Header from '../components/Header'
+import { useNavigate, Link } from "react-router-dom";
 // import Check from "..Check";
 const PasswordErrorMessage = () => { 
     return ( 
@@ -16,26 +17,27 @@ function NGOSignup(){
     const [address, setaddress] = useState(""); 
     const [email, setEmail] = useState(""); 
     const [number, setNumber] = useState(""); 
-    const [employessNum, setemployessNum] = useState(""); 
-    const [orgType, setorgType] = useState(""); 
+    const [numOfEmployees, setNumOfEmployees] = useState(""); 
+    const [NGOType, setNGOType] = useState(""); 
     const [experience, setexperience] = useState(""); 
     const [password, setPassword] = useState({ 
       value: "", 
       isTouched: false, 
     }); 
     const [role, setRole] = useState("role");
-    const [website, setwebsite] = useState("website");
-    const [distribution, setdistribution] = useState("distribution");
+    const [website, setwebsite] = useState("no");
+    const [websiteUrl, setWebsiteUrl] = useState('')
    
+    const navigate = useNavigate()
+
     const getIsFormValid = () => { 
       return ( 
         ngoName && 
         number &&
         validateEmail(email) && 
         password.value.length >= 8  &&
-        orgType &&
-        role &&
-        website
+        NGOType &&
+        role
       ); 
     }; 
     
@@ -47,14 +49,39 @@ function NGOSignup(){
       setPassword({ 
         value: "", 
         isTouched: false, 
+        
       }); 
       
     }; 
     
     const handleSubmit = (e) => { 
       e.preventDefault(); 
-      alert("Account created!"); 
-      clearForm(); 
+      
+      const data = {
+        name:ngoName,
+        address:address,
+        email,
+        password:password.value,
+        phone:number,
+        numOfEmployees,
+        NGOType,
+        experience,
+        websiteUrl
+      }
+      fetch('/ngo-signup',{
+        method:'POST',
+        headers:{
+          'Content-Type':'application/json'
+        },
+        body:JSON.stringify(data)
+      })
+      .then(response => {response.json()})
+      .then(data => {
+        alert('Account Created')
+        clearForm();
+        navigate('/login')
+      })
+      .catch(err=>console.log(err))
     }; 
     
     return ( 
@@ -126,9 +153,9 @@ function NGOSignup(){
                 Type of Organization <sup>*</sup> 
               </label> 
               <input type="text"
-                 value={orgType} 
+                 value={NGOType} 
                  onChange={(e) => { 
-                   setorgType(e.target.value); 
+                   setNGOType(e.target.value); 
                  }} 
                  placeholder="Type of Organization"  /> 
             </Col> 
@@ -170,9 +197,9 @@ function NGOSignup(){
                 <label>NO: of employees?</label> 
                 <input 
                 type="number"
-                  value={employessNum} 
+                  value={numOfEmployees} 
                   onChange={(e) => { 
-                    setemployessNum(e.target.value); 
+                    setNumOfEmployees(e.target.value); 
                   }} 
                   placeholder="Employees" 
                 /> 
@@ -187,7 +214,20 @@ function NGOSignup(){
                 <option value="yes">yes</option> 
                 <option value="no">no</option> 
               </select>
-                </Col>
+
+              {website==='yes' && 
+                (<div>
+                    <label>Website Url <sup>*</sup></label>
+                    <input
+                      type="text"
+                      value={websiteUrl}
+                      onChange={e =>{
+                        setWebsiteUrl(e.target.value)
+                      }}
+                    />
+                </div>)
+              }
+              </Col>
             <Col sm={6}> 
               <label > 
                 Which supplies you can distribute ? <sup>*</sup> 
@@ -211,7 +251,7 @@ function NGOSignup(){
             <button type="submit" disabled={!getIsFormValid()}> 
               Create account 
             </button>
-            <p>Already have a Donor account? Login</p>
+            <p>Already have a NGO account? <Link to='/login'>Login</Link></p>
                
         </form> 
         </Container>

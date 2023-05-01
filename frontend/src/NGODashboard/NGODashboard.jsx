@@ -1,11 +1,11 @@
-import React from 'react';
-import Slider from "../assets/NGOImages/slide1.jpg"
+import React,{useContext} from 'react';
 import "./NGODashboard.css"
-import Donot from './Chart'
 import { Container, Col, Row } from 'react-bootstrap';
 import StaticalCard from './components/Card';
-
+import { AuthContext } from '../context/AuthContext';
 const NGODashboard = () => {
+
+  const { credentials } = useContext(AuthContext)
 
     const Circle = ({ title, value }) => (
       <div className="circle">
@@ -20,7 +20,7 @@ const NGODashboard = () => {
     return (
         <>
         <div className='ngo-dashboard'>
-          <h1 >NGO Dashboard</h1>
+          <h1 >{credentials ? credentials?.user?.name : "NGO Dashboard"}</h1>
           {/* <div className="dashboard">
             <Circle title="Food" value="$10,000" />
             <Circle title="Clothes" value="$7,500" />

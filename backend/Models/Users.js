@@ -6,7 +6,11 @@ const usersSchema = new mongoose.Schema({
     email:{ type:String, required:true, unique:true},
     address:{type: String, required:true},
     phone:{type: String, required:true},
-    cnic:{type: String, required:true, unique:true}
+    cnic:{type: String},
+    numOfEmployees:{type:String},
+    NGOType:{type:String},
+    experience:{type:String},
+    websiteUrl:{type:String}
 })
 
 module.exports = mongoose.model('Users',usersSchema)

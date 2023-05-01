@@ -60,7 +60,43 @@ app.use('/donor-signup',async (req, res) => {
     res.status(500).json({ message: 'Internal server error' }); // Handle errors
   }
 })
+// ngo-routes
+app.use('/ngo-signup',async (req, res) => {
 
+  try {
+    const {
+      name,
+      address, 
+      email, 
+      password,
+      phone,
+      numOfEmployees,
+      NGOType,
+      experience,
+      websiteUrl,
+     } = req.body;
+
+    const newUser = new Users({
+       roleId:'2',
+       name,
+       password,
+       email,
+       address,
+       phone,
+       numOfEmployees,
+       NGOType,
+       experience,
+       websiteUrl
+    })
+    // Save the new user to the database
+    const savedUser = await newUser.save();
+
+    res.status(201).json({savedUser}); // Return the saved user as a JSON response with a 201 status code
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: 'Internal server error' }); // Handle errors
+  }
+})
 
 //needy routes
 app.use('/needy-signup', async (req, res) => {

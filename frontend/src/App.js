@@ -7,7 +7,7 @@ import Signup from './pages/Signup'
 import DonorSignup from './components/DonorSignup'
 import NeedySignup from './components/NeedySignup'
 import NGOSignup from './components/NGOSignup';
-import Header from './components/Header'
+// import Header from './components/Header'
 
 import VerifyNGO from './components/AdminDashboard/VerifyNGO';
 import Dashboard from './components/AdminDashboard/Dashboard';
@@ -24,6 +24,7 @@ import CreatePost from './NGODashboard/CreatePost/CreatePost'
 // import DonorProfile from './NGODashboard/DonorProfile/DonorProfile'
 import UpdateDonation from './NGODashboard/UpdateDonationHistory/UpdateDonation'
 import Profile from './NGODashboard/Profile/Profile'
+import NGODonations from './NGODashboard/NGODonatinos'
 
 import DonorSidebar from './DonorDashboard/DonorSidebar';
 import DonorDashboard from './DonorDashboard/DonorDashboard'
@@ -71,6 +72,7 @@ function App() {
                     {/* <Route path='donor-profiles' element={<DonorProfile/>}/> */}
                     <Route path='donation-history' element={<UpdateDonation/>}/>
                     <Route path='profile' element={<Profile/>}/>
+                    <Route path='ngo-donations' element={<NGODonations/>}/>
                 </Route>
           </Routes>
 

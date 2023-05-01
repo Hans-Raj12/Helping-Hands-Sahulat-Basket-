@@ -1,19 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import {
-    FaTh,
     FaBars,
    
 }from "react-icons/fa";
 import { NavLink, Outlet } from 'react-router-dom';
 import * as FaIcons from 'react-icons/fa';
-import * as FiIcons from 'react-icons/fi';
 import * as IoIcons from 'react-icons/io';
 import "./NGOSidebar.css";
-import logo from '../assets/NGOImages/logo.png'
 import NGOHeader from './NGOHeader';
-
+import { AuthContext } from '../context/AuthContext';
 
 const NGOSidebar = ({children}) => {
+  
+  const { credentials } = useContext(AuthContext)
     const[isOpen ,setIsOpen] = useState(false);
     const toggle = () => setIsOpen (!isOpen);
     const menuItem=[
@@ -48,12 +47,18 @@ const NGOSidebar = ({children}) => {
             icon: <FaIcons.FaHistory />,
             cName: 'nav-text'
           },
-         
           {
             title: 'Profile',
             path: 'profile',
             icon: <FaIcons.FaUserAlt />,
             cName: 'nav-text'
+          },
+          {
+            title:'Donations',
+            path:'ngo-donations',
+            icon:<FaIcons.FaDatabase/>,
+            cName:'nav-text'
+
           },
     ]
     return (
@@ -64,7 +69,7 @@ const NGOSidebar = ({children}) => {
           
            <div style={{width: isOpen ? "360px" : "50px"}} className="ngo-sidebar">
                <div className="top_section">
-                   <div style={{display: isOpen ? "block" : "none"}} className="logo">NGO Name</div>
+                   <div style={{display: isOpen ? "block" : "none"}} className="logo">{credentials ? credentials?.user?.name : "NGO Name"}</div>
                    <div style={{marginLeft: isOpen ? "50px" : "0px"}} className="bars">
                        <FaBars onClick={toggle}/>
                    </div>
