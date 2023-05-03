@@ -47,7 +47,7 @@ export default function BasicTable() {
         donor_name: row.donor_name,
         donor_email: row.donor_email,
         donation_type: row.donation_type,
-        donation_quantity: row.donation_type === "food" ? row.food_quantity : row.donation_type === 'money' ? `Rs. ${row.amount}` : row.cloth_quantity+` ( ${row.cloth_quality} )`,
+        donation_quantity: row.donation_type === "food" ? row.food_quantity : row.donation_type === 'money' ? `${row.amount}` : row.cloth_quantity,
         donor_address: row.donor_address,
         donation_date: row.donation_date,
         email:credentials?.user?.email

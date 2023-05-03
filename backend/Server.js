@@ -1,10 +1,12 @@
 require('dotenv').config()
 const express = require('express')
 const cors = require('cors')
+const multer = require('multer');
+const fs = require('fs/promises');
+const fundraisingpost_api = require('./routes/fundraisingposts.routes')
+
 const mongoose = require('mongoose')
 const bodyParser = require("body-parser");
-const needy_users = require('./Models/needy-users')
-const donor_users = require('./Models/donor_users')
 const Donations = require('./Models/Donations')
 // const dbSchema = require('./Models/schemaModels')
 const router = express.Router();
@@ -15,6 +17,8 @@ const FundingDetails = require('./Models/FundingDetails')
 const DonationOffer = require('./Models/DonationOffer')
 const DonationType = require('./Models/DonationType')
 const DonationHistory = require('./Models/DonationHistory')
+
+
 const app = express()
 
 // Configure middleware-*
@@ -501,3 +505,22 @@ app.use('/updated-donations-history',async(req,res)=>{
     res.status(500).json({ message: err.message });
   }
 })
+
+// endpoint to view donors in NGO dashboard
+app.use('/donor-profiles', async (req, res) => {
+  
+  try{
+    const filteredUsers = await Users.find({roleId:"3"});
+    res.status(200).json(filteredUsers);
+  }
+  catch(err){
+    res.status(500).json({err})
+  }
+  
+});
+
+
+app.use('/public', express.static('public'));
+// Define endpoint to create a fundraising post
+app.use('/fundraising-posts', fundraisingpost_api)
+

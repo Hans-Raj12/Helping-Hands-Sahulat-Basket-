@@ -42,14 +42,14 @@ const NGOSidebar = ({children}) => {
             cName: 'nav-text'
           },
           {
-            title: 'Update Donation History',
+            title: 'Donation History',
             path: 'donation-history',
             icon: <FaIcons.FaHistory />,
             cName: 'nav-text'
           },
           {
             title: 'Profile',
-            path: 'profile',
+            path: 'ngo-profile',
             icon: <FaIcons.FaUserAlt />,
             cName: 'nav-text'
           },
