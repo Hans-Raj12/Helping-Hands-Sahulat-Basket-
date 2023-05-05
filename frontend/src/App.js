@@ -33,6 +33,10 @@ import DonorViewNGO from './DonorDashboard/DonorViewNGO'
 import DonorProjects from './DonorDashboard/DonorProjects';
 import DonorProfile from './DonorDashboard/DonorProfile';
 
+import NeedyProfile from './NeedyDashboard/NeedyProfile';
+import NeedyDonation from './NeedyDashboard/NeedyDonation'
+import NeedySidebar from './NeedyDashboard/NeedySidebar';
+import NeedyDashboard from './NeedyDashboard/NeedyDashboard'
 function App() {
 
   return (
@@ -83,6 +87,14 @@ function App() {
                     <Route path='view-ngos' element={<DonorViewNGO/>}/>
                     <Route path='donor-projects' element={<DonorProjects/>}/>
                     <Route path='profile' element={<DonorProfile/>}/>
+                </Route>
+          </Routes>
+          <Routes>
+                <Route path='/needy' element={<NeedySidebar/>}>
+                      <Route path='' element={<NeedyDashboard/>}/>
+                     <Route path='needyProfile' element={<NeedyProfile/>}/>
+                     <Route path='needyDonation' element={<NeedyDonation/>}/>
+
                 </Route>
           </Routes>
           <Footer2/> 

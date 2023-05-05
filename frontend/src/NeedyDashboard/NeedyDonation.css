@@ -1,0 +1,46 @@
+.needy-tableNeedy .MuiTableRow-root>*{
+    padding: 10px;
+}
+.needy-tableNeedy .MuiTableRow-root.MuiTableRow-head>*{
+    font-weight: bold !important
+}
+.needy-tableNeedy{
+    margin: auto 0;
+    margin-left: 40px;
+    margin-top: 40px;
+    color:#616fa8;
+}
+.needy-tableNeedy .MuiTableRow-root.MuiTableRow-head{
+   background-color:  #3d445f;
+   
+}
+.needy-tableNeedy td, th{
+    border: none !important; 
+   
+}
+.needy-tableNeedy th{
+    color: white;
+}
+.needy-tableNeedy .Table:first-child{
+    border-radius: 0.7rem !important;
+}
+.needy-tableNeedy .Details{
+    color: #00b5ff !important
+}
+@media screen and (max-width: 1200px){
+    .needy-tableNeedy .Table{
+        width: 170%;
+        margin-top: 2rem;
+
+    }
+}
+@media screen and (max-width: 768px){
+    .needy-tableNeedy .Table{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 18rem;
+    }
+}
+

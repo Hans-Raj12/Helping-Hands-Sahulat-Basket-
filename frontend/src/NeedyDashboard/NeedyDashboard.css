@@ -1,0 +1,35 @@
+.needy-dashboard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    overflow: scroll;
+    width: 100%;
+  }
+  
+  .needy-dashboard-container .needy-profile {
+    display: flex;
+    align-items: center;
+    /* margin-bottom: 20px; */
+  }
+  
+  .needy-dashboard-container .needy-profile img {
+    width: 45%;
+    margin-right: 20px;
+  }
+  
+  /* Adjust the width and margin-right values as needed */
+  
+  @media (max-width: 768px) {
+    .needy-dashboard-container .needy-profile {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .needy-dashboard-container .needy-profile img {
+      width: 100%;
+      margin-right: 0;
+      margin-bottom: 20px;
+    }
+  }
+  

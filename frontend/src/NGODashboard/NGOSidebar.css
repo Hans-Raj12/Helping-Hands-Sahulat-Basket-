@@ -1,9 +1,4 @@
-*{
-    margin:0;
-    padding:0;
-    text-decoration: none;
-   
-}
+
 .ngo-container{
     display:flex;
     flex-direction: row;
