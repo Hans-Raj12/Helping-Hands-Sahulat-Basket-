@@ -92,21 +92,21 @@
   .status{
     margin-bottom: 5px;
   }
-  p{
+  .donorSignup p{
     margin-top: 5px;
     font-size: smaller;
     text-align: center;
     
   }
 
-  p a{
+  .donorSignup  p a{
     padding: 5px;
   border-radius: 50px;
   color: #e74c3c;
   font-weight: bold;
   }
   
-  p a:hover{
+  .donorSignup p a:hover{
     color: #fefefe;
   background: #e74c3c;
   }

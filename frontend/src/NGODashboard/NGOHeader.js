@@ -16,10 +16,12 @@ const NGOHeader = () => {
           <FaBell className="icon" />
           <FaEnvelope className="icon" />
         </div>
+        <Link to='/'>
         <button className="signout-btn">
           <FaSignOutAlt className="iconsign" />
-          Sign Out
+          Sign out
         </button>
+        </Link>
       </header>
     </div>
   )

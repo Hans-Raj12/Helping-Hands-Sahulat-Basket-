@@ -18,6 +18,10 @@ const fundraisingPostSchema = new Schema({
     type: String,
     required: true
   },
+  raisedAmount:{
+    type:Number,
+    required:true
+  },
   createdAt:{
     type:Date,
     required:true

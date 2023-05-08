@@ -7,7 +7,7 @@
     padding: 100px 30px;
   }
   
-  .signup-container h1,h4{
+  .signup-container h1, .signup-container h4{
     display: flex;
     align-items: center;
     justify-content: center;

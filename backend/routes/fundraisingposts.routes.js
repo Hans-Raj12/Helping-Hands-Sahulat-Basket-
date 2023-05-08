@@ -36,6 +36,7 @@ router.post('/', upload.single('file'), (req, res, next) => {
         description,
         goalAmount,
         imageFilePath,
+        raisedAmount:0,
         createdAt:new Date(),
         ngoEmail,
         ngoId
@@ -52,7 +53,8 @@ router.post('/', upload.single('file'), (req, res, next) => {
     })
 })
 router.get('/', (req, res, next) => {
-    FundraisingPost.find()
+    const ngoEmail = req.query.ngoEmail
+    FundraisingPost.find({ngoEmail})
       .then(posts => {
         res.status(200).json(posts);
       })

@@ -1,22 +1,26 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 
 import './NGOShowProjects.css'
 import FundraisingPostCard from './CreatePost/FundraisingPostCard'
+import { AuthContext } from '../context/AuthContext';
 
 const NGOShowProjects = () =>{
 
     const [posts, setPosts] = useState([])
-
+  const { credentials } = useContext(AuthContext)
+   const ngoEmail = credentials?.user?.email 
     useEffect(()=>{
   
-        fetch('/fundraising-posts')
+        fetch(`/fundraising-posts?ngoEmail=${ngoEmail}`,{
+            method:"GET"
+        })
         .then(response => response.json())
         .then(data => {
-          console.log(data); 
           setPosts(data)
+          
         })
         .catch(error => console.error(error));
-      },[])
+      })
 
       
 
@@ -25,7 +29,7 @@ const NGOShowProjects = () =>{
             <h1>NGO PROJECTS</h1>
             <div className='fundraising-post-cards'>
                 {posts.map(post=>{
-                  return  <FundraisingPostCard key={post._id} post={post}/>
+                  return  <FundraisingPostCard key={post._id} post={post} user={credentials?.user}/>
                 })}
             </div>
         </div>

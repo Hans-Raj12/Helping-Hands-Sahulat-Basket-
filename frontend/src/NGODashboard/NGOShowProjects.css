@@ -22,7 +22,7 @@
     overflow-y: scroll; */
   }
   
-  @media (max-width: 767px) {
+  /* @media (max-width: 767px) {
     .fundraising-post-cards {
       justify-content: center;
     }
@@ -49,7 +49,7 @@
     .fundraising-post-card {
       flex-basis: 100%;
     }
-  }
+  } */
   
 
 
