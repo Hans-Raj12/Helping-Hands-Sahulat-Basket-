@@ -4,7 +4,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color:#29335C;
+  background-color:black;
   padding: 0.7rem;
  
 }
@@ -31,7 +31,7 @@
 
 .needy-header  .icon {
   font-size: 1.5rem;
-  color: #fff;
+  color: #ffc451;
 }
 .needy-header  .iconsign {
   display: flex;
@@ -44,8 +44,8 @@
   gap: 1rem;
   padding: 10px 20px;
   border: none;
-  background-color:black;
-  color: #fff;
+  background-color:#ffc451;
+  color: #343a40;
   font-size: 1rem;
   text-align: center;
   text-decoration: none;
@@ -55,6 +55,6 @@
 }
 
 .needy-header  .signout-btn:hover {
-  background-color: #ffffff;
+  background-color: #d5a036;
   color: #000000;
 }

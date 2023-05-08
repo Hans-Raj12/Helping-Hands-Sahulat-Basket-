@@ -1,0 +1,56 @@
+.show-project-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    margin: 20px;
+}
+.show-project-container .fundraising-post-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    height: 100%;
+    overflow-y: scroll;
+    padding: 40px;
+    /* display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 1200px;
+    height: 100%;
+    overflow-y: scroll; */
+  }
+  
+  @media (max-width: 767px) {
+    .fundraising-post-cards {
+      justify-content: center;
+    }
+  }
+  
+  @media (min-width: 768px) and (max-width: 1199px) {
+    .fundraising-post-cards {
+      justify-content: space-between;
+    }
+  }
+  
+  .fundraising-post-card {
+    flex-basis: calc(25% - 10px);
+    margin-bottom: 20px;
+  }
+  
+  @media (max-width: 991px) {
+    .fundraising-post-card {
+      flex-basis: calc(50% - 10px);
+    }
+  }
+  
+  @media (max-width: 575px) {
+    .fundraising-post-card {
+      flex-basis: 100%;
+    }
+  }
+  
+
+
+  

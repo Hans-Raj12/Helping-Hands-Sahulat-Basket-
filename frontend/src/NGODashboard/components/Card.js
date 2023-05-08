@@ -60,7 +60,7 @@ const StatisticalCard = ({ title, number, icon }) => {
         <h2 >{title}</h2>
         
       
-      <IconContext.Provider value={{ size: '48px', color: 'green', cursor:'pointer' }}>
+      <IconContext.Provider value={{ size: '48px', color: '#ffc451', cursor:'pointer' }}>
         {iconComponent}
       </IconContext.Provider>
       <h3>{number}</h3>

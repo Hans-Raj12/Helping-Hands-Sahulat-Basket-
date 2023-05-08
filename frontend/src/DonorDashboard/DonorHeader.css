@@ -2,19 +2,20 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color:rgb(6, 148, 173);
+    background-color:black;
     padding: 0.7rem;
    
 }
   
 .donor-header .logo {
     flex: 1;
-    text-align: center;
+    margin-left: 10px;
   }
   
  
   .donor-header  .logo img {
     height: 50px;
+    color: #fff;
   }
   
   .donor-header .icons {
@@ -27,7 +28,7 @@
 
   .donor-header  .icon {
     font-size: 1.5rem;
-    color: black;
+    color:  #ffc451;
   }
   .donor-header  .iconsign {
     display: flex;
@@ -40,8 +41,8 @@
     gap: 1rem;
     padding: 10px 20px;
     border: none;
-    background-color:black;
-    color: #fff;
+    background-color: #ffc451;
+    color: #343a40;
     font-size: 1rem;
     text-align: center;
     text-decoration: none;
@@ -51,6 +52,6 @@
   }
   
   .donor-header  .signout-btn:hover {
-    background-color: #ffffff;
+    background-color: #d59b25;
     color: #000000;
   }

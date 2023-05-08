@@ -7,8 +7,7 @@
 }
 
 .donor-sidebar-container .sidebar{
-    background: rgb(6, 148, 173);
-    color: black;
+    background: black;
     height: 135vh;
     /* width: 200px; */
     transition: all 0.5s;
@@ -21,12 +20,13 @@
 }
 .donor-sidebar-container .logo{
     font-size: 30px;
-    color: black;
+    color: white;
 }
 .donor-sidebar-container .bars{
     display: flex;
     font-size: 25px;
     margin-left: 50px;
+    color: #fff;
 }
 .donor-sidebar-container .link{
     display: flex;
@@ -36,15 +36,15 @@
     transition: all 0.5s;
 }
 .donor-sidebar-container .link:hover{
-    background:rgb(43, 85, 110);
-    color: #fcfcfc;
+    background:#ffc451;
+    color: #343a40;
     transition: all 0.5s;
 }
 .donor-sidebar-container .icon:hover{
-    color: #fcfcfc;
+    color: #ffc451;
 }
 .donor-sidebar-container .active{
-    background: rgb(138, 199, 240);
+    background: #ffc451;
     color: #000;
 }
 

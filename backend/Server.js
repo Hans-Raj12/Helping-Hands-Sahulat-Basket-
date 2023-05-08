@@ -150,7 +150,7 @@ app.use('/login', async (req, res) => {
     return;
   }
   else if (user && user.roleId=="4") {
-    res.status(200).json({ user, redirect:"/ngo", role:'Needy' });
+    res.status(200).json({ user, redirect:"/needy", role:'Needy' });
     return;
   }
   // Check if needy user exists with the given email and password
@@ -521,6 +521,7 @@ app.use('/donor-profiles', async (req, res) => {
 
 
 app.use('/public', express.static('public'));
+// app.use(express.static(path.join(__dirname, 'public')));
 // Define endpoint to create a fundraising post
 app.use('/fundraising-posts', fundraisingpost_api)
 

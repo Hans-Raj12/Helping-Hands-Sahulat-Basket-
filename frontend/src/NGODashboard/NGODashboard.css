@@ -1,11 +1,12 @@
 .ngo-dashboard{
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  /* justify-content: center; */
+  /* align-items: center; */
   width: 100%;
   height: 100%;
-  padding: 100px 50px;
+  /* padding: 100px 50px; */
+  overflow: scroll;
 }
 
 .ngo-dashboard h1{

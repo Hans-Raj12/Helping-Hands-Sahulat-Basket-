@@ -1,0 +1,8 @@
+.card-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 2.4em; /* Set the maximum height to two lines */
+    line-height: 1.2em; /* Set the line-height to match the font size */
+  }
+  

@@ -11,7 +11,7 @@ main{
 
 
 .ngo-container .ngo-sidebar{
-    background: green;
+    background: black;
     color: white;
     height: 100%;
     transition: all 0.5s;
@@ -44,16 +44,16 @@ main{
     transition: all 0.5s;
 }
 .link:hover{
-    background:rgb(130, 231, 130);
-    color: #fcfcfc;
+    background:#ffc451;
+    color: #343a40;
     transition: all 0.5s;
 }
 .icon:hover{
-    color: #fcfcfc;
+    color: #343a40;
 }
 .active{
-    background: rgb(77, 104, 122);
-    color: #000;
+    background: #ffc451;
+    color: #343a40;
 }
 
 .icon, .link_text{

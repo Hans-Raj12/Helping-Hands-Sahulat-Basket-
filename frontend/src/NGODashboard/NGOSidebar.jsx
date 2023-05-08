@@ -23,7 +23,7 @@ const NGOSidebar = ({children}) => {
             icon:<FaIcons.FaTh/>
         },
           {
-            title: 'Create Fundraiser Post',
+            title: 'Create Fundraising Post',
             path: 'create-post',
             icon: <FaIcons.FaPlusCircle />,
             cName: 'nav-text'
@@ -37,7 +37,7 @@ const NGOSidebar = ({children}) => {
          
           {
             title: 'Show Projects',
-            path: '/projects',
+            path: 'show-projects',
             icon: <IoIcons.IoIosPaper />,
             cName: 'nav-text'
           },

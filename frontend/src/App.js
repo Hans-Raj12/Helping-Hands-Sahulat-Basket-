@@ -37,6 +37,7 @@ import NeedyProfile from './NeedyDashboard/NeedyProfile';
 import NeedyDonation from './NeedyDashboard/NeedyDonation'
 import NeedySidebar from './NeedyDashboard/NeedySidebar';
 import NeedyDashboard from './NeedyDashboard/NeedyDashboard'
+import NGOShowProjects from './NGODashboard/NGOShowProjects';
 function App() {
 
   return (
@@ -77,6 +78,7 @@ function App() {
                     <Route path='donation-history' element={<UpdateDonation/>}/>
                     <Route path='ngo-profile' element={<NGOProfile/>}/>
                     <Route path='ngo-donations' element={<NGODonations/>}/>
+                    <Route path='show-projects' element={<NGOShowProjects/>}/>
                 </Route>
           </Routes>
 

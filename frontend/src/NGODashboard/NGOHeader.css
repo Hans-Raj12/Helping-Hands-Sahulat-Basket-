@@ -2,9 +2,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: green;
+    background-color: black;
     padding-left: 30px;
     padding-right: 30px;
+    padding: 10px;
 }
   
 .ngo-header .logo {
@@ -26,7 +27,7 @@
   
   .ngo-header .icon {
     font-size: 1.5rem;
-    color: white;
+    color: #ffc451;
   }
   .ngo-header .iconsign {
     display: flex;
@@ -39,8 +40,8 @@
     gap: 1rem;
     padding: 10px 15px;
     border: none;
-    background-color:white;
-    color: black;
+    background-color:#ffc451;
+    color: #343a40;
     font-size: 1rem;
     text-align: center;
     text-decoration: none;
@@ -50,6 +51,6 @@
   }
   
   .ngo-header .signout-btn:hover {
-    background-color: #665555;
+    background-color:#d59b25;
     color: #000000;
   }

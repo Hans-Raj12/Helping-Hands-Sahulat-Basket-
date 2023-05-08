@@ -51,5 +51,18 @@ router.post('/', upload.single('file'), (req, res, next) => {
             });
     })
 })
+router.get('/', (req, res, next) => {
+    FundraisingPost.find()
+      .then(posts => {
+        res.status(200).json(posts);
+      })
+      .catch(error => {
+        res.status(500).json({
+          message: "An error occurred while retrieving posts.",
+          error: error
+        });
+      });
+  });
+
 
 module.exports = router;

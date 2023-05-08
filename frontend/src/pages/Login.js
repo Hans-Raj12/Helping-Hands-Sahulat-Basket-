@@ -41,7 +41,7 @@ const Login = () => {
     <div className='login'>
       
       <div className='login-image'>
-        <img src={LoginImage} width={500} height={500}/>
+        <img src={LoginImage} alt='login' width={500} height={500}/>
       </div>
     
     <div className="form-container">

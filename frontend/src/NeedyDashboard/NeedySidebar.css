@@ -7,7 +7,7 @@
 }
 
 .needy-sidebar-container .sidebar{
-    background: #29335C;
+    background: black;
     color: black;
 
     /* width: 200px; */
@@ -27,6 +27,7 @@
     display: flex;
     font-size: 25px;
     margin-left: 50px;
+    color: #fff;
 }
 .needy-sidebar-container .link{
     display: flex;
@@ -36,15 +37,15 @@
     transition: all 0.5s;
 }
 .needy-sidebar-container .link:hover{
-    background:rgb(43, 85, 110);
-    color: #fcfcfc;
+    background:#ffc451;
+    color: #343a40;
     transition: all 0.5s;
 }
 .needy-sidebar-container .icon:hover{
-    color: #fcfcfc;
+    color: #ffc451;
 }
 .needy-sidebar-container .active{
-    background: rgb(138, 199, 240);
+    background: #ffc451;
     color: #000;
 }
 

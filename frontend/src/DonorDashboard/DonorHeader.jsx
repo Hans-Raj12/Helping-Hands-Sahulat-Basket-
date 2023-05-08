@@ -14,9 +14,10 @@ const DonorHeader = () => {
     <div className='donor-header'>
       <header>  
         <div className="logo">
+          Donor Dashboard
         </div>
         <div style={{display:'inline-flex'}}>
-        <img src={person} alt="profile" width={"40px"} style={{borderRadius:'40px'}}/>{credentials?.user?.name}</div>
+        <img src={person} alt="profile" width={"40px"} style={{borderRadius:'40px'}}/>{credentials ? credentials?.user?.name: 'Donor'}</div>
         <div className="icons">
        
         

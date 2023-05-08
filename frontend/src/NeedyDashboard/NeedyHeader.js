@@ -15,10 +15,9 @@ const NeedyHeader = () => {
         
         <header>  
         <div className="logo">
-            Name
+            Needy Dashboard
         </div>
-        {/* <div style={{display:'inline-flex'}}>
-        <img src={person} alt="profile" width={"40px"} style={{borderRadius:'40px'}}/>Needy Name</div> */}
+       
         <div className="icons">
        
         
