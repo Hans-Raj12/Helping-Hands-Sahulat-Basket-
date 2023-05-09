@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import Header from "../components/Header"
+import Footer2 from '../components/Footer2'
 const Home2 = () => {
     return (
             <>
@@ -932,17 +933,9 @@ const Home2 = () => {
         </div>
       </div>
     </section>
-    {/* End Contact Section */}
+    <Footer2/>
   </main>
-  {/* End #main */}
-
-  {/* <div id="preloader" />
-  <a
-    href="#"
-    className="back-to-top d-flex align-items-center justify-content-center"
-  >
-    <i className="bi bi-arrow-up-short" />
-  </a> */}
+  
 </>
     )
 }

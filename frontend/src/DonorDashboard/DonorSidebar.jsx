@@ -1,16 +1,16 @@
 import React, { useState, useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import {
-    FaTh,
     FaBars,
    
 }from "react-icons/fa";
 import { NavLink, Outlet } from 'react-router-dom';
 import * as FaIcons from 'react-icons/fa';
-import * as FiIcons from 'react-icons/fi';
+// import * as FiIcons from 'react-icons/fi';
 import * as IoIcons from 'react-icons/io';
 import './DonorSidebar.css';
 import DonorHeader from './DonorHeader';
+import RightsReservedFooter from '../components/RightsReservedFooter';
 const DonorSidebar = ({children}) => {
   const { credentials } = useContext(AuthContext)
     const[isOpen ,setIsOpen] = useState(false);
@@ -78,6 +78,7 @@ const DonorSidebar = ({children}) => {
            <main>{children}</main>
            <Outlet/>
         </div>
+        <RightsReservedFooter/>
         </>
     );
 };

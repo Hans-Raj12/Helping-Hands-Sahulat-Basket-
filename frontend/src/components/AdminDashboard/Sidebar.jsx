@@ -13,6 +13,7 @@ import {
 import {FiSettings} from 'react-icons/fi'
 import { NavLink, Outlet } from 'react-router-dom'
 import AdminHeader from './AdminHeader'
+import RightsReservedFooter from '../RightsReservedFooter'
 const Sidebar = ({children}) => {
     const [isOpen, setIsOpen] = useState(false)
     const toggle = () => setIsOpen(!isOpen)
@@ -87,6 +88,7 @@ const Sidebar = ({children}) => {
             
             <Outlet/>
         </div>
+        <RightsReservedFooter/>
         </>
     )
 }

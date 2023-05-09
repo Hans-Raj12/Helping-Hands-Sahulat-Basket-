@@ -6,13 +6,11 @@ import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
-import TextField from '@mui/material/TextField';
-import InputAdornment from '@mui/material/InputAdornment';
 
 import CardImage from '../../assets/fundraisingPostImages/charity.png'
 
 import './FundraisingPostCard.css'
-import { type } from 'os';
+// import { type } from 'os';
 
 export default function FundraisingPostCard(props) {
 
@@ -77,13 +75,11 @@ export default function FundraisingPostCard(props) {
                 <h4 >Description: </h4>{props.post.description}
               </Typography>
               <Typography id="modal-modal-goalAmount" sx={{ mt: 2 }} style={{textAlign:'left'}}>
-                <p>Goal Amount: </p> {props.post?.goalAmount}
-              </Typography>
-              <Typography id="modal-modal-raisedAmount" sx={{ mt: 2 }} style={{textAlign:'left'}}>
-                <p>Amount Raised: </p> {props.post.raisedAmount ? props.post.raisedAmount : 0}
-              </Typography>
-              <Typography id="modal-modal-toGo" sx={{ mt: 2 }} style={{textAlign:'left'}}>
-                <p>To Go: </p> {props.post.goalAmount }
+                <p>
+                  Goal Amount: {props.post?.goalAmount} 
+                  <br/>
+                  Amount Raised: {props.post.raisedAmount ? props.post.raisedAmount : 0}
+                 </p> 
               </Typography>
               <Typography id="modal-modal-createdBy" sx={{ mt: 2 }} style={{textAlign:'left'}}>
                 <h4>Created by: </h4> {props.user?.name}

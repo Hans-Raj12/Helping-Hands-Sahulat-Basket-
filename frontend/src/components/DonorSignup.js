@@ -4,6 +4,8 @@ import {validateEmail} from "../../src/utils";
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
+import Header from "./Header";
+import RightsReservedFooter from "./RightsReservedFooter";
 import '../styles/donorSignup.css'
 const PasswordErrorMessage = () => { 
     return ( 
@@ -81,6 +83,9 @@ function DonorSignup(){
     };
     
     return ( 
+      <>
+      
+      <Header/>
       <div className="donorSignup"> 
         <form onSubmit={handleSubmit}> 
           <fieldset> 
@@ -171,7 +176,10 @@ function DonorSignup(){
           
         </form> 
       </div> 
+      <RightsReservedFooter/>
+      </>
     ); 
+
 } 
 
 export default DonorSignup;

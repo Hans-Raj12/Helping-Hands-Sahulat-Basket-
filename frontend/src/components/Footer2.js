@@ -1,9 +1,10 @@
-const Footer = () => {
+import './Footer2.css'
+const Footer2 = () => {
     return(
         <>
              <footer id="footer">
     <div className="footer-top">
-      <div className="container">
+      <div className="footer-container">
         <div className="row">
           <div className="col-lg-3 col-md-6">
             <div className="footer-info">
@@ -106,12 +107,9 @@ const Footer = () => {
         </strong>
         . All Rights Reserved
       </div>
-      {/* <div className="credits">
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-      </div> */}
     </div>
   </footer>
         </>
     )
 }
-export default Footer
+export default Footer2

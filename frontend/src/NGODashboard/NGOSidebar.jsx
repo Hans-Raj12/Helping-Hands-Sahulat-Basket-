@@ -9,6 +9,7 @@ import * as IoIcons from 'react-icons/io';
 import "./NGOSidebar.css";
 import NGOHeader from './NGOHeader';
 import { AuthContext } from '../context/AuthContext';
+import RightsReservedFooter from '../components/RightsReservedFooter';
 
 const NGOSidebar = ({children}) => {
   
@@ -86,6 +87,7 @@ const NGOSidebar = ({children}) => {
            <main>{children}</main>
            <Outlet/>
         </div>
+        <RightsReservedFooter/>
         </>
     );
 };

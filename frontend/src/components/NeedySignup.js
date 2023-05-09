@@ -1,6 +1,8 @@
 import React, {useState} from "react"; 
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {validateEmail} from "../../src/utils";
+import Header from "./Header";
+import RightsReservedFooter from "./RightsReservedFooter";
 import '../styles/donorSignup.css'
 const PasswordErrorMessage = () => { 
     return ( 
@@ -78,6 +80,9 @@ function NeedySignup(){
     }; 
     
     return ( 
+      <>
+      
+      <Header/>
       <div className="donorSignup"> 
         <form onSubmit={handleSubmit}> 
           <fieldset> 
@@ -170,6 +175,8 @@ function NeedySignup(){
           
         </form> 
       </div> 
+      <RightsReservedFooter/>
+      </>
     ); 
    } 
 export default NeedySignup;

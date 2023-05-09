@@ -6,6 +6,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Header from '../components/Header'
 import { useNavigate, Link } from "react-router-dom";
+import RightsReservedFooter from "./RightsReservedFooter";
 // import Check from "..Check";
 const PasswordErrorMessage = () => { 
     return ( 
@@ -255,6 +256,7 @@ function NGOSignup(){
                
         </form> 
         </Container>
+        <RightsReservedFooter/>
         </>
     ); 
    } 

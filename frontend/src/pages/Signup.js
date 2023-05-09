@@ -2,9 +2,13 @@ import { Link } from "react-router-dom"
 import ngo from '../assets/ngo.jpg'
 import donor from '../assets/donor.jpg'
 import needy from '../assets/needy.jpg'
+import RightsReservedFooter from "../components/RightsReservedFooter"
+import Header from '../components/Header'
 import '../styles/signup.css'
 const Signup = () => {
     return (
+       <>
+        <Header/>
        <div className="signup-container">
         <h1>Welcome to Helping Hands (Sahulat Basket)</h1>
         <h4>Sign up as...</h4>
@@ -31,6 +35,8 @@ const Signup = () => {
             </div>
         </div>
        </div>
+       <RightsReservedFooter/>
+       </>
     )
 }
 

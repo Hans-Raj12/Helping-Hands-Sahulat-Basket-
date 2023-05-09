@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom'
 import { AuthContext } from '../context/AuthContext'; 
 import LoginImage from '../assets/login.jpg'
 import '../styles/Login.css'
+import RightsReservedFooter from '../components/RightsReservedFooter';
+import Header from '../components/Header';
 const Login = () => {
 
   const { setCredentials } = useContext(AuthContext)
@@ -38,6 +40,8 @@ const Login = () => {
   }
   
   return (
+    <>
+    <Header/>
     <div className='login'>
       
       <div className='login-image'>
@@ -84,7 +88,11 @@ const Login = () => {
       </form>
       <p>Don't have an account? <Link to='/signup'>Signup</Link></p>
     </div>
+    
     </div>
+    
+    <RightsReservedFooter/>
+    </>
   );
 }
 

@@ -17,5 +17,11 @@
   }
   
   .card-amounts .MuiTextField-root {
-    margin-left: 5px; /* adds a 10px margin to the right of each field */
+    margin-left: 2px; /* adds a 10px margin to the right of each field */
+  }
+
+
+  #modal-modal-goalAmount{
+    display: flex;
+
   }

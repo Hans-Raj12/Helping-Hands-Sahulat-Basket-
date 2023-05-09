@@ -2,7 +2,6 @@ import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import { AuthProvider } from './context/AuthContext';
 import Home2 from "./pages/Home2";
 import Login from './pages/Login'
-import Footer2 from './components/Footer2'
 import Signup from './pages/Signup'
 import DonorSignup from './components/DonorSignup'
 import NeedySignup from './components/NeedySignup'
@@ -54,7 +53,7 @@ function App() {
             <Route path='/needy-signup' element={<NeedySignup/>}/>
             <Route path='/ngo-signup' element={<NGOSignup/>}/>
           </Routes>
-    
+          
          
         
     
@@ -98,9 +97,11 @@ function App() {
                      <Route path='needyDonation' element={<NeedyDonation/>}/>
 
                 </Route>
+                
           </Routes>
-          <Footer2/> 
+          
           </AuthProvider>
+          
         </Router>
 
     </>

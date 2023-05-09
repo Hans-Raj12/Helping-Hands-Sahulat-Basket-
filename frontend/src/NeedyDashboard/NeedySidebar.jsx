@@ -10,6 +10,7 @@ import * as FaIcons from 'react-icons/fa';
 // import * as IoIcons from 'react-icons/io';
 import './NeedySidebar.css';
 import NeedyHeader from './NeedyHeader';
+import RightsReservedFooter from '../components/RightsReservedFooter';
 const NeedySidebar = ({children}) => {
   const { credentials } = useContext(AuthContext)
     const[isOpen ,setIsOpen] = useState(false);
@@ -59,6 +60,7 @@ const NeedySidebar = ({children}) => {
            <main>{children}</main>
            <Outlet/>
         </div>
+        <RightsReservedFooter/>
         </>
     );
 };
