@@ -7,12 +7,11 @@ import { Button, CardActionArea, CardActions } from '@mui/material';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 
-import CardImage from '../../assets/fundraisingPostImages/charity.png'
 
-import './FundraisingPostCard.css'
+import './FundraisingPostCards.css'
 // import { type } from 'os';
 
-export default function FundraisingPostCard(props) {
+export default function FundraisingPostCards(props) {
 
   const [open, setOpen] = React.useState(false);
   // const toGo = props.post.goalAmount-props.post.raisedAmount
