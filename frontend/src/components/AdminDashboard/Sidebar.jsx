@@ -42,6 +42,11 @@ const Sidebar = ({children}) => {
             icon:<FaCommentAlt/>
         },
         {
+            path:'view-needy',
+            name:'View Needy',
+            icon:<FaCommentAlt/>
+        },
+        {
             path:'add-remove-ngos',
             name:'Add/Remove NGOs',
             icon:<FaShoppingBag/>

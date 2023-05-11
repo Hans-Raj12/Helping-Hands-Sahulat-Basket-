@@ -12,6 +12,7 @@ import VerifyNGO from './components/AdminDashboard/VerifyNGO';
 import Dashboard from './components/AdminDashboard/Dashboard';
 import ViewNGOs from './components/AdminDashboard/ViewNGOs';
 import ViewDonors from './components/AdminDashboard/ViewDonors';
+import ViewNeedy from './components/AdminDashboard/ViewNeedy';
 import AddRemoveNGOs from './components/AdminDashboard/AddRemoveNGOs'
 import AddRemoveDonors from './components/AdminDashboard/AddRemoveDonors'
 import Sidebar from './components/AdminDashboard/Sidebar';
@@ -63,6 +64,7 @@ function App() {
                     <Route path='verify-ngo' element={<VerifyNGO/>}/>
                     <Route path='view-ngos' element={<ViewNGOs/>}/>
                     <Route path='view-donors' element={<ViewDonors/>}/>
+                    <Route path='view-needy' element={<ViewNeedy/>}/>
                     <Route path='add-remove-ngos' element={<AddRemoveNGOs/>}/>
                     <Route path='add-remove-donors' element={<AddRemoveDonors/>}/>
                     <Route path='settings' element={<Settings/>}/>

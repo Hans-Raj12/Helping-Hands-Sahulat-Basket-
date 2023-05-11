@@ -3,7 +3,11 @@ const express = require('express')
 const cors = require('cors')
 const multer = require('multer');
 const fs = require('fs/promises');
+
 const fundraisingpost_api = require('./routes/fundraisingposts.routes')
+const ngo_routes = require('./routes/ngo.routes')
+const donor_routes = require('./routes/donor.routes')
+const needy_routes = require('./routes/needy.routes')
 
 const mongoose = require('mongoose')
 const bodyParser = require("body-parser");
@@ -525,3 +529,6 @@ app.use('/public', express.static('public'));
 // Define endpoint to create a fundraising post
 app.use('/fundraising-posts', fundraisingpost_api)
 
+app.use('/ngos',ngo_routes)
+app.use('/donors',donor_routes)
+app.use('/needy',needy_routes)
