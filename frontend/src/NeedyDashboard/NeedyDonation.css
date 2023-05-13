@@ -1,41 +1,35 @@
-.needy-tableNeedy .MuiTableRow-root>*{
+.table{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 80%;
+}
+.MuiTableRow-root>*{
     padding: 10px;
 }
-.needy-tableNeedy .MuiTableRow-root.MuiTableRow-head>*{
+.MuiTableRow-root.MuiTableRow-head>*{
     font-weight: bold !important
 }
-.needy-tableNeedy{
-    margin: auto 0;
-    margin-left: 40px;
-    margin-top: 40px;
-    color:#616fa8;
-}
-.needy-tableNeedy .MuiTableRow-root.MuiTableRow-head{
-   background-color:  #3d445f;
-   
-}
-.needy-tableNeedy td, th{
+.table td, th{
     border: none !important; 
-   
+
 }
-.needy-tableNeedy th{
-    color: white;
-}
-.needy-tableNeedy .Table:first-child{
+.Table:first-child{
     border-radius: 0.7rem !important;
 }
-.needy-tableNeedy .Details{
-    color: #00b5ff !important
+.Details{
+    color: #00b5ff !important;
+    cursor: pointer;
 }
 @media screen and (max-width: 1200px){
-    .needy-tableNeedy .Table{
-        width: 170%;
+    .Table{
+        width: 100vh;
         margin-top: 2rem;
 
     }
 }
 @media screen and (max-width: 768px){
-    .needy-tableNeedy .Table{
+    .Table{
         position: relative;
         display: flex;
         flex-direction: column;

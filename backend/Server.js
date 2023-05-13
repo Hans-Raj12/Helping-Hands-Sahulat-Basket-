@@ -362,7 +362,8 @@ app.use('/create-donation',async(req,res)=>{
                 recipient_email,
                 donation_type,
                 cloth_quantity,
-                cloth_quality
+                cloth_quality,
+                cloth_type
               } = req.body
               
         const newDonation = new Donations({
@@ -374,6 +375,7 @@ app.use('/create-donation',async(req,res)=>{
           donation_type,
           cloth_quantity,
           cloth_quality,
+          cloth_type,
           donation_date: new Date(),
           accepted:'false'
         })
@@ -521,7 +523,7 @@ app.use('/ngo-donations',async(req,res)=>{
   }
 })
 
-app.use('/ngo-donations-update', (req, res) => {
+app.use('/donations-update', (req, res) => {
   const filter = {
     donor_email: req.body.donor_email,
     donation_type: req.body.donation_type,
@@ -550,6 +552,8 @@ app.use('/ngo-donations-update', (req, res) => {
       res.status(500).send('Internal server error');
     });
 });
+
+
 
 //route to store donations in Donation History
 app.post('/donation-history', (req, res) => {
@@ -582,6 +586,27 @@ app.use('/updated-donations-history',async(req,res)=>{
     res.status(500).json({ message: err.message });
   }
 })
+app.use('/needy-updated-donations-history',async(req,res)=>{
+  try {
+    const {email} = req.body
+    const donations = await DonationHistory.find({email});
+    res.status(200).json(donations);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+})
+
+//route to get donations in NGO dashboard
+app.use('/needy-donations',async(req,res)=>{
+  try {
+    const { recipient_email } = req.body
+   const donations = await Donations.find({ recipient_type: 'Needy-Person',recipient_email, accepted: false });
+   res.status(200).json(donations);
+ } catch (err) {
+   res.status(500).json({ message: err.message });
+ }
+})
+
 
 // endpoint to view donors in NGO dashboard
 app.use('/donor-profiles', async (req, res) => {

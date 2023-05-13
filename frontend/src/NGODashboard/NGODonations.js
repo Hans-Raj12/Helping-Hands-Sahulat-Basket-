@@ -68,7 +68,7 @@ export default function BasicTable() {
       .catch(error => console.error(error));
 
 
-      const response = await fetch(`/ngo-donations-update`, {
+      const response = await fetch(`/donations-update`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json'

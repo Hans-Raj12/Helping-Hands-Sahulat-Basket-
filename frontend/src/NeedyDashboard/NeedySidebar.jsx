@@ -25,13 +25,19 @@ const NeedySidebar = ({children}) => {
           {
             title: 'Profile',
             path: 'needyProfile',
-            icon: <FaIcons.FaPlusCircle />,
+            icon: <FaIcons.FaUserAlt />,
+            cName: 'nav-text'
+          },
+          {
+            title: 'Needy Donations',
+            path: 'needyDonation',
+            icon: <FaIcons.FaUserFriends />,
             cName: 'nav-text'
           },
           {
             title: 'Needy Donation History',
-            path: 'needyDonation',
-            icon: <FaIcons.FaUserFriends />,
+            path: 'needy-donation-history',
+            icon: <FaIcons.FaHistory />,
             cName: 'nav-text'
           }
 

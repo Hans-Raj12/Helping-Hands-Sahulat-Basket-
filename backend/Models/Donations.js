@@ -74,6 +74,15 @@ const donationSchema = new mongoose.Schema({
       message: 'Cloth quanity is required for cloth donations'
     }
   },
+  cloth_type: {
+    type: String,
+    validate: {
+      validator: function(v) {
+        return this.donation_type === 'cloth' ? v != null : true;
+      },
+      message: 'Cloth quanity is required for cloth donations'
+    }
+  },
   donation_date: {
     type: Date,
     default: Date.now

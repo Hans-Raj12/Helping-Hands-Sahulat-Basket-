@@ -107,9 +107,9 @@ const DonorCreateDonation = () => {
             recipient_name:needyName,
             recipient_email:needyEmail,
             donation_type:donationType,
-            food_quantity:clothesQuantity,
+            cloth_quantity:clothesQuantity,
+            cloth_type:clothingType,
             cloth_quality:clothingCondition,
-            food_type: foodType
         })  
       }
       else if(donationRecipient==='Needy-Person' && donationType==='money'){
