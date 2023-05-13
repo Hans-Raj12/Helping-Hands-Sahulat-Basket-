@@ -55,7 +55,7 @@
     font-size: 12px;
   }
   
-  .Row {
+  .donorSignup .Row {
     display: flex;
     flex-direction: row;
   }

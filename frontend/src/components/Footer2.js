@@ -1,8 +1,8 @@
 import './Footer2.css'
 const Footer2 = () => {
     return(
-        <>
-             <footer id="footer">
+        <div className='footer-container'>
+  <footer id="footer">
     <div className="footer-top">
       <div className="footer-container">
         <div className="row">
@@ -44,21 +44,21 @@ const Footer2 = () => {
             <h4>Useful Links</h4>
             <ul>
               <li>
-                <i className="bx bx-chevron-right" /> <a href="#">Home</a>
+                <i className="bx bx-chevron-right" /> <a href="#hero">Home</a>
               </li>
               <li>
-                <i className="bx bx-chevron-right" /> <a href="#">About us</a>
+                <i className="bx bx-chevron-right" /> <a href="#about">About us</a>
               </li>
               <li>
-                <i className="bx bx-chevron-right" /> <a href="#">Services</a>
-              </li>
-              <li>
-                <i className="bx bx-chevron-right" />{" "}
-                <a href="#">Terms of service</a>
+                <i className="bx bx-chevron-right" /> <a href="#services">Services</a>
               </li>
               <li>
                 <i className="bx bx-chevron-right" />{" "}
-                <a href="#">Privacy policy</a>
+                <a href="#team">Teams</a>
+              </li>
+              <li>
+                <i className="bx bx-chevron-right" />{" "}
+                <a href="#contact">Contact US</a>
               </li>
             </ul>
           </div>
@@ -66,22 +66,22 @@ const Footer2 = () => {
             <h4>Our Services</h4>
             <ul>
               <li>
-                <i className="bx bx-chevron-right" /> <a href="#">Web Design</a>
+                <i className="bx bx-chevron-right" /> <a href="#online-donation-platform">Online Donation platform</a>
               </li>
               <li>
                 <i className="bx bx-chevron-right" />{" "}
-                <a href="#">Web Development</a>
+                <a href="#ngo-verification">NGO Verification</a>
               </li>
               <li>
                 <i className="bx bx-chevron-right" />{" "}
-                <a href="#">Product Management</a>
+                <a href="#donor-feedback">Donor Feedback</a>
               </li>
               <li>
-                <i className="bx bx-chevron-right" /> <a href="#">Marketing</a>
+                <i className="bx bx-chevron-right" /> <a href="#social-media-integration">Social Media Integration</a>
               </li>
               <li>
                 <i className="bx bx-chevron-right" />{" "}
-                <a href="#">Graphic Design</a>
+                <a href="#user-management">User Management</a>
               </li>
             </ul>
           </div>
@@ -109,7 +109,7 @@ const Footer2 = () => {
       </div>
     </div>
   </footer>
-        </>
+        </div>
     )
 }
 export default Footer2

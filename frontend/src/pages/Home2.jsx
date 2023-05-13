@@ -253,7 +253,7 @@ const Home2 = () => {
             data-aos="zoom-in"
             data-aos-delay={100}
           >
-            <div className="icon-box">
+            <div className="icon-box" id="online-donation-platform">
               <div className="icon">
                 <i className="bx bxl-dribbble" />
               </div>
@@ -272,7 +272,7 @@ const Home2 = () => {
             data-aos="zoom-in"
             data-aos-delay={200}
           >
-            <div className="icon-box">
+            <div className="icon-box" id="ngo-verification">
               <div className="icon">
                 <i className="bx bx-file" />
               </div>
@@ -290,7 +290,7 @@ const Home2 = () => {
             data-aos="zoom-in"
             data-aos-delay={300}
           >
-            <div className="icon-box">
+            <div className="icon-box" id="donor-feedback">
               <div className="icon">
                 <i className="bx bx-tachometer" />
               </div>
@@ -309,7 +309,7 @@ const Home2 = () => {
             data-aos="zoom-in"
             data-aos-delay={100}
           >
-            <div className="icon-box">
+            <div className="icon-box" id="social-media-integration">
               <div className="icon">
                 <i className="bx bx-world" />
               </div>
@@ -328,7 +328,7 @@ const Home2 = () => {
             data-aos="zoom-in"
             data-aos-delay={200}
           >
-            <div className="icon-box">
+            <div className="icon-box" id="user-management">
               <div className="icon">
                 <i className="bx bx-slideshow" />
               </div>
@@ -345,7 +345,7 @@ const Home2 = () => {
             data-aos="zoom-in"
             data-aos-delay={300}
           >
-            <div className="icon-box">
+            <div className="icon-box" id="user-support">
               <div className="icon">
                 <i className="bx bx-arch" />
               </div>
@@ -808,6 +808,7 @@ const Home2 = () => {
                   src="assets/img/team/prem.jpg"
                   className="img-fluid"
                   alt=""
+                  
                 />
                 <div className="social">
                   <a href="">

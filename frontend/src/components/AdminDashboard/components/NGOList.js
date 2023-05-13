@@ -20,7 +20,6 @@ const NGOList = () => {
 
 
   const renderTableHeader = () => {
-    // let header = Object.keys(ngos[0])
     let header = ["name","email","contact","website","address"]
     return header.map((key, index) => {
       return <th key={index}>{key.toUpperCase()}</th>

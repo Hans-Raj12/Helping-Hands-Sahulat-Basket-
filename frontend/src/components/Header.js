@@ -15,20 +15,26 @@ const Header = () => {
       <nav id="navbar" className="navbar order-last order-lg-0">
         <ul>
           <li>
-            <Link to='/'>Home</Link>
+            <a href="#hero">Home</a>
+            {/* <Link to='/'>Home</Link> */}
           </li>
           <li>
-           <Link to='/'>About</Link>
+          <a href="#about">About</a>
+           {/* <Link to='/'>About</Link> */}
           </li>
           <li>
-            <Link to='/'>Services</Link>
+          <a href="#services">Services</a>
+
+            {/* <Link to='/'>Services</Link> */}
           </li>
           
           <li>
-            <Link to='/'>Team</Link>
+          <a href="#team">Team</a>
+            {/* <Link to='/'>Team</Link> */}
           </li>  
           <li>
-            <Link to='/'>Contact</Link>
+          <a href="#contact">Contact</a>
+            {/* <Link to='/'>Contact</Link> */}
           </li>
           <li>
             <Link to='/login'>Sign In</Link>
