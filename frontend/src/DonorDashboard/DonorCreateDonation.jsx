@@ -21,6 +21,20 @@ const DonorCreateDonation = () => {
     const [formData, setFormData] = useState({})
     const { credentials } = useContext(AuthContext)
 
+
+    const resetForm = () => {
+      setDonationRecipient("");
+      setDonationType("");
+      setFoodType("");
+      setFoodQuantity("");
+      setClothingType("");
+      setClothingCondition("");
+      setDonationAmount("");
+      setClothesQuantity("");
+      setNeedyName("");
+      setNeedyEmail("");
+    };
+
     const handleClothesQuantityChange = (e) =>{
         setClothesQuantity(e.target.value)
     }
@@ -82,8 +96,34 @@ const DonorCreateDonation = () => {
             recipient_email:needyEmail,
             donation_type:donationType,
             food_quantity:foodQuantity,
+            food_type: foodType
         })  
-      }else if(donationRecipient==='NGO' && donationType==='cloth'){
+      }
+      else if(donationRecipient==='Needy-Person' && donationType==='cloth'){
+        setFormData( {
+            donor_name: credentials?.user?.name,
+            donor_email: credentials?.user?.email,
+            recipient_type:donationRecipient,
+            recipient_name:needyName,
+            recipient_email:needyEmail,
+            donation_type:donationType,
+            food_quantity:clothesQuantity,
+            cloth_quality:clothingCondition,
+            food_type: foodType
+        })  
+      }
+      else if(donationRecipient==='Needy-Person' && donationType==='money'){
+        setFormData( {
+            donor_name: credentials?.user?.name,
+            donor_email: credentials?.user?.email,
+            recipient_type:donationRecipient,
+            recipient_name:needyName,
+            recipient_email:needyEmail,
+            donation_type:donationType,
+            amount:donationAmount
+        })  
+      }
+      else if(donationRecipient==='NGO' && donationType==='cloth'){
         setFormData( {
           donor_name: credentials?.user?.name,
           donor_email: credentials?.user?.email,
@@ -110,11 +150,13 @@ const DonorCreateDonation = () => {
         },
         body: JSON.stringify(formData)
       })
-       await response.json()
+       const data = await response.json()
       if(response.ok){
         alert("Donation Created and sent")
+        resetForm()
       }else{
-        alert("Donation Failed")
+        alert(data.message)
+        console.log(data)
       }
 
     }

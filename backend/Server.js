@@ -314,6 +314,15 @@ app.use('/create-donation',async(req,res)=>{
   try{
 
       const {recipient_type, donation_type} = req.body
+
+      if(recipient_type=='Needy-Person'){
+        const {recipient_email} = req.body
+        const user = await Users.findOne({email:recipient_email})
+        if(!(user && user.roleId == "4")){
+          res.status(404).send({message:"Needy person not found"})
+          return
+        } 
+      }
       if(recipient_type=='Needy-Person' && donation_type=='food'){
         const { donor_name,
                 donor_email,
@@ -321,6 +330,7 @@ app.use('/create-donation',async(req,res)=>{
                 recipient_email,
                 donation_type,
                 food_quantity,
+                food_type
               } = req.body
               
         const newDonation = new Donations({
@@ -331,6 +341,69 @@ app.use('/create-donation',async(req,res)=>{
           recipient_email,
           donation_type,
           food_quantity,
+          food_type,
+          donation_date: new Date(),
+          accepted:'false'
+        })
+
+        newDonation.save()
+        .then((donation)=>{
+          res.status(200).json({donation})
+      })
+      .catch(err=>{
+          res.status(500).json({err})
+      })
+        
+      }
+      else if(recipient_type=='Needy-Person' && donation_type=='cloth'){
+        const { donor_name,
+                donor_email,
+                recipient_name,
+                recipient_email,
+                donation_type,
+                cloth_quantity,
+                cloth_quality
+              } = req.body
+              
+        const newDonation = new Donations({
+          donor_name,
+          donor_email,
+          recipient_type,
+          recipient_name,
+          recipient_email,
+          donation_type,
+          cloth_quantity,
+          cloth_quality,
+          donation_date: new Date(),
+          accepted:'false'
+        })
+
+        newDonation.save()
+        .then((donation)=>{
+          res.status(200).json({donation})
+      })
+      .catch(err=>{
+          res.status(500).json({err})
+      })
+        
+      }
+      else if(recipient_type=='Needy-Person' && donation_type=='money'){
+        const { donor_name,
+                donor_email,
+                recipient_name,
+                recipient_email,
+                donation_type,
+                amount
+              } = req.body
+              
+        const newDonation = new Donations({
+          donor_name,
+          donor_email,
+          recipient_type,
+          recipient_name,
+          recipient_email,
+          donation_type,
+          amount,
           donation_date: new Date(),
           accepted:'false'
         })
@@ -399,7 +472,7 @@ app.use('/create-donation',async(req,res)=>{
           res.status(200).json({donation})
       })
       .catch(err=>{
-          res.status(500).json({err})
+          res.status(500).json({message:"Donation Failed"})
       })
       }
       else if(recipient_type=='NGO' && donation_type=='money'){

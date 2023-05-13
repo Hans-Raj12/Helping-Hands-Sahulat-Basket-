@@ -47,6 +47,15 @@ const donationSchema = new mongoose.Schema({
       message: 'Food quantity is required for food donations'
     }
   },
+  food_type: {
+    type: String,
+    validate: {
+      validator: function(v) {
+        return this.donation_type === 'food' ? v != null : true;
+      },
+      message: 'Food quantity is required for food donations'
+    }
+  },
   cloth_quantity: {
     type: Number,
     validate: {
