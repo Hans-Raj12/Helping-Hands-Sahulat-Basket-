@@ -90,6 +90,38 @@ export default function BasicTable() {
       .catch(error => console.error(error));
 
     }  
+    const handleReject = async (row) => {
+      console.log(row._id)
+      const response = await fetch(`/donations/:${row._id}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+    
+      if (response.ok) {
+        const newRows = rows.filter(r => r.id !== row.id);
+        setRows(newRows);
+        console.log('Donation record deleted');
+      } else {
+        console.log('Failed to delete donation record');
+      }
+      fetch('/needy-donations',{
+        method:"POST",
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body:JSON.stringify({recipient_email:credentials?.user?.email})
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data); 
+        setRows(data)
+        console.log(rows)
+      })
+      .catch(error => console.error(error));
+    };
+    
   return (
     <div className='table'>
         <h1>View Donations</h1>
@@ -124,7 +156,7 @@ export default function BasicTable() {
               <TableCell align="left">{row.donation_type === "food" ? `${row.food_quantity} (${row.food_type})` :row.donation_type === 'money'?`Rs. ${row.amount}` :`${row.cloth_quantity} ( ${row.cloth_quality}, ${row.cloth_type} )`}</TableCell>
               <TableCell align="left">{row.donation_date}</TableCell>
               <TableCell align="left" className='Details' onClick={()=>handleAccept(row)}>Accept</TableCell>
-              <TableCell align="left" className='Details' onClick={()=>handleAccept(row)}>Reject</TableCell>
+              <TableCell align="left" className='Details' onClick={()=>handleReject(row)}>Reject</TableCell>
             </TableRow>
           ))}
         </TableBody>

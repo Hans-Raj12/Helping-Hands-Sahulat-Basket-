@@ -607,6 +607,36 @@ app.use('/needy-donations',async(req,res)=>{
  }
 })
 
+// DELETE endpoint to delete a donation record
+app.use('/donations/:id', async (req, res) => {
+  const donationId = req.params.id;
+  
+  // Model.findOne({_id: 'specific_id'}, (err, doc) => {
+  //   doc.remove((err) => {
+  //       if (err) // handle err
+  //   });
+  //   // or simply use
+  //   doc.remove();
+  // });
+
+
+  const result = await Donations.deleteOne(req.params)
+  res.send(result)
+  
+  // Donations.findByIdAndRemove(donationId, function (err, deletedDonation) {
+  //   if (err) {
+  //     console.error(err);
+  //     return res.status(500).json({ message: 'Failed to delete donation record' });
+  //   }
+
+  //   if (!deletedDonation) {
+  //     return res.status(404).json({ message: 'Donation record not found' });
+  //   }
+
+  //   res.status(200).json({ message: 'Donation record deleted' });
+  // });
+});
+
 
 // endpoint to view donors in NGO dashboard
 app.use('/donor-profiles', async (req, res) => {

@@ -162,6 +162,7 @@ h6 {
   white-space: nowrap;
   transition: 0.3s;
   font-size: 14px;
+  margin-left: 15px;
   display: inline-block;
   border: 2px solid #ffc451;
 }
