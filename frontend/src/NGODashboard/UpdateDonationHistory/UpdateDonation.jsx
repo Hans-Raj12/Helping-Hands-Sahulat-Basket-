@@ -24,7 +24,13 @@ export default function BasicTable() {
   useEffect(()=>{
   
     //get the donations from donation history in NGOs donation history
-      fetch('/updated-donations-history')
+      fetch('/updated-donations-history',{
+        method:"POST",
+        headers:{
+          'Content-Type':"application/json"
+        },
+        body:JSON.stringify({recipient_email:credentials?.user?.email})
+      })
       .then(response => response.json())
       .then(data => {
         setRows(data)
@@ -50,7 +56,6 @@ console.log(rows)
             <TableCell align="left">Donor Email</TableCell>
             <TableCell align="left">DonationType&nbsp;</TableCell>
             <TableCell align="left">Quantity/Amount&nbsp;</TableCell>
-            <TableCell align="left">Address&nbsp;</TableCell>
             <TableCell align="left">DonatinonDate&nbsp;</TableCell>
           </TableRow>
         </TableHead>
@@ -66,7 +71,6 @@ console.log(rows)
                 <TableCell align="left">{row.donor_email}</TableCell>
                 <TableCell align="left">{row.donation_type}</TableCell>
                 <TableCell align="left">{row.donation_quantity}</TableCell>
-                <TableCell align="left">{row.donor_address}</TableCell>
                 <TableCell align="left">{row.donation_date}</TableCell>
                 </TableRow>
             ))}

@@ -36,28 +36,17 @@ export default function BasicTable() {
 
 
     const handleAccept = async (row) => {
-      const data = {
-        donor_name: row.donor_name,
-        donor_email: row.donor_email,
-        donation_type: row.donation_type,
-        donation_quantity: row.donation_type === "food" ? `${row.food_quantity}, (${row.food_type})` : row.donation_type === 'money' ? `${row.amount}` : `${row.cloth_quantity} (${row.cloth_quality, row.cloth_type})`,
-        donation_date: row.donation_date,
-        email:credentials?.user?.email
-      }
-      const newRows = rows.filter(r => r.id !== row.id);
-      setRows(newRows);
-      console.log(data);
-
-      fetch('/donation-history', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-      })
-      .then(response => response.json())
-      .then(data => alert('Donation history added:', data))
-      .catch(error => console.error(error));
+      console.log("id: ",row._id)
+      // const data = {
+      //   _id : row._id,
+      //   donor_name: row.donor_name,
+      //   donor_email: row.donor_email,
+      //   donation_type: row.donation_type,
+      //   donation_quantity: row.donation_type === "food" ? `${row.food_quantity}, (${row.food_type})` : row.donation_type === 'money' ? `${row.amount}` : `${row.cloth_quantity} (${row.cloth_quality, row.cloth_type})`,
+      //   donation_date: row.donation_date,
+      //   email:credentials?.user?.email
+      // }
+      
 
 
       const response = await fetch(`/donations-update`, {
@@ -65,15 +54,49 @@ export default function BasicTable() {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({...data,recipient_type:row.recipient_type}),
+        body: JSON.stringify({id:row._id}),
       })
-      await response.json()
+      const data = await response.json()
       if(response.ok){
-        console.log('user side',{...data,recipient_type:row.recipient_type})
+        const newRows = rows.filter(r => r.id !== row.id);
+        setRows(newRows);
+        console.log('user side',data)
+
+          fetch('/donation-history', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({...data, email:credentials?.user?.email})
+        })
+        .then(response => response.json())
+        .then(data => alert('Donation history added:', data))
+        .catch(error => console.error(error));
+
+
+
+
+
       }else{
         console.log('Donation not updated')
       }
 
+      fetch('/needy-donations',{
+        method:"POST",
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body:JSON.stringify({recipient_email:credentials?.user?.email})
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data); 
+        setRows(data)
+        console.log(rows)
+      })
+      .catch(error => console.error(error));
+
+      
       fetch('/needy-donations',{
         method:"POST",
         headers: {

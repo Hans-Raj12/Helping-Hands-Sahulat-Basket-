@@ -516,7 +516,8 @@ app.use('/create-donation',async(req,res)=>{
 //route to get donations in NGO dashboard
 app.use('/ngo-donations',async(req,res)=>{
    try {
-    const donations = await Donations.find({ recipient_type: 'NGO', accepted: false });
+    const {recipient_email} = req.body
+    const donations = await Donations.find({ recipient_type: 'NGO',email:recipient_email, accepted: false });
     res.status(200).json(donations);
   } catch (err) {
     res.status(500).json({ message: err.message });
@@ -524,46 +525,41 @@ app.use('/ngo-donations',async(req,res)=>{
 })
 
 app.use('/donations-update', (req, res) => {
-  const filter = {
-    donor_email: req.body.donor_email,
-    donation_type: req.body.donation_type,
-    // donation_quantity: req.body.donation_quantity,
-    donor_address: req.body.donor_address,
-    recipient_type:req.body.recipient_type,
-    accepted: false
-  };
-  console.log('Filter',filter)
-  const update = {
-    $set: {
-      accepted: true
+  const donationId = req.body.id;
+  
+  Donations.findByIdAndUpdate(donationId, { accepted: true }, { new: true })
+  .then(updatedDonation => {
+    if (!updatedDonation) {
+      return res.status(404).json({ message: 'Donation not found' });
     }
-  };
-
-  Donations.findOneAndUpdate(filter, update, { new: true })
-    .then((updatedDonation) => {
-      if (!updatedDonation) {
-        res.status(404).send('Donation not found');
-      } else {
-        res.status(200).send(updatedDonation);
-      }
-    })
-    .catch((error) => {
-      console.error(error);
-      res.status(500).send('Internal server error');
-    });
+    res.status(200).json(updatedDonation);
+  })
+  .catch(error => {
+    console.error('Error updating donation:', error);
+    res.status(500).json({ message: 'Error updating donation' });
+  });
 });
 
 
 
 //route to store donations in Donation History
 app.post('/donation-history', (req, res) => {
-  const { donor_name, donor_email, donation_type, donation_quantity, donor_address, donation_date, email } = req.body;
+  const { donor_name, donor_email, donation_type,  email } = req.body;
+  let donation_quantity = donation_type === "food" ? req.body.food_quantity+" ("+req.body.food_type+" )" : donation_type=='cloth' ? req.body.cloth_quantity + " ( "+req.body.cloth_quality+" )" : req.body.amount
+  // if(donation_type=='food'){
+  //   donation_quantity = req.body.food_quantity
+  // }
+  // else if(donation_type=='money'){
+  //  const {donation_quantity} = req.body.amount
+  // }
+  // else if(donation_type=="cloth"){
+  //  const {donation_quantity} = req.body.cloth_quantity + " ( "+re.body.cloth_quality+" )" 
+  // }
   const newDonation = new DonationHistory({
      donor_name,
      donor_email, 
      donation_type, 
      donation_quantity, 
-     donor_address, 
      donation_date: new Date(), 
      email });
   newDonation.save()
@@ -580,7 +576,8 @@ app.post('/donation-history', (req, res) => {
 //get the donations from donation history in NGOs donation history
 app.use('/updated-donations-history',async(req,res)=>{
   try {
-    const donations = await DonationHistory.find();
+    const {recipient_email} = req.body
+    const donations = await DonationHistory.find({email:recipient_email});
     res.status(200).json(donations);
   } catch (err) {
     res.status(500).json({ message: err.message });
@@ -610,31 +607,9 @@ app.use('/needy-donations',async(req,res)=>{
 // DELETE endpoint to delete a donation record
 app.use('/donations/:id', async (req, res) => {
   const donationId = req.params.id;
-  
-  // Model.findOne({_id: 'specific_id'}, (err, doc) => {
-  //   doc.remove((err) => {
-  //       if (err) // handle err
-  //   });
-  //   // or simply use
-  //   doc.remove();
-  // });
-
 
   const result = await Donations.deleteOne(req.params)
   res.send(result)
-  
-  // Donations.findByIdAndRemove(donationId, function (err, deletedDonation) {
-  //   if (err) {
-  //     console.error(err);
-  //     return res.status(500).json({ message: 'Failed to delete donation record' });
-  //   }
-
-  //   if (!deletedDonation) {
-  //     return res.status(404).json({ message: 'Donation record not found' });
-  //   }
-
-  //   res.status(200).json({ message: 'Donation record deleted' });
-  // });
 });
 
 

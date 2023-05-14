@@ -39,55 +39,56 @@ export default function BasicTable() {
         console.log(rows)
       })
       .catch(error => console.error(error));
-    },[])
+    },[rows])
 
 
-    const handleAccept = async (row) => {
-      const data = {
-        donor_name: row.donor_name,
-        donor_email: row.donor_email,
-        donation_type: row.donation_type,
-        donation_quantity: row.donation_type === "food" ? row.food_quantity : row.donation_type === 'money' ? `${row.amount}` : row.cloth_quantity,
-        donor_address: row.donor_address,
-        donation_date: row.donation_date,
-        email:credentials?.user?.email
-      }
-      const newRows = rows.filter(r => r.id !== row.id);
-      setRows(newRows);
-      console.log(data);
-
-      fetch('/donation-history', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-      })
-      .then(response => response.json())
-      .then(data => alert('Donation history added:', data))
-      .catch(error => console.error(error));
-
+    const handleAccept = async (row) => {     
 
       const response = await fetch(`/donations-update`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({...data,recipient_type:row.recipient_type}),
+        body: JSON.stringify({id:row._id}),
       })
-      await response.json()
+      const data = await response.json()
       if(response.ok){
-        console.log('user side',{...data,recipient_type:row.recipient_type})
+        const newRows = rows.filter(r => r.id !== row.id);
+        setRows(newRows);
+        console.log('user side',data)
+
+        fetch('/donation-history', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({...data,email:credentials?.user?.email})
+      })
+      .then(response => response.json())
+      .then(data => {
+        alert('Donation history added:')
+        fetch('/ngo-donations',{
+          method:"POST",
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body:JSON.stringify({recipient_email:credentials?.user?.email})
+        })
+        .then(response => response.json())
+        .then(data => {
+          console.log(data); 
+          setRows(data)
+          console.log(rows)
+        })
+        .catch(error => console.error(error));
+      })
+      .catch(error => console.error(error));
+
       }else{
         console.log('Donation not updated')
       }
 
-      fetch('/ngo-donations')
-      .then(response => response.json())
-      .then(data => { 
-        setRows(data)
-      })
-      .catch(error => console.error(error));
+      
 
     }  
   return (
