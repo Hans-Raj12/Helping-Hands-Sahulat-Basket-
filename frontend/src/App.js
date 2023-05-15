@@ -8,7 +8,6 @@ import NeedySignup from './components/NeedySignup'
 import NGOSignup from './components/NGOSignup';
 // import Header from './components/Header'
 
-import VerifyNGO from './components/AdminDashboard/VerifyNGO';
 import Dashboard from './components/AdminDashboard/Dashboard';
 import ViewNGOs from './components/AdminDashboard/ViewNGOs';
 import ViewDonors from './components/AdminDashboard/ViewDonors';
@@ -63,7 +62,6 @@ function App() {
           <Routes>
                   <Route path='/admin' element={<Sidebar/>}>
                     <Route path='' element={<Dashboard/>}/>
-                    <Route path='verify-ngo' element={<VerifyNGO/>}/>
                     <Route path='view-ngos' element={<ViewNGOs/>}/>
                     <Route path='view-donors' element={<ViewDonors/>}/>
                     <Route path='view-needy' element={<ViewNeedy/>}/>

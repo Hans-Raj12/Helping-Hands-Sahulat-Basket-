@@ -11,8 +11,8 @@ const CardsData = [
     {
         title: "Food-Donation",
         color: {
-            backGround:"	cadetblue",
-            boxShadow: "0px 10px 20px 0px 	cadetblue"
+            backGround:"#6c757d",
+            boxShadow: "0px 10px 20px 0px 	#6c757d"
         },
         barValue: 30,
         value: 2590,
@@ -30,8 +30,8 @@ const CardsData = [
     {
         title: "Cloth-Donation",
         color: {
-            backGround: "	lightslategray",
-            boxShadow: "0px 10px 20px 0px 	lightslategray"
+            backGround: "	#605B56",
+            boxShadow: "0px 10px 20px 0px 	#605B56"
         },
         barValue: 50,
         value: 5000,
@@ -49,8 +49,8 @@ const CardsData = [
     {
         title: "Fund-Donation",
         color: {
-            backGround: "darkslateblue",
-            boxShadow: "0px 10px 20px 0px darkslateblue"
+            backGround: "#837A75",
+            boxShadow: "0px 10px 20px 0px #837A75"
         },
         barValue: 70,
         value: 8000,

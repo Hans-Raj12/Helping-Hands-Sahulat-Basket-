@@ -6,9 +6,10 @@ const Header = () => {
        <header id="header" className="fixed-top " style={{background: 'black'}}>
         <div className="container d-flex align-items-center justify-content-lg-between">
           <h1 className="logo me-auto me-lg-0">
-            <a href="index.html">
+           <Link to='/'>Helping Hands<span>.</span></Link>
+            {/* <a href="">
               Helping Hands<span>.</span>
-            </a>
+            </a> */}
           </h1>
           {/* Uncomment below if you prefer to use an image logo */}
       {/* <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>*/}

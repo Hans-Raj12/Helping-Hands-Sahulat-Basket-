@@ -375,9 +375,9 @@ const Home2 = () => {
               Together, we can create a better future for our communities and build a more compassionate world. 
               So, donate now and be a part of our mission to create positive change in the world!
           </p>
-          <a className="cta-btn" href="#">
+          {/* <a className="cta-btn" href="#">
             Donate
-          </a>
+          </a> */}
         </div>
       </div>
     </section>

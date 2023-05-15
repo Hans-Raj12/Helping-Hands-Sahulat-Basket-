@@ -28,3 +28,11 @@
     color: white;
   }
   
+  .suspend-btn{
+    background-color: #ffc451;
+    color: black;
+    border: none;
+    padding: 4px 8px;
+    font-weight: 500;
+    border-radius: 8px;
+  }

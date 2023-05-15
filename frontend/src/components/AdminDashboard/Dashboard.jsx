@@ -52,7 +52,7 @@ useEffect(() => {
             <h1>Admin Dashboard</h1>
             <Container>
                 <Row>
-                <Col md={4}>
+                <Col md={4} >
                 <StaticalCard title="Registered Donors" number={numOfDonors} icon="donors" />
                 </Col>
                 <Col md={4}>

@@ -25,12 +25,6 @@ const Sidebar = ({children}) => {
 
         },
         {
-            path:'verify-ngo',
-            name:'Verify NGO',
-            icon:<FaUserAlt/>
-
-        },
-        {
             path:'view-ngos',
             name:'View NGOs',
             icon:<FaRegChartBar/>
@@ -48,21 +42,14 @@ const Sidebar = ({children}) => {
         },
         {
             path:'add-remove-ngos',
-            name:'Add/Remove NGOs',
+            name:'Suspend NGOs',
             icon:<FaShoppingBag/>
 
         },
         {
             path:'add-remove-donors',
-            name:'Add/Remove Donors',
+            name:'Suspend Donors',
             icon:<FaThList/>
-
-        },
-        {
-            path:'settings',
-            name:'Setting',
-            icon:<FiSettings/>
-
         },
     ]
 

@@ -1,6 +1,8 @@
 .rigts-reserved-container{
+ 
     background-color: black;
     color: #fff;
+    bottom: 0;
 }
 .copyright {
     text-align: center;

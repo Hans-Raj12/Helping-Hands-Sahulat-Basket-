@@ -64,8 +64,8 @@ const AddorRemoveDonors = () => {
           <td>{contact}</td>
           <td>{address}</td>
           <td>
-            <button onClick={() => handleDelete(id)} >
-              <RiDeleteBin6Line size={20} />
+            <button className="suspend-btn" onClick={() => handleDelete(id)} >
+              Suspend
             </button>
           </td>
         </tr>
