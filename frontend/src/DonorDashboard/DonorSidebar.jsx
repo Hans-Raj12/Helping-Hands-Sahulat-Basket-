@@ -51,12 +51,6 @@ const DonorSidebar = ({children}) => {
             path: 'profile',
             icon: <FaIcons.FaUserAlt />,
             cName: 'nav-text'
-          },
-          {
-            title: 'SignOut',
-            path: '/SignOut',
-            icon: <FaIcons.FaSignOutAlt />,
-            cName: 'nav-text'
           }
 
     ]

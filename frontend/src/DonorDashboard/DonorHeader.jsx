@@ -17,14 +17,14 @@ const DonorHeader = () => {
           Donor Dashboard
         </div>
         <div style={{display:'inline-flex'}}>
-        <img src={person} alt="profile" width={"40px"} style={{borderRadius:'40px'}}/>{credentials ? credentials?.user?.name: 'Donor'}</div>
-        <div className="icons">
+        <img src={person} alt="profile" width={"40px"} style={{borderRadius:'40px'}}/><span style={{alignItems:'center',color:"#fff",margin:"8px"}}>{credentials ? credentials?.user?.name: 'Donor'}</span></div>
+        {/* <div className="icons">
        
         
           <FaBell className="icon" />
           <FaEnvelope className="icon" />
           
-        </div>
+        </div> */}
         <button className="signout-btn" onClick={()=>{
           navigate('/login')          
         }}>

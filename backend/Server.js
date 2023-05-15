@@ -635,6 +635,15 @@ app.use('/donor-donations',async(req,res)=>{
    res.status(500).json({ message: err.message });
  }
 })
+app.use('/donor-donations-cards',async(req,res)=>{
+  try {
+    const { email } = req.body
+   const donations = await Donations.find({ donor_email:email, accepted: true });
+   res.status(200).json(donations);
+ } catch (err) {
+   res.status(500).json({ message: err.message });
+ }
+})
 
 app.use('/public', express.static('public'));
 // app.use(express.static(path.join(__dirname, 'public')));
