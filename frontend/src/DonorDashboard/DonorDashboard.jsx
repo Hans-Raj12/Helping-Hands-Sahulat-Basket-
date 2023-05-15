@@ -1,11 +1,11 @@
 import React from 'react';
-import {useState} from 'react';
+// import {useState} from 'react';
 import {MdOutlineFastfood} from "react-icons/md";
 import {TbClothesRack} from "react-icons/tb";
 import {RiMoneyDollarCircleFill} from "react-icons/ri";
 import {Card} from './Card';
 import './DonorDashboard.css'
-import Table from './DonorDonationHistory';
+// import Table from './DonorDonationHistory';
 import Abc from './Chart';
 const CardsData = [
     {
@@ -91,7 +91,6 @@ const Cards = () => {
             </div>
 
             <Abc/>
-            <Table/>
       </div>
     )
   }

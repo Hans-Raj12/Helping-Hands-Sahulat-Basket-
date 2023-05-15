@@ -31,6 +31,7 @@ import DonorCreateDonation from './DonorDashboard/DonorCreateDonation'
 import DonorViewNGO from './DonorDashboard/DonorViewNGO'
 import DonorProjects from './DonorDashboard/DonorProjects';
 import DonorProfile from './DonorDashboard/DonorProfile';
+import DonorDonationHistory from './DonorDashboard/DonorDonationHistory.jsx'
 
 import NeedyProfile from './NeedyDashboard/NeedyProfile';
 import NeedyDonation from './NeedyDashboard/NeedyDonation'
@@ -89,6 +90,7 @@ function App() {
                     <Route path='create-donation' element={<DonorCreateDonation/>}/>
                     <Route path='view-ngos' element={<DonorViewNGO/>}/>
                     <Route path='donor-projects' element={<DonorProjects/>}/>
+                    <Route path='donor-donations-history' element={<DonorDonationHistory/>}/>
                     <Route path='profile' element={<DonorProfile/>}/>
                 </Route>
           </Routes>

@@ -41,6 +41,12 @@ const DonorSidebar = ({children}) => {
             cName: 'nav-text'
           },
           {
+            title: 'Donation History',
+            path: 'donor-donations-history',
+            icon: <IoIcons.IoIosPaper />,
+            cName: 'nav-text'
+          },
+          {
             title: 'Profile',
             path: 'profile',
             icon: <FaIcons.FaUserAlt />,

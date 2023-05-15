@@ -1,8 +1,6 @@
 .table{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    /* margin-bottom: 1rem; */
     margin: 1rem;
     width: 95%;
 }
