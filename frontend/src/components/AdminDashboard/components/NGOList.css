@@ -1,0 +1,38 @@
+#title {
+    text-align: center;
+    font-family: arial, sans-serif;
+  }
+  
+  #ngos {
+    text-align: center;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    border: 3px solid #ddd;
+    width: 100%;
+  }
+  
+  #ngos td, #ngos th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #ngos tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #ngos tr:hover {background-color: #ddd;}
+  
+  #ngos th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #ffc451;
+    color: white;
+  }
+  
+  .suspend-btn{
+    background-color: #ffc451;
+    color: black;
+    border: none;
+    padding: 4px 8px;
+    font-weight: 500;
+    border-radius: 8px;
+  }
