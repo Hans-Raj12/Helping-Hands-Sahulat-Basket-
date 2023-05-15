@@ -6,7 +6,7 @@ import {RiMoneyDollarCircleFill} from "react-icons/ri";
 import {Card} from './Card';
 import './DonorDashboard.css'
 import Table from './DonorDonationHistory';
-import Abc from './Chart';
+import Chart from './Chart';
 const CardsData = [
     {
         title: "Food-Donation",
@@ -90,8 +90,8 @@ const Cards = () => {
                 
             </div>
 
-            <Abc/>
-            <Table/>
+            <Chart/>
+            {/* <Table/> */}
       </div>
     )
   }
