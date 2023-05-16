@@ -172,7 +172,7 @@ function NGOSignup(){
             </Col>
           </Row>
           <Row className="m-3">
-            <Col sm={4}> 
+              <Col sm={4} style={{padding:"0px 12px"}}> 
                   <label> 
                     Are you registered? <sup>*</sup> 
                   </label> 
@@ -182,8 +182,8 @@ function NGOSignup(){
                     <option value="yes">yes</option> 
                     <option value="no">no</option> 
                   </select>
-                </Col>
-              <Col sm={4}> 
+              </Col>
+              {/* <Col sm={3}> 
                 <label>Year of Experience?</label> 
                 <input 
                   type="number"
@@ -193,8 +193,8 @@ function NGOSignup(){
                   }} 
                   placeholder="Experience" 
                 /> 
-              </Col>
-              <Col sm={4}> 
+              </Col> */}
+              <Col sm={4} style={{padding:"0px 12px"}}> 
                 <label>NO: of employees?</label> 
                 <input 
                 type="number"
@@ -205,47 +205,29 @@ function NGOSignup(){
                   placeholder="Employees" 
                 /> 
               </Col>
-            </Row>
-            <Row className="m-3">
-              <Col sm={5}> 
-              <label> 
+              <Col sm={4} style={{padding:"0px 12px"}}> 
+              {/* <label> 
                 Do you have website?
               </label> 
               <select value={website} onChange={(e) => setwebsite(e.target.value)}> 
                 <option value="yes">yes</option> 
                 <option value="no">no</option> 
-              </select>
+              </select> */}
 
-              {website==='yes' && 
-                (<div>
-                    <label>Website Url <sup>*</sup></label>
+                  <div>
+                    <label>Website Url </label>
                     <input
                       type="text"
                       value={websiteUrl}
                       onChange={e =>{
                         setWebsiteUrl(e.target.value)
                       }}
+                      placeholder="Website Url"
                     />
-                </div>)
-              }
+                </div>
+              
               </Col>
-            <Col sm={6}> 
-              <label > 
-                Which supplies you can distribute ? <sup>*</sup> 
-              </label> 
-
-              <label className="cb-label" htmlFor="food">    
-              Surplus Food <input type="checkbox" id="food"/>
-                </label>
-              <label className="cb-label" htmlFor="cloth">
-              Clothes<input type="checkbox" id="cloth"/>
-                </label>
-              <label className="cb-label" htmlFor="money">
-              Fund/Money<input type="checkbox" id="money"/>
-                </label>
-             
-                </Col>
-                </Row>
+            </Row>
             <p className="status">By clicking Sign Up, you agree to our Terms, Privacy 
                             Policy and Cookies Policy. You may receive SMS notifications 
                             from us and can opt out at any time.</p>

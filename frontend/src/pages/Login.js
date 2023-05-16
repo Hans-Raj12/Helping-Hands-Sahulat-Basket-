@@ -41,57 +41,58 @@ const Login = () => {
   
   return (
     <>
-    <Header/>
     <div className='login'>
+    <Header/>
+      <div className='login-container'>      
+        <div className='login-image'>
+          <img src={LoginImage} alt='login' width={500} height={500}/>
+        </div>
       
-      <div className='login-image'>
-        <img src={LoginImage} alt='login' width={500} height={500}/>
+        <div className="form-container">
+          
+          <form onSubmit={handleSubmit}>
+            <h3>Log In</h3>
+            <label htmlFor="email" className="form-label">Email: </label>
+            <input
+              type='email'
+              value={form.email}
+              onChange={e => {
+                setForm({
+                  ...form,
+                  email: e.target.value
+                })
+              }}
+              id='email'
+              placeholder='Enter your email here'
+            />
+            <label htmlFor='password' className="form-label">Password: </label>
+            <input
+              type='password'
+              value={form.password}
+              onChange={e => {
+                setForm({
+                  ...form,
+                  password: e.target.value
+                })
+              }}
+              id="password"
+              placeholder='Enter password'
+            />
+            <input
+              id='cbox'
+              type='checkbox'
+              className=""
+            />
+            <label>Remember Me</label>
+            <button type='submit'>Log In</button>
+          </form>
+          <p>Don't have an account? <Link to='/signup'>Signup</Link></p>
+        </div>
       </div>
-    
-    <div className="form-container">
+      <RightsReservedFooter/>
       
-      <form onSubmit={handleSubmit}>
-        <h3>Log In</h3>
-        <label htmlFor="email" className="form-label">Email: </label>
-        <input
-          type='email'
-          value={form.email}
-          onChange={e => {
-            setForm({
-              ...form,
-              email: e.target.value
-            })
-          }}
-          id='email'
-          placeholder='Enter your email here'
-        />
-        <label htmlFor='password' className="form-label">Password: </label>
-        <input
-          type='password'
-          value={form.password}
-          onChange={e => {
-            setForm({
-              ...form,
-              password: e.target.value
-            })
-          }}
-          id="password"
-          placeholder='Enter password'
-        />
-        <input
-          id='cbox'
-          type='checkbox'
-          className=""
-        />
-        <label>Remember Me</label>
-        <button type='submit'>Log In</button>
-      </form>
-      <p>Don't have an account? <Link to='/signup'>Signup</Link></p>
     </div>
     
-    </div>
-    
-    <RightsReservedFooter/>
     </>
   );
 }

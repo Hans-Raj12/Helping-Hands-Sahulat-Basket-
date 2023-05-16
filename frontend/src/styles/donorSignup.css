@@ -1,7 +1,21 @@
+.donor-signup-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+}
+.donor-signup-container .donor-signup-image{
+  flex: 1;
+  justify-content: flex-start;
+  margin-left: 150px;
+
+}
 .donorSignup {
-    display: flex;
-    justify-content: center;
-    margin: 75px auto;
+    flex: 1;
+    justify-content: flex-end;
+    height: 90%;
+    margin-top: 100px;
   }
   
   fieldset {
@@ -10,18 +24,18 @@
     width: 480px;
     padding: 16px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 20px;
     flex-direction: column;
   }
   fieldset h2{
     display: flex;
     justify-content: center;
     align-items: center;
-    color:#e74c3c;
+    color:#ffc451;
   }
   
   .donorSignup  label {
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     font-size: 14px;
   }
   
@@ -39,11 +53,11 @@
     border-radius: 4px;
     border: 1px solid #ccc;
     height: 32px;
-    padding: 0 8px;
+    padding: 2px 8px;
   }
   
   .Field {
-    padding-bottom: 24px;
+    padding-bottom: 18px;
     display: flex;
     flex-direction: column;
   }
@@ -67,7 +81,7 @@
     margin: auto;
     border-radius: 4px;
     border: 1px solid #ccc;
-    background-color: #e74c3c;
+    background-color: #ffc451;
     color: white;
     text-transform: uppercase;
     text-align: center;
@@ -101,12 +115,12 @@
 
   .donorSignup  p a{
     padding: 5px;
-  border-radius: 50px;
-  color: #e74c3c;
+  border-radius: 40px;
+  color: #ffc451;
   font-weight: bold;
   }
   
   .donorSignup p a:hover{
     color: #fefefe;
-  background: #e74c3c;
+  background: #ffc451;
   }
