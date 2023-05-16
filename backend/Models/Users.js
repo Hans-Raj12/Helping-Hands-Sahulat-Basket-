@@ -10,7 +10,8 @@ const usersSchema = new mongoose.Schema({
     numOfEmployees:{type:String},
     NGOType:{type:String},
     experience:{type:String},
-    websiteUrl:{type:String}
+    websiteUrl:{type:String},
+    active:{type:Boolean}
 })
 
 module.exports = mongoose.model('Users',usersSchema)

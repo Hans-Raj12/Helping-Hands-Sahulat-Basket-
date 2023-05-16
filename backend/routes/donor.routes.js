@@ -34,7 +34,7 @@ let Users = require('../Models/Users');
 // })
 router.get('/', (req, res, next) => {
 
-       Users.find({roleId:"3"})
+       Users.find({roleId:"3", active:true})
       .then(posts => {
         
         res.status(200).json(posts);

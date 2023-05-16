@@ -57,7 +57,8 @@ app.use('/donor-signup',async (req, res) => {
        email,
        address,
        phone,
-       cnic 
+       cnic ,
+       active:true
     })
     // Save the new user to the database
     const savedUser = await newUser.save();
@@ -94,7 +95,8 @@ app.use('/ngo-signup',async (req, res) => {
        numOfEmployees,
        NGOType,
        experience,
-       websiteUrl
+       websiteUrl,
+       active:true
     })
     // Save the new user to the database
     const savedUser = await newUser.save();
@@ -118,7 +120,8 @@ app.use('/needy-signup', async (req, res) => {
       email,
       address,
       phone,
-      cnic
+      cnic,
+      active:true
     });
 
     // Save the user to the database
@@ -140,7 +143,7 @@ app.use('/login', async (req, res) => {
   const { email, password } = req.body;
   
   // Check if donor user exists with the given email and password
-  const user = await Users.findOne({ email, password });
+  const user = await Users.findOne({ email, password, active:true });
   if (user && user.roleId=="1") {
     res.status(200).json({ user, redirect:"/admin", role:'admin' });
     return;
@@ -645,6 +648,8 @@ app.use('/donor-donations-cards',async(req,res)=>{
  }
 })
 
+
+
 app.use('/public', express.static('public'));
 // app.use(express.static(path.join(__dirname, 'public')));
 // Define endpoint to create a fundraising post
@@ -653,3 +658,31 @@ app.use('/fundraising-posts', fundraisingpost_api)
 app.use('/ngos',ngo_routes)
 app.use('/donors',donor_routes)
 app.use('/needy',needy_routes)
+
+
+
+app.put('/api/users/:id', async (req, res) => {
+  const userId = req.params.id;
+  const { active } = req.body;
+
+  // Update the user in your database using the userId
+  // Here's an example using a hypothetical user model
+
+  const user = await Users.findByIdAndUpdate(userId, { active });
+    if (!user) {
+        console.error('Error updating user');
+        res.status(500).json({ error: 'Failed to update user.' });
+      } else {
+        res.status(200).json({ message: 'User updated successfully.' });
+      }
+  // Users.findByIdAndUpdate(userId, { active }, (err, user) => {
+  //   if (err) {
+  //     console.error('Error updating user:', err);
+  //     res.status(500).json({ error: 'Failed to update user.' });
+  //   } else {
+  //     res.status(200).json({ message: 'User updated successfully.' });
+  //   }
+  // });
+// });
+
+})

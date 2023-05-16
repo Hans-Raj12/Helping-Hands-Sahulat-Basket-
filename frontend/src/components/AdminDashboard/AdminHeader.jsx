@@ -19,10 +19,10 @@ const AdminHeader = () => {
         <ul>
          
           <li>
-            <Link to='/'><FaBell className="icon" size={26}/></Link>
+            {/* <Link to='/'><FaBell className="icon" size={26}/></Link> */}
           </li>
           <li>
-            <Link to='/'><FaEnvelope className="icon" size={25}/></Link>
+            {/* <Link to='/'><FaEnvelope className="icon" size={25}/></Link> */}
 
           </li>
         </ul>
