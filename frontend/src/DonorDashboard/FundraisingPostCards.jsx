@@ -6,7 +6,13 @@ import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
-
+import TextField from '@mui/material/TextField';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+ import DonateModalImage from '../assets/DonorImages/donate-modal-image.jpg'
 
 import './FundraisingPostCards.css'
 // import { type } from 'os';
@@ -14,6 +20,9 @@ import './FundraisingPostCards.css'
 export default function FundraisingPostCards(props) {
 
   const [open, setOpen] = React.useState(false);
+  const [donateBtnOpen, setDonateBtnOpen] = React.useState(false)
+  const [donationAmount, setDonationAmount] = React.useState()
+  const [error, setError] = React.useState(false)
   // const toGo = props.post.goalAmount-props.post.raisedAmount
   // console.log(toGo)
   const style = {
@@ -34,13 +43,19 @@ export default function FundraisingPostCards(props) {
     setOpen(false)
   }
 
+  const handleDonateBtnOpen = () => {
+    setDonateBtnOpen(true) 
+ }
+ const handleDonateBtnClose = () => {
+   setDonateBtnOpen(false)
+ }
   return (
     <div className='fundraising-post-card'>
     <Card sx={{ maxWidth: 345 }} className='card'>
       <CardActionArea>
         <CardMedia
           component="img"
-          height="140"
+          height="200"
           image={`http://localhost:5000/public/${props.post.imageFilePath}`}
           alt="fundraising post image"
           className='card-image'
@@ -56,9 +71,44 @@ export default function FundraisingPostCards(props) {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
+        <Button size="small" color="primary" onClick={handleDonateBtnOpen}>
           Donate
         </Button>
+        <Dialog open={donateBtnOpen} onClose={handleDonateBtnClose}>
+        <DialogTitle>Donate</DialogTitle>
+        <DialogContent>
+        <DialogContentText>
+            Please enter the amount of donation to Donate for this noble cause.
+          </DialogContentText>
+          
+                    <Typography id="modal-modal-goalAmount" sx={{ mt: 2 }} style={{textAlign:'left'}}>
+                      <p>
+                        Goal Amount: {props.post?.goalAmount} 
+                        <br/>
+                        Amount Raised: {props.post.raisedAmount ? props.post.raisedAmount : 0}
+                      </p> 
+                    </Typography>
+          <TextField
+            error={error}
+            autoFocus
+            margin="dense"
+            id="standard-error-helper-text"
+            label="Amount"
+            helperText="You can not donate more than the required amount"
+            type="number"
+            fullWidth
+            variant="standard"
+            value={donationAmount}
+            onChange={(e)=>setDonationAmount(e.target.value)}
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleDonateBtnClose}>Cancel</Button>
+          <Button onClick={handleDonateBtnClose}>Donate</Button>
+        </DialogActions>
+      </Dialog>
+
+
         <Button onClick={handleOpen}>view details</Button>
           <Modal
             open={open}
@@ -71,7 +121,7 @@ export default function FundraisingPostCards(props) {
                 <div className='modal-image'>
                 <CardMedia
                     component="img"
-                    height="140"
+                    height="200"
                     image={`http://localhost:5000/public/${props.post.imageFilePath}`}
                     alt="fundraising post image"
                     className='card-image'

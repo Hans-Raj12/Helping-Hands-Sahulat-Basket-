@@ -35,6 +35,12 @@ const DonorSidebar = ({children}) => {
             cName: 'nav-text'
           },
           {
+            title: 'View Needy',
+            path: 'view-needy',
+            icon: <FaIcons.FaUserFriends />,
+            cName: 'nav-text'
+          },
+          {
             title: 'Show Projects',
             path: 'donor-projects',
             icon: <IoIcons.IoIosPaper />,

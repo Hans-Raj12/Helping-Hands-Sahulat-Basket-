@@ -3,6 +3,8 @@ import "./NGODashboard.css"
 import { Container, Col, Row } from 'react-bootstrap';
 import StaticalCard from './components/Card';
 import { AuthContext } from '../context/AuthContext';
+import NGODashboardImage from '../assets/NGOImages/ngo-dashboard.png'
+
 const NGODashboard = () => {
 
   const { credentials } = useContext(AuthContext)
@@ -32,15 +34,20 @@ const NGODashboard = () => {
         </div> */}
         <Container>
                 <Row>
-                <Col md={4}>
-                <StaticalCard title="Food" number={'$10,000'} icon="donors" />
-                </Col>
-                <Col md={4}>
-                <StaticalCard title="Clothes" number={'$10,000'} icon="ngos" />
-                </Col>
-                <Col md={4}>
-                <StaticalCard title="Fundraising" number={'$10,000'} icon="users" />
-                </Col>
+                  <Col md={4}>
+                  <StaticalCard title="Food" number={'$10,000'} icon="donors" />
+                  </Col>
+                  <Col md={4}>
+                  <StaticalCard title="Clothes" number={'$10,000'} icon="ngos" />
+                  </Col>
+                  <Col md={4}>
+                  <StaticalCard title="Fundraising" number={'$10,000'} icon="users" />
+                  </Col>
+                </Row>
+                <Row>
+                  <Col>
+                    <img src={NGODashboardImage}/>
+                  </Col>
                 </Row>
         </Container>
         </div>

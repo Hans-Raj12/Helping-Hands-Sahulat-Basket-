@@ -131,7 +131,7 @@ h6 {
 }
 
 #header .logo {
-  font-size: 32px;
+  font-size: 20px;
   margin: 0;
   padding: 0;
   line-height: 1;
@@ -158,11 +158,11 @@ h6 {
 .get-started-btn {
   color: #fff;
   border-radius: 4px;
-  padding: 7px 25px 8px 25px;
+  padding: 7px 10px 8px 5px;
   white-space: nowrap;
   transition: 0.3s;
   font-size: 14px;
-  margin-left: 15px;
+  /* margin-left: 15px; */
   display: inline-block;
   border: 2px solid #ffc451;
 }
@@ -206,7 +206,7 @@ h6 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 0 10px 30px;
+  padding: 10px 15px 10px 30px;
   font-size: 15px;
   font-weight: 600;
   color: #fff;

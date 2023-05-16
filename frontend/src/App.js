@@ -40,6 +40,7 @@ import NeedyDashboard from './NeedyDashboard/NeedyDashboard'
 import NeedyDonationHistory from './NeedyDashboard/NeedyDonationHistory'
 
 import NGOShowProjects from './NGODashboard/NGOShowProjects';
+import DonorViewNeedy from './DonorDashboard/DonorViewNeedy';
 function App() {
 
   return (
@@ -89,6 +90,7 @@ function App() {
                      <Route path='' element={<DonorDashboard/>}/>
                     <Route path='create-donation' element={<DonorCreateDonation/>}/>
                     <Route path='view-ngos' element={<DonorViewNGO/>}/>
+                    <Route path='view-needy' element={<DonorViewNeedy/>}/>
                     <Route path='donor-projects' element={<DonorProjects/>}/>
                     <Route path='donor-donations-history' element={<DonorDonationHistory/>}/>
                     <Route path='profile' element={<DonorProfile/>}/>
