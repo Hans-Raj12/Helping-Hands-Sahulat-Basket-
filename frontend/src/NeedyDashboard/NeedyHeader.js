@@ -20,9 +20,9 @@ const NeedyHeader = () => {
        
         <div className="icons">
        
-        
+{/*         
           <FaBell className="icon" />
-          <FaEnvelope className="icon" />
+          <FaEnvelope className="icon" /> */}
           
         </div>
         <button className="signout-btn" onClick={()=>{
