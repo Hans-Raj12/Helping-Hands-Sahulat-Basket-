@@ -82,5 +82,25 @@ router.get('/', (req, res, next) => {
     
   });
 
+  router.patch('/donate/:id', (req, res) => {
+    const postId = req.params.id;
+    const { raisedAmount } = req.body;
+    
+    FundraisingPost.findByIdAndUpdate(postId, { raisedAmount }, { new: true })
+      .then((updatedPost) => {
+        if (!updatedPost) {
+          // If the post doesn't exist, return a 404 Not Found status
+          return res.status(404).json({ error: 'Post not found' });
+        }
+  
+        // Return the updated post as the response
+        res.status(201).json(updatedPost);
+      })
+      .catch((error) => {
+        // Handle any errors that occur during the update process
+        console.error('Error updating post:', error);
+        res.status(500).json({ error: 'Server error' });
+      });
+  });
 
 module.exports = router;

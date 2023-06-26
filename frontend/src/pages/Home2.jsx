@@ -20,7 +20,7 @@ const Home2 = () => {
           <h1>
             Need Your Big
           </h1>
-          <h1>For Change</h1>
+          <h1>Hands to Change</h1>
           <h1>The World<span>.</span></h1>
         </div>
       </div>

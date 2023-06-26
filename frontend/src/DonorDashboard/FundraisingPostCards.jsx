@@ -23,6 +23,7 @@ export default function FundraisingPostCards(props) {
   const [donateBtnOpen, setDonateBtnOpen] = React.useState(false)
   const [donationAmount, setDonationAmount] = React.useState()
   const [error, setError] = React.useState(false)
+  const [post, setPost] = React.useState(props.post)
   // const toGo = props.post.goalAmount-props.post.raisedAmount
   // console.log(toGo)
   const style = {
@@ -49,6 +50,41 @@ export default function FundraisingPostCards(props) {
  const handleDonateBtnClose = () => {
    setDonateBtnOpen(false)
  }
+ const handleDonateBtn=()=>{
+   // Calculate the new raised amount by adding the donation amount
+   const newRaisedAmount = props.post.raisedAmount
+   ? props.post.raisedAmount + +donationAmount
+   : +donationAmount;
+
+ // Prepare the data to send in the PATCH request
+ const data = {
+   raisedAmount: newRaisedAmount,
+ };
+
+ // Make the PATCH request
+ fetch(`/fundraising-posts/donate/${props.post._id}`, {
+   method: 'PATCH',
+   headers: {
+     'Content-Type': 'application/json',
+   },
+   body: JSON.stringify(data),
+ })
+   .then((response) => response.json())
+   .then((updatedPost) => {
+     // Handle the response from the server if needed
+     props.post.raisedAmount = Number(updatedPost.raisedAmount);
+     console.log('Updated post:', updatedPost);
+     setDonationAmount(0)
+   })
+   .catch((error) => {
+     // Handle any errors that occur during the request
+     console.error('Error updating post:', error);
+   });
+
+   handleDonateBtnClose()
+ }
+
+
   return (
     <div className='fundraising-post-card'>
     <Card sx={{ maxWidth: 345 }} className='card'>
@@ -104,7 +140,7 @@ export default function FundraisingPostCards(props) {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleDonateBtnClose}>Cancel</Button>
-          <Button onClick={handleDonateBtnClose}>Donate</Button>
+          <Button onClick={handleDonateBtn}>Donate</Button>
         </DialogActions>
       </Dialog>
 
