@@ -8,6 +8,7 @@ const fundraisingpost_api = require('./routes/fundraisingposts.routes')
 const ngo_routes = require('./routes/ngo.routes')
 const donor_routes = require('./routes/donor.routes')
 const needy_routes = require('./routes/needy.routes')
+const feedback_routes = require('./routes/feedback.routes')
 
 const mongoose = require('mongoose')
 const bodyParser = require("body-parser");
@@ -658,8 +659,7 @@ app.use('/fundraising-posts', fundraisingpost_api)
 app.use('/ngos',ngo_routes)
 app.use('/donors',donor_routes)
 app.use('/needy',needy_routes)
-
-
+app.use('/feedback', feedback_routes)
 
 app.put('/api/users/:id', async (req, res) => {
   const userId = req.params.id;

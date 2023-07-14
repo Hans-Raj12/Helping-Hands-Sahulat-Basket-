@@ -1,7 +1,38 @@
+import { useState } from "react"
 import { Link } from "react-router-dom"
 import Header from "../components/Header"
 import Footer2 from '../components/Footer2'
 const Home2 = () => {
+
+
+  const [feedbackForm, setFeedbackForm] = useState({
+    name:"",
+    email:"",
+    subject:"",
+    message:"",
+  })
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const response = await fetch('/feedback', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(feedbackForm),
+    })
+    const data = await response.json();
+    console.log(data);
+    if (data.message) {
+      alert("Message Sent Successfully")
+    }
+    else {
+      alert("Message Not Sent")
+    }
+
+  }
+
     return (
             <>
     <Header/>
@@ -535,46 +566,58 @@ const Home2 = () => {
               <div className="address">
                 <i className="bi bi-geo-alt" />
                 <h4>Location:</h4>
-                <p>A108 Adam Street, New York, NY 535022</p>
+                <p>A108 Adam Street, Sukkur, Sindh, Pakistan</p>
               </div>
               <div className="email">
                 <i className="bi bi-envelope" />
                 <h4>Email:</h4>
-                <p>info@example.com</p>
+                <p>info.helpinghands@gmail.com</p>
               </div>
               <div className="phone">
                 <i className="bi bi-phone" />
                 <h4>Call:</h4>
-                <p>+1 5589 55488 55s</p>
+                <p>+92 304 3458660</p>
               </div>
             </div>
           </div>
           <div className="col-lg-8 mt-5 mt-lg-0">
             <form
-              action="forms/contact.php"
-              method="post"
-              role="form"
-              className="php-email-form"
+              onSubmit={handleSubmit}
+              className="email-form"
             >
               <div className="row">
                 <div className="col-md-6 form-group">
                   <input
                     type="text"
-                    name="name"
+                    value={feedbackForm.name}
+                    onChange={e=>{
+                      setFeedbackForm({
+                        ...feedbackForm,
+                        name:e.target.value
+                      })
+                    }}
+                    name={feedbackForm.name}
                     className="form-control"
                     id="name"
                     placeholder="Your Name"
-                    required=""
+                    required
                   />
                 </div>
                 <div className="col-md-6 form-group mt-3 mt-md-0">
                   <input
                     type="email"
+                    value={feedbackForm.email}
+                    onChange={e=>{
+                      setFeedbackForm({
+                        ...feedbackForm,
+                        email:e.target.value
+                      })
+                    }}
                     className="form-control"
                     name="email"
                     id="email"
                     placeholder="Your Email"
-                    required=""
+                    required
                   />
                 </div>
               </div>
@@ -582,20 +625,33 @@ const Home2 = () => {
                 <input
                   type="text"
                   className="form-control"
+                  value={feedbackForm.subject}
+                  onChange={e=>{
+                    setFeedbackForm({
+                      ...feedbackForm,
+                    subject:e.target.value
+                    })
+                  }}
                   name="subject"
                   id="subject"
                   placeholder="Subject"
-                  required=""
+                  required
                 />
               </div>
               <div className="form-group mt-3">
                 <textarea
                   className="form-control"
                   name="message"
+                  value={feedbackForm.message}
+                  onChange={e=>{
+                    setFeedbackForm({
+                      ...feedbackForm,
+                    message:e.target.value
+                    })
+                  }}
                   rows={5}
                   placeholder="Message"
-                  required=""
-                  defaultValue={""}
+                  required
                 />
               </div>
               <div className="my-3">

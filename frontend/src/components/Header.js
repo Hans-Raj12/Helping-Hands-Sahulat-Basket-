@@ -16,12 +16,12 @@ const Header = () => {
        <nav id="navbar" className="navbar order-last order-lg-0">
           <ul>
             <li>
-              <a href="#hero">Home</a>
-              {/* <Link to='/'>Home</Link> */}
+              {/* <a href="#hero">Home</a> */}
+              <Link to='/'>Home</Link>
             </li>
             <li>
             <a href="#about">About</a>
-            {/* <Link to='/'>About</Link> */}
+            {/* <Link to='/#about'>About</Link> */}
             </li>
             <li>
             <a href="#services">Services</a>
