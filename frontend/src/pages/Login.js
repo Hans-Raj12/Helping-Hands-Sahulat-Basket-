@@ -14,13 +14,22 @@ const Login = () => {
     email:'',
     password:''
   })
-
+  
+  const [attempts, setAttempts] = useState(0);
+  const [timer, setTimer] = useState(false);
+  const [counter, setCounter] = useState(30);
 
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     
     e.preventDefault();
+
+    if (timer) {
+      alert("Please wait for 30 seconds before attempting to log in again.");
+      return;
+    }
+
       const response = await fetch('/login', {
         method: 'POST',
         headers: {
@@ -34,8 +43,40 @@ const Login = () => {
         setCredentials({user:data.user, role:data.role})
         navigate(data.redirect);
       } else {
-        alert(data.message);
+        if (attempts < 2) {
+          alert(data.message);
+          setAttempts(attempts + 1);
+        } else {
+          alert("You have entered the wrong password three times. Please wait for 30 seconds before attempting to log in again.");
+          setAttempts(0);
+          setTimer(true);
+          setCounter(30);
+    
+          const countdown = setInterval(() => {
+            setCounter((prevCounter) => {
+              if (prevCounter === 1) {
+                clearInterval(countdown);
+                setTimer(false);
+              }
+              return prevCounter - 1;
+            });
+          }, 1000);
+          // setAttempts(0);
+          // setTimer(true);
+    
+          // setTimeout(() => {
+          //   setTimer(false);
+          //   setCounter((prevCounter) => {
+          //     if (prevCounter === 1) {
+          //       clearInterval(countdown);
+          //       setTimer(false);
+          //     }
+          //     return prevCounter - 1;
+          //   });
+          // }, 30000);
+
       }
+    }
   
   }
   
@@ -49,7 +90,6 @@ const Login = () => {
         </div>
       
         <div className="form-container">
-          
           <form onSubmit={handleSubmit}>
             <h3>Log In</h3>
             <label htmlFor="email" className="form-label">Email: </label>
@@ -87,6 +127,8 @@ const Login = () => {
             <button type='submit'>Log In</button>
           </form>
           <p>Don't have an account? <Link to='/signup'>Signup</Link></p>
+          {timer && <p>Please wait for {counter} seconds before attempting to log in again.</p>}
+
         </div>
       </div>
       <RightsReservedFooter/>
