@@ -51,6 +51,11 @@ const Sidebar = ({children}) => {
             name:'Suspend Donors',
             icon:<FaThList/>
         },
+        {
+            path:'feedbacks',
+            name:'Feedbacks',
+            icon:<FaCommentAlt/>
+        },
     ]
 
     return (

@@ -28,4 +28,16 @@ router.post('/',(req,res)=>{
 
 })
 
+router.get('/',(req,res)=>{
+    Feedback.find({active:true}).then(result=>{
+        res.status(201).json({
+            message: "Feedback fetched successfully!",
+            feedbacks: result
+        })
+    }).catch(err => {
+        console.log(err),
+            res.status(500).json({message: "Error!", error: err});
+    })
+})
+
 module.exports = router

@@ -8,6 +8,7 @@ import NeedySignup from './components/NeedySignup'
 import NGOSignup from './components/NGOSignup';
 // import Header from './components/Header'
 
+//Admin Dashboard
 import Dashboard from './components/AdminDashboard/Dashboard';
 import ViewNGOs from './components/AdminDashboard/ViewNGOs';
 import ViewDonors from './components/AdminDashboard/ViewDonors';
@@ -16,6 +17,7 @@ import AddRemoveNGOs from './components/AdminDashboard/AddRemoveNGOs'
 import AddRemoveDonors from './components/AdminDashboard/AddRemoveDonors'
 import Sidebar from './components/AdminDashboard/Sidebar';
 import Settings from './components/AdminDashboard/Settings'
+import Feedbacks from './components/AdminDashboard/Feedbacks';
 
 import NGOSidebar from './NGODashboard/NGOSidebar'
 import NGODashboard from './NGODashboard/NGODashboard';
@@ -69,6 +71,7 @@ function App() {
                     <Route path='view-needy' element={<ViewNeedy/>}/>
                     <Route path='add-remove-ngos' element={<AddRemoveNGOs/>}/>
                     <Route path='add-remove-donors' element={<AddRemoveDonors/>}/>
+                    <Route path='feedbacks' element={<Feedbacks/>}/>  
                     <Route path='settings' element={<Settings/>}/>
                 </Route>
           </Routes>
