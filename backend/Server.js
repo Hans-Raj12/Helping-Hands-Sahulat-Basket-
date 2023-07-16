@@ -612,7 +612,7 @@ app.use('/needy-donations',async(req,res)=>{
 app.use('/donations/:id', async (req, res) => {
   const donationId = req.params.id;
 
-  const result = await Donations.deleteOne(req.params)
+  const result = await Donations.deleteOne({"_id":donationId})
   res.send(result)
 });
 

@@ -37,15 +37,6 @@ export default function BasicTable() {
 
     const handleAccept = async (row) => {
       console.log("id: ",row._id)
-      // const data = {
-      //   _id : row._id,
-      //   donor_name: row.donor_name,
-      //   donor_email: row.donor_email,
-      //   donation_type: row.donation_type,
-      //   donation_quantity: row.donation_type === "food" ? `${row.food_quantity}, (${row.food_type})` : row.donation_type === 'money' ? `${row.amount}` : `${row.cloth_quantity} (${row.cloth_quality, row.cloth_type})`,
-      //   donation_date: row.donation_date,
-      //   email:credentials?.user?.email
-      // }
       
 
 
@@ -115,7 +106,7 @@ export default function BasicTable() {
     }  
     const handleReject = async (row) => {
       console.log(row._id)
-      const response = await fetch(`/donations/:${row._id}`, {
+      const response = await fetch(`/donations/${row._id}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json'
@@ -133,7 +124,7 @@ export default function BasicTable() {
         method:"POST",
         headers: {
           'Content-Type': 'application/json'
-        },
+        },  
         body:JSON.stringify({recipient_email:credentials?.user?.email})
       })
       .then(response => response.json())
