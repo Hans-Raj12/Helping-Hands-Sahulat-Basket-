@@ -12,10 +12,10 @@ const NGOHeader = () => {
               NGO Dashboard<span>.</span>
             </Link>
           </h1>
-        <div className="icons">
+        {/* <div className="icons">
           <FaBell className="icon" />
           <FaEnvelope className="icon" />
-        </div>
+        </div> */}
         <Link to='/'>
         <button className="signout-btn">
           <FaSignOutAlt className="iconsign" />

@@ -36,7 +36,7 @@ export default function BasicTable() {
         setRows(data)
       })
       .catch(error => console.error(error));
-    },[])
+    },[rows])
 
 console.log(rows)
   return (
@@ -60,7 +60,7 @@ console.log(rows)
           </TableRow>
         </TableHead>
         <TableBody>
-            {rows.filter(row => row.email === credentials?.user?.email).map((row) => (
+            {rows.filter((row) => row.email === credentials?.user?.email).map((row) => (
                 <TableRow
                 key={row.id}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}

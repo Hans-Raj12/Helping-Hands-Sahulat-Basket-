@@ -59,11 +59,12 @@ const StatisticalCard = ({ title, number, icon }) => {
       <div style={{display:'flex', flexDirection:'column',alignItems:'center', margin:'4px', padding:'8px'}}>
         <h2 >{title}</h2>
         
+      <h3>{number}</h3>
+      
       
       <IconContext.Provider value={{ size: '48px', color: '#ffc451', cursor:'pointer' }}>
         {iconComponent}
       </IconContext.Provider>
-      <h3>{number}</h3>
       </div>
     </Card>
     </div>

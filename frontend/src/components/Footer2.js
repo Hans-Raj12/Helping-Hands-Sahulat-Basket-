@@ -12,13 +12,13 @@ const Footer2 = () => {
                 Helping Hands<span>.</span>
               </h3>
               <p>
-                A108 Adam Street <br />
-                NY 535022, USA
+              Airport Road, Sukkur IBA University, <br />
+              Sindh, Pakistan
                 <br />
                 <br />
-                <strong>Phone:</strong> +1 5589 55488 55
+                <strong>Phone:</strong> +92 304 3458660
                 <br />
-                <strong>Email:</strong> info@example.com
+                <strong>Email:</strong> info.helpinghands@gmail.com
                 <br />
               </p>
               <div className="social-links mt-3">

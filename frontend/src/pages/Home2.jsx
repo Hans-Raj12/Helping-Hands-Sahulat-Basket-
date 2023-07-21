@@ -308,11 +308,11 @@ const Home2 = () => {
                 <i className="bx bx-file" />
               </div>
               <h4>
-                <a href="">NGO verification</a>
+                <a href="">Fundraising</a>
               </h4>
               <p>
-              To ensure that only legitimate NGOs get registered on the platform, you can introduce a verification process that checks their credentials, registration status, and past performance.
-              This will help build trust among donors and increase the credibility of the platform.
+              NGOs will be able to create fundraising post for any cause, which is verified by NGOs and also the details of
+              that cause will be given in the post. Like this donors will be able to verify and donate.
               </p>
             </div>
           </div>

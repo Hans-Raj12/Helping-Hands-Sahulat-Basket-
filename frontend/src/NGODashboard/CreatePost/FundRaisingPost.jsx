@@ -47,10 +47,16 @@ function FundraisingPost() {
   };
 
   return (
+    <>
+    
     <div className='fundraisingpost-form'>
+    
         <form  onSubmit={handleSubmit}>
       <div>
-        <label htmlFor="title">Title:</label>
+        <div>
+          <h1> Create Fundraising post</h1>
+        </div>
+          <label htmlFor="title">Title:</label>
         <input
           type="text"
           id="title"
@@ -82,6 +88,7 @@ function FundraisingPost() {
       <button type="submit">Create Fundraising Post</button>
     </form>
     </div>
+    </>
   );
 }
 

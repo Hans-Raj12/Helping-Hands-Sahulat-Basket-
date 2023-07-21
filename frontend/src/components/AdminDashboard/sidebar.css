@@ -2,6 +2,7 @@
 .sidebar-container{
     display: flex;
     border-top-left-radius: 50px;
+    height: 100%;
     
 }
 

@@ -62,7 +62,7 @@ export default function BasicTable() {
             <TableCell>Recipient Name</TableCell>
             <TableCell align="left">Recipient Type</TableCell>
             <TableCell align="left">Recipient Email&nbsp;</TableCell>
-            <TableCell align="left">Donation Type&nbsp;</TableCell>
+            {/* <TableCell align="left">Donation Type&nbsp;</TableCell> */}
             <TableCell align="left">Quantity&nbsp;</TableCell>
           </TableRow>
         </TableHead>
@@ -73,8 +73,8 @@ export default function BasicTable() {
               <TableCell component="th" scope="row">
                 {row.recipient_name}
               </TableCell>
-              <TableCell align="left">{row.recipient_type}</TableCell>
-              <TableCell align="left">{row.recipient_email}</TableCell>
+              {/* <TableCell align="left">{row.recipient_type}</TableCell> */}
+              <TableCell align="left">{ row.recipient_email}</TableCell>
               <TableCell align="left">{row.donation_type}</TableCell>
               <TableCell align="left">{row.donation_type==='food'?row.food_quantity:row.donation_type==='cloth'? `${row.cloth_quantity} ( ${row.cloth_quality} )`:row.amount}</TableCell>
               

@@ -21,7 +21,7 @@ const Funding = require('./Models/Funding')
 const FundingDetails = require('./Models/FundingDetails')
 const DonationOffer = require('./Models/DonationOffer')
 const DonationType = require('./Models/DonationType')
-const DonationHistory = require('./Models/DonationHistory')
+const DonationHistories = require('./Models/DonationHistory')
 
 
 const app = express()
@@ -581,7 +581,7 @@ app.post('/donation-history', (req, res) => {
 app.use('/updated-donations-history',async(req,res)=>{
   try {
     const {recipient_email} = req.body
-    const donations = await DonationHistory.find({email:recipient_email});
+    const donations = await DonationHistories.find({email:recipient_email});
     res.status(200).json(donations);
   } catch (err) {
     res.status(500).json({ message: err.message });
@@ -642,7 +642,16 @@ app.use('/donor-donations',async(req,res)=>{
 app.use('/donor-donations-cards',async(req,res)=>{
   try {
     const { email } = req.body
-   const donations = await Donations.find({ donor_email:email, accepted: true });
+   const donations = await Donations.find({ donor_email:email,recipient_type:'Needy-Person', accepted: true });
+   res.status(200).json(donations);
+ } catch (err) {
+   res.status(500).json({ message: err.message });
+ }
+})
+app.use('/ngo-donations-cards',async(req,res)=>{
+  try {
+    const { email } = req.body
+   const donations = await Donations.find({ donor_email:email,recipient_type:'NGO', accepted: true });
    res.status(200).json(donations);
  } catch (err) {
    res.status(500).json({ message: err.message });

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import logo from './logo.gif'
 import './AdminDashboard/Header.css'
 const Header = () => {
 
@@ -7,9 +8,10 @@ const Header = () => {
        <header id="header" className="fixed-top " style={{background: '#151515'}}>
         <div className="container">
           <div className="logo">
-            <h1 >
-            <Link to='/'>Helping Hands<span>.</span></Link>
-            </h1>
+            <h3 >
+            {/* <Link to='/'>Helping Hands<span>.</span></Link> */}
+            <Link to='/'><img src={logo}/> Helping Hands<span>.</span></Link>
+            </h3>
           </div>
           {/* Uncomment below if you prefer to use an image logo */}
       {/* <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>*/}
