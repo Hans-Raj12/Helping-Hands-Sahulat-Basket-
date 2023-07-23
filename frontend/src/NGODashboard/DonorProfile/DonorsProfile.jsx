@@ -72,9 +72,9 @@ export default function BasicTable() {
               <TableCell align="left">{row.phone}</TableCell>
               <TableCell align="left">{row.cnic}</TableCell>
               <TableCell align="left">{row.address}</TableCell>
-              <TableCell align="left" className='Details'>
+              {/* <TableCell align="left" className='Details'>
                 <Button style={{background:'red', color:'white'}}>Report</Button>
-              </TableCell>
+              </TableCell> */}
             </TableRow>
           ))}
         </TableBody>

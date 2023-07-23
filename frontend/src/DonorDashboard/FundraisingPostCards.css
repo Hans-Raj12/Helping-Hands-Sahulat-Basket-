@@ -1,6 +1,6 @@
 .card-setting {
     white-space: nowrap;
-    overflow-y: auto;
+    /* overflow-y: auto; */
     text-overflow: ellipsis;
     max-height: 2.4em; /* Set the maximum height to two lines */
     line-height: 1.2em; /* Set the line-height to match the font size */
@@ -8,7 +8,7 @@
 
   .fundraising-post-card{
     text-align: left;
-    overflow-y: auto;
+    /* overflow-y: auto; */
   }
 
   .card-amounts {

@@ -49,17 +49,17 @@ const NGOSidebar = ({children}) => {
             cName: 'nav-text'
           },
           {
-            title: 'Profile',
-            path: 'ngo-profile',
-            icon: <FaIcons.FaUserAlt />,
-            cName: 'nav-text'
-          },
-          {
             title:'Donations',
             path:'ngo-donations',
             icon:<FaIcons.FaDatabase/>,
             cName:'nav-text'
 
+          },
+          {
+            title: 'Profile',
+            path: 'ngo-profile',
+            icon: <FaIcons.FaUserAlt />,
+            cName: 'nav-text'
           },
     ]
     return (
