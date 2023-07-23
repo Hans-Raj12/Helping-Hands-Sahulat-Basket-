@@ -559,7 +559,7 @@ app.post('/donation-history', (req, res) => {
   // else if(donation_type=="cloth"){
   //  const {donation_quantity} = req.body.cloth_quantity + " ( "+re.body.cloth_quality+" )" 
   // }
-  const newDonation = new DonationHistory({
+  const newDonation = new DonationHistories({
      donor_name,
      donor_email, 
      donation_type, 
@@ -590,7 +590,7 @@ app.use('/updated-donations-history',async(req,res)=>{
 app.use('/needy-updated-donations-history',async(req,res)=>{
   try {
     const {email} = req.body
-    const donations = await DonationHistory.find({email});
+    const donations = await DonationHistories.find({email});
     res.status(200).json(donations);
   } catch (err) {
     res.status(500).json({ message: err.message });

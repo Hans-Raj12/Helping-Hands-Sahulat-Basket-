@@ -17,22 +17,25 @@ export default function BasicTable() {
 
   const {credentials} = useContext(AuthContext)
 
-  useEffect(()=>{
-  
-    //get the donations from donation history in NGOs donation history
-      fetch('/needy-updated-donations-history',{
-        method:"POST",
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({email:credentials?.user?.email})
-      })
+  useEffect(() => {
+    fetch('/needy-updated-donations-history', {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ email: credentials?.user?.email })
+    })
       .then(response => response.json())
       .then(data => {
-        setRows(data)
+        // Assuming the API returns data in the form of { donations: [...] }
+        // Adjust this according to the actual API response structure
+        console.log(data)
+        const receivedData = data || []; // Extract 'donations' array or default to an empty array
+
+        setRows(receivedData);
       })
       .catch(error => console.error(error));
-    },[])
+  }, [credentials?.user?.email]);
 
 console.log(rows)
   return (
@@ -56,7 +59,7 @@ console.log(rows)
           </TableRow>
         </TableHead>
         <TableBody>
-            {rows.filter(row => row.email === credentials?.user?.email).map((row) => (
+            {rows.filter((row) => row.email === credentials?.user?.email).map((row) => (
                 <TableRow
                 key={row.id}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}

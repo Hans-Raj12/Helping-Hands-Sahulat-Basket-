@@ -5,7 +5,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import NGOList from './components/NGOList'
 import DonorList from './components/DonorList'
 import NeedyList from './components/NeedyList';
-
+import RightsReservedFooter from '../RightsReservedFooter';
 
 const Dashboard = () => {
 
@@ -67,6 +67,7 @@ useEffect(() => {
                 <DonorList/>
                 <NeedyList/>
             </Container>
+            {/* <RightsReservedFooter/> */}
 
         </div>
      

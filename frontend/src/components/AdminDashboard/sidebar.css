@@ -1,7 +1,7 @@
 
 .sidebar-container{
     display: flex;
-    border-top-left-radius: 50px;
+    /* border-top-left-radius: 50px; */
     height: 100%;
     
 }
@@ -9,7 +9,7 @@
 .sidebar-container .sidebar{
     /* background: #fefefe; */
     color: #fff;
-    height: 170vh;
+    height: 140vh;
     transition: all 0.5s;
     background: black;
     margin-top: 76px;
